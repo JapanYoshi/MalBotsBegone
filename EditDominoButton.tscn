@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ThemedScaledSprite.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Gen3/Block1.spriteframes.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://EditDominoButton.gd" type="Script" id=3]
+
+[node name="EditDominoButton" type="Button"]
+margin_right = 296.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_horizontal = 3
+toggle_mode = true
+shortcut_in_tooltip = false
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CenterContainer"]
+margin_left = 132.0
+margin_top = 18.0
+margin_right = 164.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 1
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="CenterContainer/Control"]
+scale = Vector2( 2, 2 )
+frames = ExtResource( 2 )
+animation = "idle"
+centered = false
+script = ExtResource( 1 )

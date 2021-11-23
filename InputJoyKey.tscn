@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://InputJoyKey.gd" type="Script" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+var id = 0
+
+func _on_InputJoyKey_hard_drop_start():
+	$Label.text = \"Hard Drop\"
+
+func _on_InputJoyKey_move_left():
+	$Label.text = \"Left - \" + str(id)
+	id += 1
+
+func _on_InputJoyKey_move_right():
+	$Label.text = \"Right - \" + str(id)
+	id += 1
+
+func _on_InputJoyKey_rotate_left():
+	$Label.text = \"Rotate left\"
+
+func _on_InputJoyKey_rotate_right():
+	$Label.text = \"Rotate right\"
+
+func _on_InputJoyKey_soft_drop_end():
+	$Label.text = \"End soft drop\"
+
+func _on_InputJoyKey_soft_drop_start():
+	$Label.text = \"Start soft drop\"
+
+func _on_InputJoyKey_warp_left():
+	$Label.text = \"Warp left\"
+
+func _on_InputJoyKey_warp_right():
+	$Label.text = \"Warp right\"
+"
+
+[node name="InputJoyKey" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Test" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Test"]
+margin_right = 160.0
+margin_bottom = 25.0
+text = "Test input..."
+
+[node name="Timestamp" type="Label" parent="Test"]
+margin_top = 32.0
+margin_right = 40.0
+margin_bottom = 57.0
+[connection signal="hard_drop_start" from="." to="Test" method="_on_InputJoyKey_hard_drop_start"]
+[connection signal="move_left" from="." to="Test" method="_on_InputJoyKey_move_left"]
+[connection signal="move_right" from="." to="Test" method="_on_InputJoyKey_move_right"]
+[connection signal="rotate_left" from="." to="Test" method="_on_InputJoyKey_rotate_left"]
+[connection signal="rotate_right" from="." to="Test" method="_on_InputJoyKey_rotate_right"]
+[connection signal="soft_drop_end" from="." to="Test" method="_on_InputJoyKey_soft_drop_end"]
+[connection signal="soft_drop_start" from="." to="Test" method="_on_InputJoyKey_soft_drop_start"]
+[connection signal="warp_left" from="." to="Test" method="_on_InputJoyKey_warp_left"]
+[connection signal="warp_right" from="." to="Test" method="_on_InputJoyKey_warp_right"]

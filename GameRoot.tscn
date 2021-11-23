@@ -1,0 +1,340 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://GameRoot.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Gen3/Field.png" type="Texture" id=2]
+[ext_resource path="res://fonts/gameplay_double.tres" type="DynamicFont" id=3]
+[ext_resource path="res://buttons/pause.png" type="Texture" id=4]
+[ext_resource path="res://fonts/ttf/UI12_400.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://sprites/Gen3/NextMask.png" type="Texture" id=6]
+[ext_resource path="res://ObjectiveBox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://InputJoyKey.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GameChain.tscn" type="PackedScene" id=9]
+[ext_resource path="res://HardDropParticle.tscn" type="PackedScene" id=10]
+[ext_resource path="res://GameText.tscn" type="PackedScene" id=11]
+[ext_resource path="res://fonts/SWAP_12_Bold.tres" type="DynamicFont" id=12]
+[ext_resource path="res://fonts/SWAP_10_Regular.tres" type="DynamicFont" id=13]
+[ext_resource path="res://tiles/textbox.stylebox" type="StyleBox" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 24 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="GameRoot" type="VBoxContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -320.0
+margin_right = 180.0
+margin_bottom = 320.0
+custom_constants/separation = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ObjectiveBox" parent="." instance=ExtResource( 7 )]
+anchor_right = 0.0
+margin_left = 0.0
+margin_right = 360.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="Plate" type="TextureRect" parent="."]
+margin_top = 66.0
+margin_right = 360.0
+margin_bottom = 492.0
+grow_horizontal = 2
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Board" type="Control" parent="Plate"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -152.0
+margin_top = 30.0
+margin_right = 72.0
+margin_bottom = 414.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 0, 384 )
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameText" parent="Plate/Board" instance=ExtResource( 11 )]
+
+[node name="HardDropParticle0" parent="Plate/Board" instance=ExtResource( 10 )]
+
+[node name="HardDropParticle1" parent="Plate/Board" instance=ExtResource( 10 )]
+
+[node name="Pieces" type="Node2D" parent="Plate/Board"]
+position = Vector2( 0, 384 )
+
+[node name="Tween" type="Tween" parent="Plate/Board"]
+
+[node name="HighScoreText" type="PanelContainer" parent="Plate/Board"]
+visible = false
+margin_left = 8.0
+margin_top = 160.0
+margin_right = 216.0
+margin_bottom = 216.0
+custom_styles/panel = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="Plate/Board/HighScoreText"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 204.0
+margin_bottom = 52.0
+size_flags_vertical = 0
+custom_fonts/bold_font = ExtResource( 12 )
+custom_fonts/normal_font = ExtResource( 13 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "HIGH SCORE!
+00000000 → 00000000"
+fit_content_height = true
+
+[node name="Next" type="Control" parent="Plate"]
+light_mask = 2
+margin_left = 258.0
+margin_top = 30.0
+margin_right = 330.0
+margin_bottom = 250.0
+rect_clip_content = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D" type="Light2D" parent="Plate/Next"]
+position = Vector2( 36, 110 )
+texture = ExtResource( 6 )
+mode = 3
+range_item_cull_mask = 2
+
+[node name="ColorRect" type="ColorRect" parent="Plate/Next"]
+light_mask = 2
+margin_right = 72.0
+margin_bottom = 220.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestCaption" type="Label" parent="Plate"]
+margin_left = 304.0
+margin_top = 32.0
+margin_right = 352.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 32, 8 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Pieces"
+align = 2
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rest" type="Label" parent="Plate"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -370.0
+margin_right = -16.0
+margin_bottom = -362.0
+grow_horizontal = 0
+grow_vertical = 2
+rect_min_size = Vector2( 16, 8 )
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 16, 8 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "∞"
+align = 2
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeCaption" type="Label" parent="Plate"]
+margin_left = 258.0
+margin_top = 251.0
+margin_right = 318.0
+margin_bottom = 267.0
+rect_min_size = Vector2( 32, 16 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.113725, 0.537255, 0.768627, 1 )
+text = "Time"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="Plate"]
+margin_left = 258.0
+margin_top = 259.0
+margin_right = 318.0
+margin_bottom = 275.0
+rect_min_size = Vector2( 32, 16 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.113725, 0.537255, 0.768627, 1 )
+text = "00'00.0"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreCaption" type="Label" parent="Plate"]
+margin_left = 264.0
+margin_top = 288.0
+margin_right = 344.0
+margin_bottom = 304.0
+rect_min_size = Vector2( 32, 16 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.792157, 0.905882, 0.929412, 1 )
+text = "Score"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="Plate"]
+margin_left = 264.0
+margin_top = 296.0
+margin_right = 328.0
+margin_bottom = 318.0
+rect_min_size = Vector2( 32, 16 )
+rect_clip_content = true
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.792157, 0.905882, 0.929412, 1 )
+text = "00000000"
+align = 2
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextCaption" type="Label" parent="Plate"]
+margin_left = 260.0
+margin_top = 4.0
+margin_right = 292.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 32, 8 )
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.792157, 0.905882, 0.929412, 1 )
+text = "Next"
+clip_text = true
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stage" type="Label" parent="Plate"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 124.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 120, 8 )
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.792157, 0.905882, 0.929412, 1 )
+text = "Stage 000"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Plate"]
+margin_left = 264.0
+margin_top = 318.0
+margin_right = 360.0
+margin_bottom = 331.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = 1
+text = "0123456789"
+align = 2
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" type="TouchScreenButton" parent="Plate"]
+position = Vector2( 332, 97 )
+z_index = 180
+z_as_relative = false
+normal = ExtResource( 4 )
+shape = SubResource( 1 )
+shape_visible = false
+
+[node name="Button" type="Button" parent="Plate/Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameChain" parent="Plate" instance=ExtResource( 9 )]
+position = Vector2( -24, 110 )
+
+[node name="NextTween" type="Tween" parent="."]
+
+[node name="ScoreTween" type="Tween" parent="."]
+
+[node name="PopTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="GameClearedTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="InputJoyKey" parent="." instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 496.0
+margin_right = 360.0
+margin_bottom = 496.0
+
+[connection signal="tween_all_completed" from="Plate/Board/Tween" to="." method="_on_pieces_moved_up"]
+[connection signal="pressed" from="Plate/Pause" to="." method="_on_Pause_pressed"]
+[connection signal="pressed" from="Plate/Pause/Button" to="." method="_on_Pause_pressed"]
+[connection signal="tween_all_completed" from="NextTween" to="." method="_on_NextTween_end"]
+[connection signal="timeout" from="PopTimer" to="." method="_on_PopTimer_timeout"]
+[connection signal="timeout" from="GameClearedTimer" to="." method="_on_GameClearedTimer_timeout"]
+[connection signal="hard_drop_start" from="InputJoyKey" to="." method="_on_hard_drop_start"]
+[connection signal="move_left" from="InputJoyKey" to="." method="_on_move_left"]
+[connection signal="move_right" from="InputJoyKey" to="." method="_on_move_right"]
+[connection signal="pause" from="InputJoyKey" to="." method="_on_InputJoyKey_pause"]
+[connection signal="rotate_left" from="InputJoyKey" to="." method="_on_rotate_left"]
+[connection signal="rotate_right" from="InputJoyKey" to="." method="_on_rotate_right"]
+[connection signal="soft_drop_end" from="InputJoyKey" to="." method="_on_soft_drop_end"]
+[connection signal="soft_drop_start" from="InputJoyKey" to="." method="_on_soft_drop_start"]
+[connection signal="warp_left" from="InputJoyKey" to="." method="_on_warp_left"]
+[connection signal="warp_right" from="InputJoyKey" to="." method="_on_warp_right"]

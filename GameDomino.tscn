@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sprites/Gen3/Block1.spriteframes.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://GameDomino.gd" type="Script" id=2]
+[ext_resource path="res://sprites/Gen3/Wall.spriteframes.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://ScaledSprite.gd" type="Script" id=4]
+[ext_resource path="res://ThemedScaledSprite.gd" type="Script" id=5]
+[ext_resource path="res://fonts/gameplay_double.tres" type="DynamicFont" id=6]
+[ext_resource path="res://sprites/Gen3/Cursor0.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+[node name="GameDomino" type="Node2D"]
+light_mask = 2
+script = ExtResource( 2 )
+
+[node name="HitBox" type="Node2D" parent="."]
+visible = false
+light_mask = 2
+z_index = 3
+z_as_relative = false
+
+[node name="BlockCenter" type="AnimatedSprite" parent="HitBox"]
+light_mask = 2
+scale = Vector2( 2, 2 )
+frames = ExtResource( 3 )
+animation = "idle"
+script = ExtResource( 4 )
+
+[node name="BlockOuter" type="AnimatedSprite" parent="HitBox"]
+light_mask = 2
+scale = Vector2( 2, 2 )
+frames = ExtResource( 3 )
+animation = "idle"
+script = ExtResource( 4 )
+
+[node name="VertTweener" type="Node2D" parent="."]
+
+[node name="BlockBox" type="Node2D" parent="VertTweener"]
+light_mask = 2
+z_index = 3
+z_as_relative = false
+
+[node name="BlockCenter" type="AnimatedSprite" parent="VertTweener/BlockBox"]
+light_mask = 2
+scale = Vector2( 2, 2 )
+frames = ExtResource( 1 )
+animation = "idle"
+playing = true
+script = ExtResource( 5 )
+
+[node name="BlockOuter" type="AnimatedSprite" parent="VertTweener/BlockBox"]
+light_mask = 2
+position = Vector2( 0, -32 )
+scale = Vector2( 2, 2 )
+frames = ExtResource( 1 )
+animation = "idle"
+playing = true
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="VertTweener"]
+visible = false
+position = Vector2( 1.90735e-06, 0 )
+scale = Vector2( 3, 2 )
+z_index = 3
+texture = ExtResource( 7 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="TweenPos" type="Tween" parent="."]
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 16.0
+margin_top = -72.0
+margin_right = 80.0
+margin_bottom = -40.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+text = "DEBUG
+TEXT
+OUTPUT"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="tween_completed" from="TweenPos" to="." method="_on_Tween_tween_completed"]

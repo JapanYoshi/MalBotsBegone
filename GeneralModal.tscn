@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://tiles/decorativeWindow.png" type="Texture" id=1]
+[ext_resource path="res://fonts/decorative_big.tres" type="DynamicFont" id=2]
+[ext_resource path="res://menuTheme.tres" type="Theme" id=3]
+[ext_resource path="res://GeneralModal.gd" type="Script" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends ColorRect
+
+func _input(event):
+	if !(\"active\" in get_parent()): return
+# warning-ignore:unsafe_property_access
+	if (get_parent().active == false): return
+	if (event is InputEventKey or event is InputEventJoypadButton):
+		if get_focus_owner() == null and (
+			event.is_action(\"ui_left\") or
+			event.is_action(\"ui_right\") or
+			event.is_action(\"ui_up\") or
+			event.is_action(\"ui_down\") or
+			event.is_action(\"ui_focus_next\") or
+			event.is_action(\"ui_focus_prev\")
+		):
+			($ColorRect/NinePatchRect/VBoxContainer/ResumeButton as Control).grab_focus()
+"
+
+[node name="GeneralModal" type="CanvasLayer"]
+pause_mode = 2
+layer = 2
+script = ExtResource( 4 )
+
+[node name="Backdrop" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.25098 )
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Backdrop"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -160.0
+margin_right = 160.0
+margin_bottom = 160.0
+color = Color( 0, 0, 0, 0.752941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Backdrop/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -166.0
+margin_top = -166.0
+margin_right = 166.0
+margin_bottom = 166.0
+texture = ExtResource( 1 )
+patch_margin_left = 18
+patch_margin_top = 22
+patch_margin_right = 26
+patch_margin_bottom = 22
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Backdrop/ColorRect/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Backdrop/ColorRect/NinePatchRect/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_PAUSE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Control" parent="Backdrop/ColorRect/NinePatchRect/VBoxContainer"]
+margin_top = 44.0
+margin_right = 300.0
+margin_bottom = 112.0
+size_flags_vertical = 3
+
+[node name="Body" type="RichTextLabel" parent="Backdrop/ColorRect/NinePatchRect/VBoxContainer"]
+margin_top = 120.0
+margin_right = 300.0
+margin_bottom = 147.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "aoeuaoueaouoaueaouaoeuaou"
+meta_underlined = false
+text = "aoeuaoueaouoaueaouaoeuaou"
+fit_content_height = true
+
+[node name="Footer" type="Control" parent="Backdrop/ColorRect/NinePatchRect/VBoxContainer"]
+margin_top = 155.0
+margin_right = 300.0
+margin_bottom = 224.0
+size_flags_vertical = 3
+
+[node name="OKButton" type="Button" parent="Backdrop/ColorRect/NinePatchRect/VBoxContainer"]
+margin_top = 232.0
+margin_right = 300.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 0, 64 )
+text = "I18N_CONFIRM"
+
+[connection signal="pressed" from="Backdrop/ColorRect/NinePatchRect/VBoxContainer/OKButton" to="." method="_on_ResumeButton_pressed"]

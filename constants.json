@@ -1,0 +1,115 @@
+{
+    "max_volume": 16,
+    "bgm_dictionary": {
+        "splash": "splashscreen",
+        "title": "titlescreen",
+        "arcade": "titlescreen",
+        "worldmap": "titlescreen",
+        "main": "main",
+        "lesson": "hiphop",
+        "boss": "happy",
+        "game_over": "gameover",
+        "game_clear": "gameclear"
+    },
+    "sfx_dictionary": {
+        "back": "back",
+        "cursor": "cursor",
+        "decide": "decide",
+
+        "move": "move",
+        "rotate": "rotate",
+        "move_fail": "movefail",
+        "rotate_fail": "rotfail",
+        "move_warp": "movewarp",
+        "lock": "lock",
+        "harddrop": "harddrop",
+        "land": "land",
+        "prime": "prime",
+        "empty": "empty",
+        "combo01": "combo01",
+        "combo02": "combo02",
+        "combo03": "combo03",
+        "combo04": "combo04",
+        "combo05": "combo05",
+        "combo06": "combo06",
+        "combo07": "combo07",
+        "combo08": "combo08",
+        "combo09": "combo09",
+        "combo10": "combo10",
+        "combo11": "combo11",
+        "combo12": "combo12",
+        "combo13": "combo13",
+        "combo14": "combo14",
+        "cry0": "cry0",
+        "cry1": "cry1",
+        "cry2": "cry2",
+        "cry3": "cry3",
+        "cry4": "cry4",
+        "cry5": "cry5",
+        "level_up": "level_up",
+        
+        "slider": "slider",
+        "tab": "tab",
+        "off": "check-off",
+        "on": "check-on",
+        "save": "save",
+        "discard": "discard",
+        
+        "block_select": "slider",
+        "enemy_select": "brass",
+        "wall_select": "bump",
+        "ball_select": "bew",
+        "null_select": "mystery",
+
+        "dialog": "dialog"
+    },
+    "autonyms": {
+        "en": "English",
+        "en_GB": "English (United Kingdom)",
+        "en_US": "English (United States)",
+        "eo": "Esperanto [neplena]",
+        "es": "español latino",
+        "ja": "日本語",
+        "pl": "Polska [niepełny]"
+    },
+    "config_defaults": {
+        "main": {
+            "vol_bgm": 16,
+            "vol_sfx": 16
+        },
+        "ctrl": {
+            "type": 0,
+            "rot_delay": 0.25,
+            "rot_inv": false,
+            "move_sens": 32,
+            "soft_sens": 32,
+            "hard_sens": 96,
+            "das": 16,
+            "arr": 2
+        },
+        "a11y": {
+            "font_size": 0,
+            "hide_seizure_warning": 0,
+            "disable_particles": false
+        },
+        "custom": {
+            "skin_name": "Gen3"
+        },
+        "config": {
+            "ab_inv": false,
+            "setup_done": false
+        }
+    },
+    "sprite_root": "res://sprites/",
+    "font_root": "res://fonts/",
+    "gravity": 500,
+    "skin_sizes": {
+        "Gen2": 16,
+        "Gen3": 16,
+        "Gen4": 16,
+        "Gen5": 16,
+        "CBSymbols": 96,
+        "CBPatterns": 96,
+        "Slime": 16
+    }
+}

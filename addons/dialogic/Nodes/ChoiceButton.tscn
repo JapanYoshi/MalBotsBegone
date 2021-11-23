@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tiles/boxHighlight2x.stylebox" type="StyleBox" id=1]
+[ext_resource path="res://fonts/SWAP_12_Regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://addons/dialogic/Nodes/ChoiceButton.gd" type="Script" id=3]
+[ext_resource path="res://tiles/boxWhite2x.stylebox" type="StyleBox" id=4]
+
+[node name="ChoiceButton" type="Button"]
+margin_right = 192.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Testing button "
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

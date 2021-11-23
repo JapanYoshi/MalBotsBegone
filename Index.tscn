@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+# This node loads when you start the game.
+# Its only purpose is to start the splash screen.
+func _ready():
+	# Load the splash screen
+	Root.change_scene_direct(\"SplashScreen\")
+	self.queue_free()
+"
+
+[node name="Loader" type="Node"]
+script = SubResource( 1 )

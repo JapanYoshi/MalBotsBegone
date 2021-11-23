@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/harddrop.wav-9d0ed09ea86b2112945cf7fb00fd17f0.sample"
+
+[deps]
+
+source_file="res://sfx/harddrop.wav"
+dest_files=[ "res://.import/harddrop.wav-9d0ed09ea86b2112945cf7fb00fd17f0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

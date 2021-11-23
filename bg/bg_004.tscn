@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://bg/hdma_sine.shader" type="Shader" id=1]
+[ext_resource path="res://bg/004b.png" type="Texture" id=2]
+[ext_resource path="res://bg/004a.png" type="Texture" id=3]
+[ext_resource path="res://bg/scroll_and_add.shader" type="Shader" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/base_speed = Vector2( 0, 0 )
+shader_param/speed = Vector2( 1, 1 )
+shader_param/wavelength = Vector2( 64, 64 )
+shader_param/amplitude = Vector2( 16, 16 )
+shader_param/interlace = false
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 4 )
+shader_param/speed = Vector2( 0, 2 )
+shader_param/add = false
+
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("Viewport")
+
+[node name="BG" type="Control"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 128, 128 )
+
+[node name="BGLayerB" type="TextureRect" parent="Viewport"]
+material = SubResource( 2 )
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 32.0
+margin_bottom = 32.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BGLayerF" type="TextureRect" parent="Viewport"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 4 )
+stretch_mode = 2

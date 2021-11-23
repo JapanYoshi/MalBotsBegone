@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://bg/003a.png" type="Texture" id=1]
+[ext_resource path="res://bg/003b.png" type="Texture" id=2]
+[ext_resource path="res://bg/scroll_and_add.shader" type="Shader" id=3]
+[ext_resource path="res://bg/remap_cga.shader" type="Shader" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 3 )
+shader_param/speed = Vector2( -10, 2 )
+shader_param/add = false
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+shader_param/speed = Vector2( 12, 1.5 )
+shader_param/add = true
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 4 )
+shader_param/color0 = Color( 0, 0.247059, 0.121569, 1 )
+shader_param/color1 = Color( 0.0117647, 0.576471, 0, 1 )
+shader_param/color2 = Color( 0.407843, 0.737255, 0.0784314, 1 )
+shader_param/color3 = Color( 0.713726, 0.984314, 0.0901961, 1 )
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("Viewport")
+
+[node name="BG" type="Control"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 128, 128 )
+
+[node name="BGLayerB" type="TextureRect" parent="Viewport"]
+material = SubResource( 2 )
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="Viewport"]
+scale = Vector2( 2, 2 )
+copy_mode = 2
+
+[node name="BGLayerF" type="TextureRect" parent="Viewport"]
+material = SubResource( 3 )
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="Viewport"]
+scale = Vector2( 2, 2 )
+copy_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Viewport"]
+material = SubResource( 4 )
+margin_right = 64.0
+margin_bottom = 64.0
+rect_scale = Vector2( 2, 2 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 5 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

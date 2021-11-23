@@ -1,0 +1,755 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://fonts/BigText.tres" type="DynamicFont" id=1]
+[ext_resource path="res://bg/vert_gradient_text.shader" type="Shader" id=2]
+[ext_resource path="res://GameText.gd" type="Script" id=3]
+[ext_resource path="res://fonts/BigTextShader.tres" type="Material" id=4]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/colorBgTop = Color( 0.596078, 0, 0.168627, 1 )
+shader_param/colorBgBottom = Color( 0.639216, 0, 0.368627, 1 )
+shader_param/colorFgTop = Color( 1, 0.32549, 0.603922, 1 )
+shader_param/colorFgBottom = Color( 0.992157, 0.682353, 1, 1 )
+shader_param/width = 0.5
+shader_param/step_count = 8.0
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("Viewport2")
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/colorBgTop = Color( 0.0392157, 0, 0.596078, 1 )
+shader_param/colorBgBottom = Color( 0, 0.32549, 0.639216, 1 )
+shader_param/colorFgTop = Color( 0.32549, 0.603922, 1, 1 )
+shader_param/colorFgBottom = Color( 0.682353, 1, 0.980392, 1 )
+shader_param/width = 0.5
+shader_param/step_count = 8.0
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("Viewport3")
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/colorBgTop = Color( 0, 0.596078, 0.0509804, 1 )
+shader_param/colorBgBottom = Color( 0.184314, 0.639216, 0, 1 )
+shader_param/colorFgTop = Color( 0.733333, 0.956863, 0.12549, 1 )
+shader_param/colorFgBottom = Color( 0.960784, 1, 0.796078, 1 )
+shader_param/width = 0.5
+shader_param/step_count = 8.0
+
+[sub_resource type="ViewportTexture" id=7]
+viewport_path = NodePath("Viewport4")
+
+[sub_resource type="Animation" id=8]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Frame:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Frame:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Frame:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 40, -0.25, 0, 0.2, -0.6, 0, -0.7, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7, 1 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Frame:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="GameText" type="Control"]
+margin_right = 224.0
+margin_bottom = 128.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Frame" type="Node2D" parent="."]
+z_index = 1
+z_as_relative = false
+
+[node name="AC" type="Control" parent="Frame"]
+visible = false
+material = ExtResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 224.0
+margin_bottom = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Frame/AC"]
+use_parent_material = true
+margin_right = 112.0
+margin_bottom = 64.0
+rect_scale = Vector2( 2, 2 )
+texture = SubResource( 1 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GC" type="Control" parent="Frame"]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 112.0
+margin_bottom = 64.0
+rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Frame/GC"]
+use_parent_material = true
+margin_right = 112.0
+margin_bottom = 64.0
+texture = SubResource( 3 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GO" type="Control" parent="Frame"]
+visible = false
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 112.0
+margin_bottom = 64.0
+rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="Frame/GO"]
+use_parent_material = true
+margin_right = 112.0
+margin_bottom = 64.0
+texture = SubResource( 5 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BN" type="Control" parent="Frame"]
+visible = false
+material = SubResource( 6 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 112.0
+margin_bottom = 64.0
+rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="Frame/BN"]
+use_parent_material = true
+margin_right = 112.0
+margin_bottom = 64.0
+texture = SubResource( 7 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 112, 64 )
+transparent_bg = true
+usage = 1
+
+[node name="ColorRect" type="ColorRect" parent="Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AllClear6" type="Label" parent="Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+margin_bottom = 2.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_ALLCLEAR"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear5" type="Label" parent="Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_ALLCLEAR"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear2" type="Label" parent="Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_ALLCLEAR"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear3" type="Label" parent="Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_ALLCLEAR"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear4" type="Label" parent="Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 1
+text = "I18N_ALLCLEAR"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear" type="Label" parent="Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_ALLCLEAR"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport2" type="Viewport" parent="."]
+size = Vector2( 112, 64 )
+transparent_bg = true
+
+[node name="ColorRect2" type="ColorRect" parent="Viewport2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AllClear7" type="Label" parent="Viewport2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+margin_bottom = 2.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_CLEAR"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear8" type="Label" parent="Viewport2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_CLEAR"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear9" type="Label" parent="Viewport2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_CLEAR"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear10" type="Label" parent="Viewport2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_CLEAR"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear11" type="Label" parent="Viewport2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 1
+text = "I18N_CLEAR"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear12" type="Label" parent="Viewport2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_CLEAR"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport3" type="Viewport" parent="."]
+size = Vector2( 112, 64 )
+transparent_bg = true
+
+[node name="ColorRect3" type="ColorRect" parent="Viewport3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AllClear13" type="Label" parent="Viewport3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+margin_bottom = 2.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_FAIL"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear14" type="Label" parent="Viewport3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_FAIL"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear15" type="Label" parent="Viewport3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_FAIL"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear16" type="Label" parent="Viewport3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_FAIL"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear17" type="Label" parent="Viewport3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 1
+text = "I18N_FAIL"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear18" type="Label" parent="Viewport3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_FAIL"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport4" type="Viewport" parent="."]
+size = Vector2( 112, 64 )
+transparent_bg = true
+
+[node name="ColorRect3" type="ColorRect" parent="Viewport4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AllClear13" type="Label" parent="Viewport4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+margin_bottom = 2.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_BONUS"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear14" type="Label" parent="Viewport4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_BONUS"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear15" type="Label" parent="Viewport4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_BONUS"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear16" type="Label" parent="Viewport4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_BONUS"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear17" type="Label" parent="Viewport4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 1
+text = "I18N_BONUS"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllClear18" type="Label" parent="Viewport4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 112, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = -7
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "I18N_BONUS"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeOut = SubResource( 8 )
+anims/PopUp = SubResource( 9 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://menuTheme.tres" type="Theme" id=1]
+[ext_resource path="res://fonts/SWAP_10_Regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/SWAP_12_Regular.tres" type="DynamicFont" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends PanelContainer
+export var option_name: String = \"Name\"
+export var option_help: String = \"\"
+export var option_value: float = 8.0
+export var option_min: float = 0.0
+export var option_max: float = 8.0
+export var option_step: float = 1.0
+export var option_format: String = \"%d\"
+var first_time = true
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$VBoxContainer/Name.text = option_name
+	if option_help == \"\":
+		$VBoxContainer/Help.hide()
+	else:
+		$VBoxContainer/Help.text = option_help
+	set_range(option_min, option_max, option_step)
+	#set_value(option_value)
+	pass # Replace with function body.
+
+func _on_HSlider_value_changed(value):
+	print(\"_on_HSlider_value_changed: \", value, \",\", option_min, \",\", option_max, \",\", name)
+	$VBoxContainer/HBoxContainer/Label.set_text(option_format % value)
+	if first_time:
+		first_time = false
+	else:
+		find_parent(\"SettingsMenuRoot\").on_slider_change(value, option_min, option_max, option_name)
+
+func set_value(new_value):
+	$VBoxContainer/HBoxContainer/HSlider.value = new_value;
+	$VBoxContainer/HBoxContainer/Label.set_text(option_format % new_value)
+
+func set_range(range_min, range_max, range_step):
+	$VBoxContainer/HBoxContainer/HSlider.min_value = range_min
+	$VBoxContainer/HBoxContainer/HSlider.max_value = range_max
+	$VBoxContainer/HBoxContainer/HSlider.step = range_step
+	$VBoxContainer/HBoxContainer/HSlider.rounded = (round(range_step) == range_step)
+
+func get_value():
+	return $VBoxContainer/HBoxContainer/HSlider.value;
+	
+func get_range():
+	return [$VBoxContainer/HBoxContainer/HSlider.min_value, $VBoxContainer/HBoxContainer/HSlider.max_value]
+
+func reload_font(fonts):
+	print(\"reloading font in type slider\")
+	$VBoxContainer/Name.set(\"custom_fonts/font/font_data\", fonts[0])
+	$VBoxContainer/Help.set(\"custom_fonts/font/font_data\", fonts[2])
+	$VBoxContainer/HBoxContainer/Label.set(\"custom_fonts/font/font_data\", fonts[1])
+	pass
+
+func grab_focus():
+	$VBoxContainer/HBoxContainer/HSlider.grab_focus()
+"
+
+[node name="Setting_Slider" type="PanelContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 12
+theme = ExtResource( 1 )
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 12.0
+margin_top = 4.0
+margin_right = 36.0
+margin_bottom = 537.0
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+margin_right = 24.0
+margin_bottom = 211.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Setting name"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Help" type="Label" parent="VBoxContainer"]
+margin_top = 219.0
+margin_right = 24.0
+margin_bottom = 493.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 0.752941 )
+text = "Help string (optional)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 501.0
+margin_right = 24.0
+margin_bottom = 533.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+max_value = 16.0
+value = 16.0
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 24.0
+margin_top = 3.0
+margin_right = 24.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]

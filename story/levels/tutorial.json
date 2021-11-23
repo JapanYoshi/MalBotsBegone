@@ -1,0 +1,1157 @@
+[
+  {
+    "base64": "TUIxAEEEGGGFCCCGGGFAAAADGFAAAADGOAAAADGOGGGGAGOAAAAAGOAAAAAGOAAAAAGOAGGGGGPbidA4AAAAAACgAAcAQwBvAG4AdAByAG8AbABzDABIAGEAbABlAHkAIABIAGEAbABjAHkAbwBu7xE=",
+    "data": {
+      "auth": "Haley Halcyon",
+      "field": [
+        [
+          4,
+          4,
+          4,
+          6,
+          6,
+          6,
+          5
+        ],
+        [
+          2,
+          2,
+          2,
+          6,
+          6,
+          6,
+          5
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          3,
+          6,
+          5
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          3,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          3,
+          6,
+          0
+        ],
+        [
+          6,
+          6,
+          6,
+          6,
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          6,
+          6,
+          6,
+          6,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "level": 0,
+      "mission": [
+        160,
+        0
+      ],
+      "name": "Controls; Blocks",
+      "next": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "result": "SUCCESS",
+      "seed": 0,
+      "solution": [
+        {
+          "rot": 0,
+          "x": 7,
+          "y": 0
+        }
+      ],
+      "solved": true,
+      "ver": "1",
+      "bgm": "lesson"
+    },
+    "mode": "puzzle",
+    "script": [
+      {
+        "condition": true,
+        "text": "I18N_TUTORIAL_BASIC00",
+        "text_position": [
+          120,
+          360
+        ],
+        "turn": 0
+      },
+      {
+        "condition": "(Root.get_config(\"ctrl\", \"type\") == 0)",
+        "text": "I18N_TUTORIAL_BASIC01",
+        "turn": 0
+      },
+      {
+        "condition": "(Root.get_config(\"ctrl\", \"type\") == 1)",
+        "text": "I18N_TUTORIAL_BASIC02",
+        "turn": 0
+      },
+      {
+        "condition": true,
+        "cursor": [
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "text": "I18N_TUTORIAL_BASIC03",
+        "text_position": [
+          120,
+          300
+        ],
+        "turn": 0
+      },
+      {
+        "condition": true,
+        "cursor": [],
+        "text": "I18N_TUTORIAL_BASIC10",
+        "text_position": [
+          120,
+          360
+        ],
+        "turn": 1
+      },
+      {
+        "condition": true,
+        "text": "I18N_TUTORIAL_BASIC11",
+        "turn": 1
+      },
+      {
+        "condition": true,
+        "cursor": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "text": "I18N_TUTORIAL_BASIC12",
+        "turn": 1
+      },
+      {
+        "condition": true,
+        "cursor": [
+          [
+            3,
+            6
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            9,
+            6
+          ]
+        ],
+        "text": "I18N_TUTORIAL_BASIC20",
+        "text_position": [
+          8,
+          180
+        ],
+        "turn": 2
+      },
+      {
+        "condition": true,
+        "cursor": [
+          [
+            0,
+            6
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            6
+          ]
+        ],
+        "text": "I18N_TUTORIAL_BASIC21",
+        "turn": 2
+      }
+    ],
+    "bgm": "lesson"
+  },
+  {
+    "base64": "TUIxAIKCKEIFMICIEMFAEAAMOAEAAGGGAMAAGLGAAAALDLAAAABDDAAAABALPJbSkAkEYRDD4AAAAAAAfwAOAEcAYQBtAGUAcABsAGEAeQAgAEIAYQBzAGkAYwBzDABIAGEAbABlAHkAIABIAGEAbABjAHkAbwBuZpo=",
+    "data": {
+      "auth": "Haley Halcyon",
+      "field": [
+        [
+          8,
+          10,
+          2,
+          10,
+          4,
+          8,
+          5
+        ],
+        [
+          12,
+          8,
+          2,
+          8,
+          4,
+          12,
+          5
+        ],
+        [
+          0,
+          4,
+          0,
+          0,
+          12
+        ],
+        [
+          0,
+          4,
+          0,
+          0,
+          6,
+          6,
+          6
+        ],
+        [
+          0,
+          12,
+          0,
+          0,
+          6,
+          11,
+          6
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          11,
+          3,
+          11
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          3,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          11
+        ]
+      ],
+      "level": 0,
+      "mission": [
+        127,
+        0
+      ],
+      "name": "MalBots",
+      "next": [
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "seed": 0,
+      "solution": [
+        {
+          "rot": 0,
+          "x": 4,
+          "y": 8
+        },
+        {
+          "rot": 0,
+          "x": 4,
+          "y": 6
+        },
+        {
+          "rot": 0,
+          "x": 2,
+          "y": 2
+        },
+        {
+          "rot": 3,
+          "x": 3,
+          "y": 0
+        },
+        {
+          "rot": 0,
+          "x": 7,
+          "y": 0
+        }
+      ],
+      "solved": true,
+      "ver": "1"
+    },
+    "mode": "puzzle",
+    "script": [
+      {
+        "cursor": [
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ]
+        ],
+        "text": "I18N_TUTORIAL_INTRO1",
+        "text_position": [
+          128,
+          300
+        ],
+        "turn": 0
+      },
+      {
+        "cursor": [
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "text": "I18N_TUTORIAL_INTRO2",
+        "text_position": [
+          150,
+          360
+        ],
+        "turn": 1
+      },
+      {
+        "cursor": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "text": "I18N_TUTORIAL_INTRO3",
+        "text_position": [
+          64,
+          256
+        ],
+        "turn": 2
+      },
+      {
+        "cursor": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "text": "I18N_TUTORIAL_INTRO4",
+        "text_position": [
+          39,
+          128
+        ],
+        "turn": 3
+      }
+    ],
+    "bgm": "lesson"
+  },
+  {
+    "base64": "TUIwAFdFGUEUAFFAEAEAAAGOOAAGGGOAACSCOAACGCOAAAKOAAAGPSSpUAB_ABAATQB1AGwAdABpAC0AaABpAHQAIABNAGEAbABCAG8AdABzDABIAGEAbABlAHkAIABIAGEAbABjAHkAbwBuiXc=",
+    "data": {
+      "auth": "Haley Halcyon",
+      "field": [
+        [
+          5,
+          29,
+          5,
+          6,
+          20,
+          4,
+          20
+        ],
+        [
+          0,
+          5,
+          5,
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          6,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          6,
+          6,
+          6,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          18,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          6,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          10,
+          0,
+          0,
+          0
+        ]
+      ],
+      "level": 0,
+      "mission": [
+        127,
+        0
+      ],
+      "name": "Multi-hit MalBots",
+      "next": [
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "seed": 0,
+      "solution": [
+        {
+          "rot": 0,
+          "x": 4,
+          "y": 7
+        },
+        {
+          "rot": 0,
+          "x": 2,
+          "y": 7
+        },
+        {
+          "rot": 0,
+          "x": 0,
+          "y": 1
+        },
+        {
+          "rot": 1,
+          "x": 4,
+          "y": 5
+        }
+      ],
+      "solved": true,
+      "ver": "1"
+    },
+    "mode": "puzzle",
+    "script": [
+      {
+        "cursor": [
+          [
+            5,
+            3
+          ]
+        ],
+        "text": "I18N_TUTORIAL_NUMBER1",
+        "text_position": [
+          150,
+          320
+        ],
+        "turn": 0
+      },
+      {
+        "text": "I18N_TUTORIAL_NUMBER2",
+        "text_position": [
+          150,
+          320
+        ],
+        "turn": 1
+      },
+      {
+        "cursor": [],
+        "text": "I18N_TUTORIAL_NUMBER3",
+        "text_position": [
+          150,
+          320
+        ],
+        "turn": 2
+      },
+      {
+        "cursor": [
+          [
+            0,
+            1
+          ]
+        ],
+        "text": "I18N_TUTORIAL_NUMBER4",
+        "text_position": [
+          150,
+          300
+        ],
+        "turn": 2
+      },
+      {
+        "cursor": [
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "text": "I18N_TUTORIAL_NUMBER5",
+        "text_position": [
+          150,
+          300
+        ],
+        "turn": 3
+      }
+    ],
+    "bgm": "lesson"
+  },
+  {
+    "base64": "TUIxABCDEFBCBCDEFBCBJSbktwICDEFBCBCDEFBCBGGGGG6BFFEDCGFEDDCCBBFEEDBBAAAAAACPhJAkoM4AAAAAAH8ABgBDAGEAcwBjAGEAZABlDABIAGEAbABlAHkAIABIAGEAbABjAHkAbwBuId8=",
+    "data": {
+      "auth": "Haley Halcyon",
+      "field": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          1,
+          58
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          1,
+          2
+        ],
+        [
+          1,
+          9,
+          18,
+          27,
+          36,
+          45,
+          49
+        ],
+        [
+          8,
+          2,
+          3,
+          4,
+          5,
+          1,
+          2
+        ],
+        [
+          5,
+          2,
+          3,
+          4,
+          5,
+          1,
+          2
+        ],
+        [
+          5,
+          6,
+          6,
+          6,
+          6,
+          6,
+          2
+        ],
+        [
+          5,
+          4,
+          4,
+          3,
+          2,
+          1,
+          6
+        ],
+        [
+          4,
+          3,
+          2,
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          3,
+          2,
+          0,
+          0
+        ]
+      ],
+      "level": 0,
+      "mission": [
+        127,
+        0
+      ],
+      "name": "Cascade",
+      "next": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "seed": 0,
+      "solution": [
+        {
+          "rot": 0,
+          "x": 5,
+          "y": 8
+        },
+        {
+          "rot": 0,
+          "x": 0,
+          "y": 3
+        }
+      ],
+      "solved": true,
+      "ver": 49
+    },
+    "mode": "puzzle",
+    "script": [
+      {
+        "cursor": [
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            7,
+            5
+          ]
+        ],
+        "text": "I18N_TUTORIAL_CHAIN1",
+        "text_position": [
+          150,
+          320
+        ],
+        "turn": 0
+      },
+      {
+        "cursor": [
+          [
+            0,
+            6
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ]
+        ],
+        "text": "I18N_TUTORIAL_CHAIN2",
+        "text_position": [
+          32,
+          96
+        ],
+        "turn": 1
+      }
+    ],
+    "bgm": "lesson"
+  },
+  {
+    "base64": "TUIxAPCLICBQsARYA4AAAAAACCIPAEMAYQBzAGMAYQBkAGUAIABQAHIAYQBjAHQAaQBjAGUMAEgAYQBsAGUAeQAgAEgAYQBsAGMAeQBvAG5vkQ==",
+    "data": {
+      "auth": "Haley Halcyon",
+      "field": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "level": 0,
+      "mission": [
+        34
+      ],
+      "name": "Cascade Practice",
+      "next": [
+        [7, 11]
+      ],
+      "result": "SUCCESS",
+      "seed": 8,
+      "solution": [
+        {
+          "rot": 0,
+          "x": 1,
+          "y": 0
+        },
+        {
+          "rot": 1,
+          "x": 2,
+          "y": 0
+        },
+        {
+          "rot": 1,
+          "x": 2,
+          "y": 1
+        },
+        {
+          "rot": 0,
+          "x": 4,
+          "y": 0
+        },
+        {
+          "rot": 3,
+          "x": 2,
+          "y": 2
+        },
+        {
+          "rot": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "rot": 0,
+          "x": 7,
+          "y": 0
+        }
+      ],
+      "solved": true,
+      "ver": "1"
+    },
+    "mode": "puzzle",
+    "script": [
+      {
+        "text": "I18N_TUTORIAL_CHAIN_DIY1",
+        "text_position": [
+          40,
+          240
+        ],
+        "turn": 0
+      },
+      {
+        "text": "I18N_TUTORIAL_CHAIN_DIY2",
+        "turn": 0
+      },
+      {
+        "text": "I18N_TUTORIAL_CHAIN_DIY3",
+        "turn": 0
+      }
+    ],
+    "bgm": "boss"
+  }
+]

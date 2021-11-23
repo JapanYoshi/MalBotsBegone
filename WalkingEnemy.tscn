@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://WalkingEnemy.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Gen3/V1.spriteframes.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://ThemedScaledSprite.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="WalkingEnemy" type="Area2D"]
+position = Vector2( 16, 16 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+__meta__ = {
+"_editor_description_": "	"
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 2 )
+animation = "idle"
+playing = true
+script = ExtResource( 3 )
+ideal_size = Vector2( 16, 16 )
+
+[node name="ChangeMovementTimer" type="Timer" parent="."]
+autostart = true
+[connection signal="area_entered" from="." to="." method="_on_WalkingEnemy_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_WalkingEnemy_area_exited"]
+[connection signal="timeout" from="ChangeMovementTimer" to="." method="change_movement"]

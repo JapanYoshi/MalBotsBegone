@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/Gen3/Block1.spriteframes.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://ScaledSprite.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+z_index = 1
+z_as_relative = false
+
+[node name="ScaledSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 0, -32 )
+frames = ExtResource( 1 )
+animation = "idle"
+centered = false
+script = ExtResource( 2 )

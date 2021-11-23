@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fonts/SWAP_12_Regular.tres" type="DynamicFont" id=1]
+[ext_resource path="res://gamepad/gamepad_L.png" type="Texture" id=3]
+[ext_resource path="res://ButtonItem.gd" type="Script" id=4]
+[ext_resource path="res://tiles/PopupMenuTheme.tres" type="Theme" id=5]
+[ext_resource path="res://menuTheme.tres" type="Theme" id=6]
+[ext_resource path="res://tiles/boxWhite.stylebox" type="StyleBox" id=7]
+[ext_resource path="res://tiles/boxHighlight.tres" type="StyleBox" id=8]
+
+[node name="ButtonItem" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 72 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 6 )
+custom_styles/panel = ExtResource( 7 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 8.0
+margin_right = -12.0
+margin_bottom = -8.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 624.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 40.0
+margin_right = 183.0
+margin_bottom = 624.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_right = 143.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Key/button name"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Remap" type="Button" parent="HBoxContainer"]
+margin_left = 191.0
+margin_right = 336.984
+margin_bottom = 36.0
+rect_min_size = Vector2( 0, 36 )
+size_flags_vertical = 0
+theme = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+text = "I18N_REMAP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="HBoxContainer/Remap" to="." method="_on_Remap_pressed"]

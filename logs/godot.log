@@ -1,0 +1,10 @@
+Godot Engine v3.2.3.stable.mono.official - https://godotengine.org
+OpenGL ES 3.0 Renderer: GeForce GTX 1060 with Max-Q Design/PCIe/SSE2
+ 
+Mono: Log file is: 'C:\Users\Haley\AppData\Roaming/Godot/mono/mono_logs/2021_03_17 11.05.01 (6424).txt'
+**ERROR**: Can't use get_node() with absolute paths from outside the active scene tree.
+   At: scene/main/node.cpp:1320:get_node_or_null() - Condition "!data.inside_tree && p_path.is_absolute()" is true. Returned: __null
+**ERROR**: Can't use get_node() with absolute paths from outside the active scene tree.
+   At: scene/main/node.cpp:1320:get_node_or_null() - Condition "!data.inside_tree && p_path.is_absolute()" is true. Returned: __null
+**ERROR**: Can't use get_node() with absolute paths from outside the active scene tree.
+   At: scene/main/node.cpp:1320:get_node_or_null() - Condition "!data.inside_tree && p_path.is_absolute()" is true. Returned: __null

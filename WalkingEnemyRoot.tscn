@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://WalkingEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/Gen3/V2.spriteframes.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://sprites/Gen3/V3.spriteframes.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://sprites/Gen3/V5.spriteframes.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://sprites/Gen3/V0.spriteframes.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://sprites/Gen3/V4.spriteframes.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://WalkingEnemyRoot.gd" type="Script" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 40.0
+
+[node name="WalkingEnemyRoot" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 64, 64 )
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyPlayground" type="Area2D" parent="."]
+gravity_vec = Vector2( 0, 0 )
+collision_layer = 2
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="WalkingEnemy0" parent="EnemyPlayground" instance=ExtResource( 1 )]
+position = Vector2( 40, 16 )
+
+[node name="AnimatedSprite" parent="EnemyPlayground/WalkingEnemy0" index="2"]
+frames = ExtResource( 5 )
+
+[node name="WalkingEnemy1" parent="EnemyPlayground" instance=ExtResource( 1 )]
+position = Vector2( -40, -16 )
+
+[node name="WalkingEnemy2" parent="EnemyPlayground" instance=ExtResource( 1 )]
+position = Vector2( -24, 16 )
+
+[node name="AnimatedSprite" parent="EnemyPlayground/WalkingEnemy2" index="2"]
+frames = ExtResource( 2 )
+
+[node name="WalkingEnemy3" parent="EnemyPlayground" instance=ExtResource( 1 )]
+position = Vector2( -8, -16 )
+
+[node name="AnimatedSprite" parent="EnemyPlayground/WalkingEnemy3" index="2"]
+frames = ExtResource( 3 )
+
+[node name="WalkingEnemy4" parent="EnemyPlayground" instance=ExtResource( 1 )]
+position = Vector2( 8, 16 )
+
+[node name="AnimatedSprite" parent="EnemyPlayground/WalkingEnemy4" index="2"]
+frames = ExtResource( 6 )
+
+[node name="WalkingEnemy5" parent="EnemyPlayground" instance=ExtResource( 1 )]
+position = Vector2( 24, -16 )
+
+[node name="AnimatedSprite" parent="EnemyPlayground/WalkingEnemy5" index="2"]
+frames = ExtResource( 4 )
+
+[node name="PlaygroundShape" type="CollisionShape2D" parent="EnemyPlayground"]
+shape = SubResource( 1 )
+
+[editable path="EnemyPlayground/WalkingEnemy0"]
+
+[editable path="EnemyPlayground/WalkingEnemy2"]
+
+[editable path="EnemyPlayground/WalkingEnemy3"]
+
+[editable path="EnemyPlayground/WalkingEnemy4"]
+
+[editable path="EnemyPlayground/WalkingEnemy5"]

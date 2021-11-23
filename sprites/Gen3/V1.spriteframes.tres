@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=2]
+
+[ext_resource path="res://sprites/Gen3/V1Idle0.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Gen3/V1Idle1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Gen3/V1Joy0.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Gen3/V1Joy1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Gen3/V1Pop.png" type="Texture" id=5]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "pop",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "joy",
+"speed": 2.0
+} ]

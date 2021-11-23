@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gameclear.ogg-51e5674a659ca9d8bfa80ae1d81dfd6e.oggstr"
+
+[deps]
+
+source_file="res://bgm/gameclear.ogg"
+dest_files=[ "res://.import/gameclear.ogg-51e5674a659ca9d8bfa80ae1d81dfd6e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

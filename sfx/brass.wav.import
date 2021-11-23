@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/brass.wav-d5221798f5b415527807d33d4195d58e.sample"
+
+[deps]
+
+source_file="res://sfx/brass.wav"
+dest_files=[ "res://.import/brass.wav-d5221798f5b415527807d33d4195d58e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

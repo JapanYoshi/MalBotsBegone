@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=7 format=2]
+
+[ext_resource path="res://tiles/tabsFG.stylebox" type="StyleBox" id=1]
+[ext_resource path="res://fonts/SWAP_12_Bold.tres" type="DynamicFont" id=2]
+[ext_resource path="res://tiles/scrollgrabber_hl.tres" type="StyleBox" id=3]
+[ext_resource path="res://tiles/tabsHL.stylebox" type="StyleBox" id=4]
+[ext_resource path="res://tiles/scrollgrabber.tres" type="StyleBox" id=5]
+[ext_resource path="res://tiles/scrollbar_bg.tres" type="StyleBox" id=6]
+
+[resource]
+default_font = ExtResource( 2 )
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 0, 0, 0, 0.752941 )
+Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 0.752941 )
+Button/constants/hseparation = 0
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = ExtResource( 4 )
+Button/styles/hover = ExtResource( 4 )
+Button/styles/normal = ExtResource( 1 )
+Button/styles/pressed = ExtResource( 1 )
+HScrollBar/icons/decrement = null
+HScrollBar/icons/decrement_highlight = null
+HScrollBar/icons/increment = null
+HScrollBar/icons/increment_highlight = null
+HScrollBar/styles/grabber = ExtResource( 5 )
+HScrollBar/styles/grabber_highlight = ExtResource( 3 )
+HScrollBar/styles/grabber_pressed = ExtResource( 3 )
+HScrollBar/styles/scroll = ExtResource( 6 )
+HScrollBar/styles/scroll_focus = ExtResource( 6 )

@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/Gen3/Wall.spriteframes.tres" type="SpriteFrames" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Container
+
+const block_names = [
+	\"V0\",
+	\"V1\",
+	\"V2\",
+	\"V3\",
+	\"V4\",
+	\"V5\",
+	\"Ball\",
+	\"Block1\",
+	\"Block2\",
+	\"Block3\",
+	\"Block4\",
+	\"Block5\"
+]
+const ideal_size = 48;
+var is_an_enemy = true
+var animation_mode = false
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+func change_skin(name: String, id: int, size: int):
+	$AnimatedSprite.frames = load(\"res://sprites/\" + name + \"/\" + block_names[id] + \".spriteframes.tres\")
+	is_an_enemy = (id < 6)
+	toggle_animation()
+	$AnimatedSprite.set_scale((Vector2.ONE * ideal_size) / size)
+	$AnimatedSprite.offset = (Vector2.ONE * size) / 2
+
+func toggle_animation():
+	if animation_mode:
+		$AnimatedSprite.animation = \"idle\"
+	elif is_an_enemy:
+		$AnimatedSprite.animation = \"joy\"
+	else:
+		$AnimatedSprite.animation = \"glow\"
+	animation_mode = !animation_mode
+	$AnimatedSprite.stop()
+	$AnimatedSprite.play()
+"
+
+[node name="Container" type="Container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 3, 3 )
+frames = ExtResource( 1 )
+animation = "idle"
+playing = true
+offset = Vector2( 8, 8 )

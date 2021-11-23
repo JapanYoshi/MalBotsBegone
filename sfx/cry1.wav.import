@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cry1.wav-5d6d7f8c66f1505b8f58ea92e14fe423.sample"
+
+[deps]
+
+source_file="res://sfx/cry1.wav"
+dest_files=[ "res://.import/cry1.wav-5d6d7f8c66f1505b8f58ea92e14fe423.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

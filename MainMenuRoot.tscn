@@ -1,0 +1,361 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://i18n/logo_en.png" type="Texture" id=1]
+[ext_resource path="res://buttons/info_active.png" type="Texture" id=2]
+[ext_resource path="res://buttons/info_pressed.png" type="Texture" id=3]
+[ext_resource path="res://buttons/info_normal.png" type="Texture" id=4]
+[ext_resource path="res://buttons/options_active.png" type="Texture" id=5]
+[ext_resource path="res://buttons/love_pressed.png" type="Texture" id=6]
+[ext_resource path="res://buttons/options_normal.png" type="Texture" id=7]
+[ext_resource path="res://buttons/love_normal.png" type="Texture" id=8]
+[ext_resource path="res://buttons/love_active.png" type="Texture" id=9]
+[ext_resource path="res://buttons/options_pressed.png" type="Texture" id=10]
+[ext_resource path="res://menuTheme.tres" type="Theme" id=11]
+[ext_resource path="res://fonts/SWAP_12_Regular.tres" type="DynamicFont" id=12]
+[ext_resource path="res://MainMenuRoot.gd" type="Script" id=13]
+[ext_resource path="res://fonts/SWAP_12_Bold.tres" type="DynamicFont" id=14]
+[ext_resource path="res://fonts/sys12_700.tres" type="DynamicFont" id=15]
+[ext_resource path="res://WalkingEnemyRoot.tscn" type="PackedScene" id=16]
+[ext_resource path="res://fullscreen/FullScreenButton.tscn" type="PackedScene" id=17]
+[ext_resource path="res://SocialModal.tscn" type="PackedScene" id=18]
+[ext_resource path="res://bg/bg_006.tscn" type="PackedScene" id=19]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "appear"
+step = 0.0166667
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath(".:rect_scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0, 0.5, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath(".:rect_scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0, 0.5, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[node name="MainMenuRoot" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 360, 640 )
+rect_pivot_offset = Vector2( 180, 320 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" parent="." instance=ExtResource( 19 )]
+mouse_filter = 2
+
+[node name="WalkingEnemyContainer" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 2, 2 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WalkingEnemyRoot" parent="WalkingEnemyContainer" instance=ExtResource( 16 )]
+
+[node name="MainContainer" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -320.0
+margin_right = 180.0
+margin_bottom = 240.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainContainer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 360, 16 )
+rect_pivot_offset = Vector2( 180, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/bold_font = ExtResource( 14 )
+custom_fonts/normal_font = ExtResource( 12 )
+bbcode_enabled = true
+bbcode_text = "[center]I18N_START[/center]"
+meta_underlined = false
+text = "I18N_START"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogoContainer" type="CenterContainer" parent="MainContainer"]
+margin_right = 360.0
+margin_bottom = 200.0
+grow_horizontal = 2
+rect_min_size = Vector2( 360, 90 )
+rect_clip_content = true
+mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="MainContainer/LogoContainer"]
+margin_right = 360.0
+margin_bottom = 200.0
+grow_horizontal = 2
+rect_min_size = Vector2( 360, 200 )
+rect_pivot_offset = Vector2( 180, 0 )
+size_flags_vertical = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="MainContainer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -266.147
+margin_top = 149.6
+margin_right = -138.147
+margin_bottom = 162.6
+rect_min_size = Vector2( 0, 13 )
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 15 )
+text = "I18N_DEMO"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonsContainer" type="MarginContainer" parent="MainContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 360.0
+margin_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 256, 0 )
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 180, 480 )
+mouse_filter = 1
+theme = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="MainContainer/ButtonsContainer"]
+margin_right = 360.0
+margin_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+custom_constants/separation = 8
+alignment = 2
+
+[node name="StoryButton" type="Button" parent="MainContainer/ButtonsContainer/ButtonsVBox"]
+margin_top = 192.0
+margin_right = 360.0
+margin_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 240, 64 )
+focus_neighbour_bottom = NodePath("../ArcadeButton")
+focus_next = NodePath("../ArcadeButton")
+size_flags_vertical = 0
+theme = ExtResource( 11 )
+shortcut_in_tooltip = false
+text = "I18N_STORY"
+
+[node name="ArcadeButton" type="Button" parent="MainContainer/ButtonsContainer/ButtonsVBox"]
+margin_top = 268.0
+margin_right = 360.0
+margin_bottom = 336.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 240, 64 )
+focus_neighbour_top = NodePath("../StoryButton")
+focus_neighbour_bottom = NodePath("../TuteButton")
+focus_next = NodePath("../TuteButton")
+focus_previous = NodePath("../StoryButton")
+size_flags_vertical = 0
+shortcut_in_tooltip = false
+text = "I18N_ARCADE"
+
+[node name="TuteButton" type="Button" parent="MainContainer/ButtonsContainer/ButtonsVBox"]
+margin_top = 344.0
+margin_right = 360.0
+margin_bottom = 412.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 240, 64 )
+focus_neighbour_top = NodePath("../ArcadeButton")
+focus_neighbour_bottom = NodePath("../EditorButton")
+focus_next = NodePath("../EditorButton")
+focus_previous = NodePath("../ArcadeButton")
+size_flags_vertical = 0
+shortcut_in_tooltip = false
+text = "I18N_TUTORIAL"
+
+[node name="EditorButton" type="Button" parent="MainContainer/ButtonsContainer/ButtonsVBox"]
+margin_top = 420.0
+margin_right = 360.0
+margin_bottom = 488.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 240, 64 )
+focus_neighbour_left = NodePath("../ButtonsHBox/InfoButton")
+focus_neighbour_top = NodePath("../TuteButton")
+focus_neighbour_right = NodePath("../ButtonsHBox/ReviewButton")
+focus_neighbour_bottom = NodePath("../ButtonsHBox/SettingsButton")
+focus_next = NodePath("../ButtonsHBox/InfoButton")
+focus_previous = NodePath("../ZenButton")
+size_flags_vertical = 0
+shortcut_in_tooltip = false
+text = "I18N_EDITOR"
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="MainContainer/ButtonsContainer/ButtonsVBox"]
+margin_left = 76.0
+margin_top = 496.0
+margin_right = 284.0
+margin_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 0, 64 )
+size_flags_horizontal = 4
+
+[node name="InfoButton" type="TextureButton" parent="MainContainer/ButtonsContainer/ButtonsVBox/ButtonsHBox"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+rect_pivot_offset = Vector2( -438.822, -440 )
+focus_neighbour_top = NodePath("../../EditorButton")
+focus_neighbour_right = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath("../../EditorButton")
+theme = SubResource( 1 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
+
+[node name="SettingsButton" type="TextureButton" parent="MainContainer/ButtonsContainer/ButtonsVBox/ButtonsHBox"]
+margin_left = 72.0
+margin_right = 136.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+rect_pivot_offset = Vector2( -438.822, -440 )
+focus_neighbour_left = NodePath("../InfoButton")
+focus_neighbour_top = NodePath("../../EditorButton")
+focus_neighbour_right = NodePath("../ReviewButton")
+focus_next = NodePath("../ReviewButton")
+focus_previous = NodePath("../InfoButton")
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+
+[node name="ReviewButton" type="TextureButton" parent="MainContainer/ButtonsContainer/ButtonsVBox/ButtonsHBox"]
+margin_left = 144.0
+margin_right = 208.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 4 )
+rect_pivot_offset = Vector2( -438.822, -440 )
+focus_neighbour_left = NodePath("../SettingsButton")
+focus_neighbour_top = NodePath("../../EditorButton")
+focus_previous = NodePath("../SettingsButton")
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+
+[node name="FullScreenButton" parent="." instance=ExtResource( 17 )]
+
+[node name="ButtonAnimator" type="AnimationPlayer" parent="."]
+pause_mode = 1
+root_node = NodePath("../MainContainer/ButtonsContainer")
+anims/appear = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="SocialModal" parent="." instance=ExtResource( 18 )]
+
+[connection signal="pressed" from="MainContainer/ButtonsContainer/ButtonsVBox/StoryButton" to="." method="_on_StoryButton_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonsContainer/ButtonsVBox/ArcadeButton" to="." method="_on_ArcadeButton_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonsContainer/ButtonsVBox/TuteButton" to="." method="_on_TuteButton_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonsContainer/ButtonsVBox/EditorButton" to="." method="_on_EditorButton_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonsContainer/ButtonsVBox/ButtonsHBox/InfoButton" to="." method="_on_InfoButton_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonsContainer/ButtonsVBox/ButtonsHBox/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonsContainer/ButtonsVBox/ButtonsHBox/ReviewButton" to="." method="_on_ReviewButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="show"]

@@ -1,0 +1,133 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://InputButton.gd" type="Script" id=1]
+[ext_resource path="res://gamepad/gamepad_R_pressed.png" type="Texture" id=2]
+[ext_resource path="res://gamepad/gamepad_U_pressed.png" type="Texture" id=3]
+[ext_resource path="res://gamepad/gamepad_A.png" type="Texture" id=4]
+[ext_resource path="res://gamepad/gamepad_B.png" type="Texture" id=5]
+[ext_resource path="res://gamepad/gamepad_D_pressed.png" type="Texture" id=6]
+[ext_resource path="res://gamepad/gamepad_L.png" type="Texture" id=7]
+[ext_resource path="res://gamepad/gamepad_B_pressed.png" type="Texture" id=8]
+[ext_resource path="res://gamepad/gamepad_R.png" type="Texture" id=9]
+[ext_resource path="res://gamepad/gamepad_D.png" type="Texture" id=10]
+[ext_resource path="res://gamepad/gamepad_A_pressed.png" type="Texture" id=11]
+[ext_resource path="res://gamepad/gamepad_U.png" type="Texture" id=12]
+[ext_resource path="res://gamepad/gamepad_L_pressed.png" type="Texture" id=13]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 16.0
+
+[node name="Input" type="Control"]
+modulate = Color( 1, 1, 1, 0.501961 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -180.0
+margin_top = -180.0
+margin_right = 180.0
+mouse_filter = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+
+[node name="ButtonPadLeft" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -180.0
+margin_bottom = -180.0
+grow_vertical = 0
+rect_scale = Vector2( 2, 2 )
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonLeft" type="TouchScreenButton" parent="ButtonPadLeft"]
+position = Vector2( 4, 26 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 13 )
+shape = SubResource( 1 )
+shape_visible = false
+passby_press = true
+
+[node name="ButtonRight" type="TouchScreenButton" parent="ButtonPadLeft"]
+position = Vector2( 60, 26 )
+normal = ExtResource( 9 )
+pressed = ExtResource( 2 )
+shape = SubResource( 2 )
+shape_visible = false
+passby_press = true
+
+[node name="ButtonDown" type="TouchScreenButton" parent="ButtonPadLeft"]
+position = Vector2( 32, 54 )
+normal = ExtResource( 10 )
+pressed = ExtResource( 6 )
+shape = SubResource( 3 )
+shape_visible = false
+passby_press = true
+
+[node name="ButtonUp" type="TouchScreenButton" parent="ButtonPadLeft"]
+position = Vector2( 32, 0 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 3 )
+shape = SubResource( 4 )
+shape_visible = false
+passby_press = true
+
+[node name="ButtonPadRight" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -168.0
+margin_right = -80.0
+margin_bottom = -84.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 2, 2 )
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonB" type="TouchScreenButton" parent="ButtonPadRight"]
+position = Vector2( 4, 24 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 8 )
+shape = SubResource( 5 )
+shape_visible = false
+passby_press = true
+
+[node name="ButtonA" type="TouchScreenButton" parent="ButtonPadRight"]
+position = Vector2( 44, 12 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 11 )
+shape_visible = false
+passby_press = true
+[connection signal="pressed" from="ButtonPadLeft/ButtonLeft" to="." method="_on_ButtonLeft_pressed"]
+[connection signal="released" from="ButtonPadLeft/ButtonLeft" to="." method="_on_ButtonLeft_released"]
+[connection signal="pressed" from="ButtonPadLeft/ButtonRight" to="." method="_on_ButtonRight_pressed"]
+[connection signal="released" from="ButtonPadLeft/ButtonRight" to="." method="_on_ButtonRight_released"]
+[connection signal="pressed" from="ButtonPadLeft/ButtonDown" to="." method="_on_ButtonDown_pressed"]
+[connection signal="released" from="ButtonPadLeft/ButtonDown" to="." method="_on_ButtonDown_released"]
+[connection signal="pressed" from="ButtonPadLeft/ButtonUp" to="." method="_on_ButtonUp_pressed"]
+[connection signal="pressed" from="ButtonPadRight/ButtonB" to="." method="_on_ButtonB_pressed"]
+[connection signal="pressed" from="ButtonPadRight/ButtonA" to="." method="_on_ButtonA_pressed"]

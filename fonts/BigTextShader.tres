@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://bg/vert_gradient_text.shader" type="Shader" id=1]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/colorBgTop = Color( 0.596078, 0.329412, 0, 1 )
+shader_param/colorBgBottom = Color( 0.639216, 0.419608, 0, 1 )
+shader_param/colorFgTop = Color( 1, 0.980392, 0.32549, 1 )
+shader_param/colorFgBottom = Color( 1, 0.992157, 0.682353, 1 )
+shader_param/width = 0.5
+shader_param/step_count = 8.0

@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/qr_frame.png-dd9a77d2567473f0b8a62b49fb71c2cc.image"
+
+[deps]
+
+source_file="res://qr_frame.png"
+dest_files=[ "res://.import/qr_frame.png-dd9a77d2567473f0b8a62b49fb71c2cc.image" ]
+
+[params]
+

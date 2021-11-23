@@ -1,0 +1,674 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://tiles/spinbox_theme.tres" type="Theme" id=1]
+[ext_resource path="res://tiles/Options_style.tres" type="Theme" id=2]
+[ext_resource path="res://fonts/SWAP_12_Bold.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/decorative_big.tres" type="DynamicFont" id=4]
+[ext_resource path="res://tiles/cursorBox.stylebox.tres" type="StyleBox" id=5]
+[ext_resource path="res://icons/plus.png" type="Texture" id=6]
+[ext_resource path="res://icons/minus.png" type="Texture" id=7]
+[ext_resource path="res://IncDecButton.gd" type="Script" id=8]
+[ext_resource path="res://bg/bg_arcade.tscn" type="PackedScene" id=9]
+[ext_resource path="res://RangeSelector.gd" type="Script" id=10]
+[ext_resource path="res://buttons/exit_active.png" type="Texture" id=11]
+[ext_resource path="res://buttons/exit_pressed.png" type="Texture" id=12]
+[ext_resource path="res://buttons/exit_normal.png" type="Texture" id=13]
+[ext_resource path="res://OptionsPetri.gd" type="Script" id=14]
+[ext_resource path="res://fonts/SWAP_12_Regular.tres" type="DynamicFont" id=16]
+[ext_resource path="res://tiles/textbox.stylebox" type="StyleBox" id=17]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Label
+
+var index = 0
+var values = [\"I18N_SPEED_LOW\", \"I18N_SPEED_MEDIUM\", \"I18N_SPEED_HIGH\"]
+
+func _ready():
+	set_text(values[index])
+
+func _decrement(by: int = 1):
+	if index - by >= 0:
+		index -= by
+		set_text(values[index])
+
+func _increment(by: int = 1):
+	if index + by < len(values):
+		index += by
+		set_text(values[index])
+"
+
+[node name="OptionsPetri" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" parent="." instance=ExtResource( 9 )]
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 8.0
+margin_top = -320.0
+margin_right = 296.0
+margin_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 4 )
+text = "I18N_MODE_OPTIONS"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -240.0
+margin_right = 160.0
+margin_bottom = 240.0
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opts" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 296.0
+margin_bottom = 579.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A4" type="PanelContainer" parent="ScrollContainer/Opts"]
+margin_right = 296.0
+margin_bottom = 106.0
+theme = ExtResource( 2 )
+
+[node name="B0" type="VBoxContainer" parent="ScrollContainer/Opts/A4"]
+margin_left = 26.0
+margin_top = 26.0
+margin_right = 270.0
+margin_bottom = 84.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="ScrollContainer/Opts/A4/B0"]
+margin_right = 244.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_GAME_SPEED"
+autowrap = true
+
+[node name="Box" type="HBoxContainer" parent="ScrollContainer/Opts/A4/B0"]
+margin_top = 25.0
+margin_right = 244.0
+margin_bottom = 58.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dec" type="Button" parent="ScrollContainer/Opts/A4/B0/Box"]
+margin_right = 24.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+script = ExtResource( 8 )
+decrement = true
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/Opts/A4/B0/Box/Dec"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inc" type="Button" parent="ScrollContainer/Opts/A4/B0/Box"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+flat = true
+script = ExtResource( 8 )
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/Opts/A4/B0/Box/Inc"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Val" type="Label" parent="ScrollContainer/Opts/A4/B0/Box"]
+margin_left = 64.0
+margin_right = 244.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+custom_styles/normal = ExtResource( 17 )
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Low"
+align = 2
+script = SubResource( 3 )
+
+[node name="A0" type="PanelContainer" parent="ScrollContainer/Opts"]
+margin_top = 106.0
+margin_right = 296.0
+margin_bottom = 212.0
+theme = ExtResource( 2 )
+
+[node name="B0" type="VBoxContainer" parent="ScrollContainer/Opts/A0"]
+margin_left = 26.0
+margin_top = 26.0
+margin_right = 270.0
+margin_bottom = 84.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="ScrollContainer/Opts/A0/B0"]
+margin_right = 244.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_COLOR_COUNT"
+autowrap = true
+
+[node name="Box" type="HBoxContainer" parent="ScrollContainer/Opts/A0/B0"]
+margin_top = 25.0
+margin_right = 244.0
+margin_bottom = 58.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dec" type="Button" parent="ScrollContainer/Opts/A0/B0/Box"]
+margin_right = 24.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+script = ExtResource( 8 )
+decrement = true
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/Opts/A0/B0/Box/Dec"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inc" type="Button" parent="ScrollContainer/Opts/A0/B0/Box"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+flat = true
+script = ExtResource( 8 )
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/Opts/A0/B0/Box/Inc"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Val" type="SpinBox" parent="ScrollContainer/Opts/A0/B0/Box"]
+margin_left = 64.0
+margin_right = 244.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource( 1 )
+min_value = 3.0
+max_value = 5.0
+value = 4.0
+rounded = true
+align = 2
+suffix = "I18N_UNIT_COLORS"
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A1" type="PanelContainer" parent="ScrollContainer/Opts"]
+margin_top = 212.0
+margin_right = 296.0
+margin_bottom = 318.0
+theme = ExtResource( 2 )
+
+[node name="B0" type="VBoxContainer" parent="ScrollContainer/Opts/A1"]
+margin_left = 26.0
+margin_top = 26.0
+margin_right = 270.0
+margin_bottom = 84.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="ScrollContainer/Opts/A1/B0"]
+margin_right = 244.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_ENEMY_HEIGHT"
+autowrap = true
+
+[node name="Box" type="HBoxContainer" parent="ScrollContainer/Opts/A1/B0"]
+margin_top = 25.0
+margin_right = 244.0
+margin_bottom = 58.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dec" type="Button" parent="ScrollContainer/Opts/A1/B0/Box"]
+margin_right = 24.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+script = ExtResource( 8 )
+decrement = true
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/Opts/A1/B0/Box/Dec"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inc" type="Button" parent="ScrollContainer/Opts/A1/B0/Box"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+flat = true
+script = ExtResource( 8 )
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/Opts/A1/B0/Box/Inc"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Val" type="SpinBox" parent="ScrollContainer/Opts/A1/B0/Box"]
+margin_left = 64.0
+margin_right = 244.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource( 1 )
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+rounded = true
+align = 2
+suffix = "I18N_UNIT_ROWS"
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A2" type="PanelContainer" parent="ScrollContainer/Opts"]
+margin_top = 318.0
+margin_right = 296.0
+margin_bottom = 424.0
+theme = ExtResource( 2 )
+
+[node name="B0" type="VBoxContainer" parent="ScrollContainer/Opts/A2"]
+margin_left = 26.0
+margin_top = 26.0
+margin_right = 270.0
+margin_bottom = 84.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="ScrollContainer/Opts/A2/B0"]
+margin_right = 244.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_ENEMY_HP"
+autowrap = true
+
+[node name="Box" type="HBoxContainer" parent="ScrollContainer/Opts/A2/B0"]
+margin_top = 25.0
+margin_right = 244.0
+margin_bottom = 58.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dec" type="Button" parent="ScrollContainer/Opts/A2/B0/Box"]
+margin_right = 24.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+script = ExtResource( 8 )
+decrement = true
+multiplier = 0.1
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/Opts/A2/B0/Box/Dec"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inc" type="Button" parent="ScrollContainer/Opts/A2/B0/Box"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+flat = true
+script = ExtResource( 8 )
+multiplier = 0.1
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/Opts/A2/B0/Box/Inc"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Val" type="SpinBox" parent="ScrollContainer/Opts/A2/B0/Box"]
+margin_left = 64.0
+margin_right = 244.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource( 1 )
+min_value = 1.0
+max_value = 7.0
+step = 0.1
+value = 1.0
+align = 2
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A3" type="PanelContainer" parent="ScrollContainer/Opts"]
+margin_top = 424.0
+margin_right = 296.0
+margin_bottom = 530.0
+theme = ExtResource( 2 )
+
+[node name="B0" type="VBoxContainer" parent="ScrollContainer/Opts/A3"]
+margin_left = 26.0
+margin_top = 26.0
+margin_right = 270.0
+margin_bottom = 84.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="ScrollContainer/Opts/A3/B0"]
+margin_right = 244.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_COLOR_RATIO"
+autowrap = true
+
+[node name="Box" type="HBoxContainer" parent="ScrollContainer/Opts/A3/B0"]
+margin_top = 25.0
+margin_right = 244.0
+margin_bottom = 58.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dec" type="Button" parent="ScrollContainer/Opts/A3/B0/Box"]
+margin_right = 24.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+script = ExtResource( 8 )
+decrement = true
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/Opts/A3/B0/Box/Dec"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inc" type="Button" parent="ScrollContainer/Opts/A3/B0/Box"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+flat = true
+script = ExtResource( 8 )
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/Opts/A3/B0/Box/Inc"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Val" type="SpinBox" parent="ScrollContainer/Opts/A3/B0/Box"]
+margin_left = 64.0
+margin_right = 244.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource( 1 )
+value = 50.0
+rounded = true
+align = 2
+suffix = "%"
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ctr" type="CenterContainer" parent="ScrollContainer/Opts"]
+margin_top = 530.0
+margin_right = 296.0
+margin_bottom = 579.0
+theme = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/Opts/Ctr"]
+margin_left = 34.0
+margin_right = 261.0
+margin_bottom = 49.0
+custom_constants/separation = 32
+
+[node name="Button2" type="Button" parent="ScrollContainer/Opts/Ctr/HBoxContainer"]
+margin_right = 227.781
+margin_bottom = 49.0
+rect_min_size = Vector2( 128, 40 )
+text = "I18N_READY_YES"
+
+[node name="ButtonExit" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -320.0
+margin_bottom = -320.0
+grow_horizontal = 0
+focus_neighbour_left = NodePath("../ButtonObjective")
+focus_neighbour_bottom = NodePath("../ButtonNext")
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 11 )
+texture_focused = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="decrement_by" from="ScrollContainer/Opts/A4/B0/Box/Dec" to="ScrollContainer/Opts/A4/B0/Box/Val" method="_decrement"]
+[connection signal="increment_by" from="ScrollContainer/Opts/A4/B0/Box/Inc" to="ScrollContainer/Opts/A4/B0/Box/Val" method="_increment"]
+[connection signal="decrement_by" from="ScrollContainer/Opts/A0/B0/Box/Dec" to="ScrollContainer/Opts/A0/B0/Box/Val" method="_decrement"]
+[connection signal="increment_by" from="ScrollContainer/Opts/A0/B0/Box/Inc" to="ScrollContainer/Opts/A0/B0/Box/Val" method="_increment"]
+[connection signal="decrement_by" from="ScrollContainer/Opts/A1/B0/Box/Dec" to="ScrollContainer/Opts/A1/B0/Box/Val" method="_decrement"]
+[connection signal="increment_by" from="ScrollContainer/Opts/A1/B0/Box/Inc" to="ScrollContainer/Opts/A1/B0/Box/Val" method="_increment"]
+[connection signal="decrement_by" from="ScrollContainer/Opts/A2/B0/Box/Dec" to="ScrollContainer/Opts/A2/B0/Box/Val" method="_decrement"]
+[connection signal="increment_by" from="ScrollContainer/Opts/A2/B0/Box/Inc" to="ScrollContainer/Opts/A2/B0/Box/Val" method="_increment"]
+[connection signal="decrement_by" from="ScrollContainer/Opts/A3/B0/Box/Dec" to="ScrollContainer/Opts/A3/B0/Box/Val" method="_decrement"]
+[connection signal="increment_by" from="ScrollContainer/Opts/A3/B0/Box/Inc" to="ScrollContainer/Opts/A3/B0/Box/Val" method="_increment"]
+[connection signal="pressed" from="ScrollContainer/Opts/Ctr/HBoxContainer/Button2" to="." method="_on_OK_pressed"]
+[connection signal="pressed" from="ButtonExit" to="." method="_on_ButtonExit_pressed"]

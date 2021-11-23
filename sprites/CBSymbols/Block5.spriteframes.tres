@@ -1,0 +1,21 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=2]
+
+[ext_resource path="res://sprites/CBSymbols/Block5.png" type="Texture" id=1]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "glow",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "pop",
+"speed": 1.0
+} ]

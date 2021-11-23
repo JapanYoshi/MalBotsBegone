@@ -1,0 +1,303 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://fonts/SWAP_12_Bold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://buttons/world_back_over.png" type="Texture" id=2]
+[ext_resource path="res://tiles/world_header.png" type="Texture" id=3]
+[ext_resource path="res://tiles/world_tier.png" type="Texture" id=4]
+[ext_resource path="res://tiles/arcadeBox.png" type="Texture" id=5]
+[ext_resource path="res://buttons/world_back.png" type="Texture" id=6]
+[ext_resource path="res://fonts/SWAP_12_Regular.tres" type="DynamicFont" id=7]
+[ext_resource path="res://WorldTier.tscn" type="PackedScene" id=8]
+[ext_resource path="res://WorldScroller.gd" type="Script" id=9]
+[ext_resource path="res://final_tier.gd" type="Script" id=10]
+[ext_resource path="res://buttons/puzzle_boss.png" type="Texture" id=11]
+[ext_resource path="res://buttons/puzzle_boss_over.png" type="Texture" id=12]
+[ext_resource path="res://buttons/puzzle_solved.png" type="Texture" id=13]
+
+[sub_resource type="StyleBoxTexture" id=1]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 96, 128 )
+margin_left = 47.0
+margin_right = 47.0
+margin_top = 80.0
+margin_bottom = 47.0
+
+[sub_resource type="StyleBoxTexture" id=2]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 32, 32 )
+margin_left = 4.0
+margin_right = 4.0
+margin_top = 4.0
+margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="Theme" id=4]
+default_font = ExtResource( 7 )
+Panel/styles/panel = SubResource( 1 )
+PanelContainer/styles/panel = SubResource( 2 )
+RichTextLabel/colors/default_color = Color( 1, 1, 1, 1 )
+RichTextLabel/colors/font_color_selected = Color( 0.49, 0.49, 0.49, 1 )
+RichTextLabel/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+RichTextLabel/colors/selection_color = Color( 0.1, 0.1, 1, 0.8 )
+RichTextLabel/constants/line_separation = 2
+RichTextLabel/constants/shadow_as_outline = 0
+RichTextLabel/constants/shadow_offset_x = 2
+RichTextLabel/constants/shadow_offset_y = 2
+RichTextLabel/constants/table_hseparation = 6
+RichTextLabel/constants/table_vseparation = 6
+RichTextLabel/fonts/bold_font = ExtResource( 1 )
+RichTextLabel/fonts/bold_italics_font = null
+RichTextLabel/fonts/italics_font = null
+RichTextLabel/fonts/mono_font = null
+RichTextLabel/fonts/normal_font = ExtResource( 7 )
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = null
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = SubResource( 3 )
+VScrollBar/styles/grabber_highlight = SubResource( 3 )
+VScrollBar/styles/grabber_pressed = SubResource( 3 )
+VScrollBar/styles/scroll = SubResource( 3 )
+VScrollBar/styles/scroll_focus = SubResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 2.0
+content_margin_bottom = 6.0
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 128, 64 )
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 47.0
+margin_bottom = 16.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id=6]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 96, 128 )
+margin_left = 47.0
+margin_right = 47.0
+margin_top = 80.0
+margin_bottom = 47.0
+
+[node name="s" type="ScrollContainer"]
+light_mask = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -240.0
+margin_right = 180.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 360, 360 )
+theme = SubResource( 4 )
+scroll_horizontal_enabled = false
+scroll_vertical = 100
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l" type="VBoxContainer" parent="."]
+light_mask = 2
+use_parent_material = true
+margin_top = -100.0
+margin_right = 360.0
+margin_bottom = 809.0
+size_flags_horizontal = 3
+custom_constants/separation = 8
+
+[node name="margin_top" type="HSeparator" parent="l"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 360.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 0, 256 )
+
+[node name="h" type="PanelContainer" parent="l"]
+light_mask = 2
+use_parent_material = true
+margin_top = 264.0
+margin_right = 360.0
+margin_bottom = 322.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="H" type="HBoxContainer" parent="l/h"]
+light_mask = 2
+margin_left = 16.0
+margin_top = 2.0
+margin_right = 344.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+custom_constants/separation = 4
+
+[node name="Back" type="TextureButton" parent="l/h/H"]
+light_mask = 2
+margin_right = 40.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 40, 40 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="v" type="VBoxContainer" parent="l/h/H"]
+margin_left = 44.0
+margin_right = 328.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="w" type="Label" parent="l/h/H/v"]
+light_mask = 2
+margin_right = 284.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "World 0"
+align = 2
+
+[node name="t" type="Label" parent="l/h/H/v"]
+light_mask = 2
+margin_top = 25.0
+margin_right = 284.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tutorial"
+align = 2
+
+[node name="advance" type="PanelContainer" parent="l"]
+light_mask = 2
+use_parent_material = true
+margin_top = 330.0
+margin_right = 360.0
+margin_bottom = 373.0
+
+[node name="label" type="RichTextLabel" parent="l/advance"]
+light_mask = 2
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 352.0
+margin_bottom = 35.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+bbcode_enabled = true
+bbcode_text = "I18N_WORLD_ADVANCE"
+text = "I18N_WORLD_ADVANCE"
+fit_content_height = true
+scroll_active = false
+
+[node name="tier" parent="l" instance=ExtResource( 8 )]
+modulate = Color( 1, 1, 1, 0.501961 )
+use_parent_material = true
+margin_top = 381.0
+margin_right = 360.0
+margin_bottom = 509.0
+tier = 0
+
+[node name="final_tier" type="Panel" parent="l"]
+modulate = Color( 1, 1, 1, 0.501961 )
+light_mask = 2
+use_parent_material = true
+margin_top = 517.0
+margin_right = 360.0
+margin_bottom = 645.0
+rect_min_size = Vector2( 336, 128 )
+custom_styles/panel = SubResource( 6 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hl" type="HBoxContainer" parent="l/final_tier"]
+light_mask = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 39.0
+margin_right = -16.0
+margin_bottom = -9.0
+size_flags_horizontal = 4
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="l1" type="TextureButton" parent="l/final_tier/hl"]
+light_mask = 2
+margin_left = 67.0
+margin_right = 259.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 192, 80 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+action_mode = 0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 12 )
+texture_focused = ExtResource( 12 )
+expand = true
+stretch_mode = 3
+
+[node name="s" type="Sprite" parent="l/final_tier/hl/l1"]
+position = Vector2( 112, 0 )
+texture = ExtResource( 13 )
+centered = false
+
+[node name="Label" type="Label" parent="l/final_tier"]
+light_mask = 2
+margin_left = 10.0
+margin_top = 8.0
+margin_right = 294.0
+margin_bottom = 36.0
+custom_colors/font_color_shadow = Color( 0.0392157, 0.329412, 0.482353, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = 2
+text = "Tier 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="margin_bottom" type="HSeparator" parent="l"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 653.0
+margin_right = 360.0
+margin_bottom = 909.0
+rect_min_size = Vector2( 0, 256 )
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="mouse_entered" from="l/h/H/Back" to="." method="_on_Back_mouse_entered"]
+[connection signal="pressed" from="l/h/H/Back" to="." method="_on_Back_pressed"]
+[connection signal="level_hovered" from="l/tier" to="." method="_on_tier1_level_hovered"]
+[connection signal="level_selected" from="l/tier" to="." method="_on_tier1_level_selected"]
+[connection signal="level_hovered" from="l/final_tier" to="." method="_on_tier1_level_hovered"]
+[connection signal="level_selected" from="l/final_tier" to="." method="_on_tier1_level_selected"]
+[connection signal="mouse_entered" from="l/final_tier/hl/l1" to="l/final_tier" method="_on_button_focus_entered" binds= [ 0 ]]
+[connection signal="pressed" from="l/final_tier/hl/l1" to="l/final_tier" method="_on_button_pressed" binds= [ 0 ]]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

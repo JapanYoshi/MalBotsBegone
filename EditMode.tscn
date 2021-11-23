@@ -1,0 +1,3468 @@
+[gd_scene load_steps=96 format=2]
+
+[ext_resource path="res://GameRoot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://EditMode.gd" type="Script" id=2]
+[ext_resource path="res://fonts/SWAP_12_Bold.tres" type="DynamicFont" id=3]
+[ext_resource path="res://tiles/cursorBox.stylebox.tres" type="StyleBox" id=4]
+[ext_resource path="res://icons/reset.png" type="Texture" id=5]
+[ext_resource path="res://icons/share.png" type="Texture" id=6]
+[ext_resource path="res://icons/playtest.png" type="Texture" id=7]
+[ext_resource path="res://tiles/buttonMenu_Normal.stylebox" type="StyleBox" id=8]
+[ext_resource path="res://buttons/exit_active.png" type="Texture" id=9]
+[ext_resource path="res://buttons/exit_pressed.png" type="Texture" id=10]
+[ext_resource path="res://buttons/exit_normal.png" type="Texture" id=11]
+[ext_resource path="res://bg/bg_007.tscn" type="PackedScene" id=12]
+[ext_resource path="res://tiles/buttonMenu_Hover.tres" type="StyleBox" id=13]
+[ext_resource path="res://tiles/buttonMenu_Press.tres" type="StyleBox" id=14]
+[ext_resource path="res://sprites/Gen3/FieldEdit.png" type="Texture" id=15]
+[ext_resource path="res://ThemedScaledSprite.gd" type="Script" id=16]
+[ext_resource path="res://icons/spawnpoint.png" type="Texture" id=17]
+[ext_resource path="res://fonts/SWAP_Piece.tres" type="DynamicFont" id=18]
+[ext_resource path="res://EditRow.tscn" type="PackedScene" id=19]
+[ext_resource path="res://EditPlayfield.gd" type="Script" id=20]
+[ext_resource path="res://EditMain.gd" type="Script" id=21]
+[ext_resource path="res://fonts/SWAP_12_Regular.tres" type="DynamicFont" id=22]
+[ext_resource path="res://tiles/decorative.stylebox" type="StyleBox" id=23]
+[ext_resource path="res://icons/hp.png" type="Texture" id=24]
+[ext_resource path="res://ScaledSprite.gd" type="Script" id=25]
+[ext_resource path="res://EditHP.gd" type="Script" id=26]
+[ext_resource path="res://EditPalettePiece.gd" type="Script" id=27]
+[ext_resource path="res://tiles/menuButton.png" type="Texture" id=28]
+[ext_resource path="res://sprites/Gen3/Field.png" type="Texture" id=29]
+[ext_resource path="res://EditNext.gd" type="Script" id=30]
+[ext_resource path="res://menuTheme.tres" type="Theme" id=31]
+[ext_resource path="res://icons/loop.png" type="Texture" id=32]
+[ext_resource path="res://icons/none.png" type="Texture" id=33]
+[ext_resource path="res://icons/random.png" type="Texture" id=34]
+[ext_resource path="res://buttons/color_on.png" type="Texture" id=35]
+[ext_resource path="res://tiles/PopupMenuTheme.tres" type="Theme" id=36]
+[ext_resource path="res://JerryRiggedTabContainer.gd" type="Script" id=37]
+[ext_resource path="res://buttons/color_unfocused.png" type="Texture" id=38]
+[ext_resource path="res://buttons/color_focused.png" type="Texture" id=39]
+[ext_resource path="res://_no_image.png" type="Texture" id=40]
+[ext_resource path="res://buttons/color_off.png" type="Texture" id=41]
+[ext_resource path="res://EditTheme.tres" type="Theme" id=42]
+[ext_resource path="res://sprites/Gen3/Block1.spriteframes.tres" type="SpriteFrames" id=43]
+[ext_resource path="res://EditPalettePiece.tscn" type="PackedScene" id=44]
+[ext_resource path="res://tiles/spinbox_theme.tres" type="Theme" id=45]
+[ext_resource path="res://icons/plus.png" type="Texture" id=46]
+[ext_resource path="res://icons/minus.png" type="Texture" id=47]
+[ext_resource path="res://EditDominoDialog.gd" type="Script" id=48]
+[ext_resource path="res://EditDominoRow.tscn" type="PackedScene" id=49]
+[ext_resource path="res://tiles/boxWhite.stylebox" type="StyleBox" id=50]
+[ext_resource path="res://tiles/boxHighlight.tres" type="StyleBox" id=51]
+[ext_resource path="res://icons/domino_delete.png" type="Texture" id=52]
+[ext_resource path="res://icons/domino_edit.png" type="Texture" id=53]
+[ext_resource path="res://icons/domino_insert.png" type="Texture" id=54]
+[ext_resource path="res://icons/domino_swap_prev.png" type="Texture" id=55]
+[ext_resource path="res://icons/domino_swap_next.png" type="Texture" id=56]
+[ext_resource path="res://tiles/separator.stylebox.tres" type="StyleBox" id=57]
+[ext_resource path="res://fonts/SWAP_10_Regular.tres" type="DynamicFont" id=58]
+[ext_resource path="res://EditColorButton.gd" type="Script" id=59]
+[ext_resource path="res://tiles/bubbleWhite.png" type="Texture" id=60]
+[ext_resource path="res://sprites/Gen3/NextMask.png" type="Texture" id=61]
+[ext_resource path="res://EditResize.gd" type="Script" id=62]
+[ext_resource path="res://EditObjective.gd" type="Script" id=63]
+[ext_resource path="res://RangeSelector.gd" type="Script" id=64]
+[ext_resource path="res://IncDecButton.gd" type="Script" id=65]
+[ext_resource path="res://EditObjectiveColor.gd" type="Script" id=66]
+[ext_resource path="res://buttons/color_off_2x.png" type="Texture" id=67]
+[ext_resource path="res://buttons/color_on_2x.png" type="Texture" id=68]
+[ext_resource path="res://tiles/textbox_focused.stylebox" type="StyleBox" id=69]
+[ext_resource path="res://buttons/load_pressed.png" type="Texture" id=70]
+[ext_resource path="res://buttons/save_pressed.png" type="Texture" id=71]
+[ext_resource path="res://EditShare.gd" type="Script" id=72]
+[ext_resource path="res://tiles/textbox_readonly.stylebox" type="StyleBox" id=73]
+[ext_resource path="res://tiles/textbox.stylebox" type="StyleBox" id=74]
+[ext_resource path="res://tiles/DialogTheme.tres" type="Theme" id=75]
+[ext_resource path="res://fonts/big_share_font.tres" type="DynamicFont" id=76]
+[ext_resource path="res://fonts/big_share_font_bold.tres" type="DynamicFont" id=77]
+[ext_resource path="res://tilesheet.tres" type="TileSet" id=78]
+[ext_resource path="res://qr_frame_texture.tres" type="Texture" id=79]
+[ext_resource path="res://Setting_Bool.tscn" type="PackedScene" id=80]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("EditResize/EditShare/Viewport")
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends TabContainer
+
+func _on_Objective_item_selected(index):
+	var name = find_parent(\"EditObjective\").objective_list[index]
+	match name:
+		\"I18N_OBJECTIVE_SURVIVE_TIME\": # Time
+			current_tab = 1
+		\"I18N_OBJECTIVE_ENEMY_COUNT\",\\
+		\"I18N_OBJECTIVE_BLOCK_COUNT\":
+			current_tab = 2
+			$Page2/Number/Value.set_editable(true)
+			$Page2/Number/Value.min_value = 1
+			$Page2/Number/Value.max_value = 7 * 14 - 2
+			$Page2/Color.modulate = Color(1,1,1,0)
+		\"I18N_OBJECTIVE_ENEMY_COLOR\",\\
+		\"I18N_OBJECTIVE_BLOCK_COLOR\":
+			current_tab = 2
+			$Page2/Number/Value.set_editable(false)
+			$Page2/Color.modulate = Color(1, 1, 1, 1)
+		\"I18N_OBJECTIVE_ENEMY_COLOR_COUNT\",\\
+		\"I18N_OBJECTIVE_BLOCK_COLOR_COUNT\":
+			current_tab = 2
+			$Page2/Number/Value.set_editable(true)
+			$Page2/Number/Value.min_value = 1
+			$Page2/Number/Value.max_value = 7 * 14 - 2
+			$Page2/Color.modulate = Color(1, 1, 1, 1)
+		\"I18N_OBJECTIVE_CHAIN_COUNT\",\\
+		\"I18N_OBJECTIVE_CHAIN_EXACT\": # chain count
+			current_tab = 2
+			$Page2/Number/Value.set_editable(true)
+			$Page2/Number/Value.min_value = 1
+			$Page2/Number/Value.max_value = 15
+			$Page2/Color.modulate = Color(1,1,1,0)
+		\"I18N_OBJECTIVE_COLORS\": # color
+			current_tab = 2
+			$Page2/Number/Value.set_editable(true)
+			$Page2/Number/Value.min_value = 2
+			$Page2/Number/Value.max_value = 5
+			$Page2/Color.modulate = Color(1,1,1,0)
+		\"I18N_OBJECTIVE_HIGH_SCORE\": # score
+			current_tab = 3
+		_: # fallback
+			current_tab = 0
+	$Page2/Color.sprite_mode(name.begins_with(\"I18N_OBJECTIVE_BLOCK\"))
+"
+
+[sub_resource type="StyleBoxTexture" id=6]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource( 39 )
+region_rect = Rect2( 0, 0, 24, 32 )
+margin_top = 4.0
+margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id=7]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource( 38 )
+region_rect = Rect2( 0, 0, 24, 32 )
+margin_top = 4.0
+margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id=8]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource( 39 )
+region_rect = Rect2( 0, 0, 24, 32 )
+margin_top = 4.0
+margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id=9]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource( 38 )
+region_rect = Rect2( 0, 0, 24, 32 )
+margin_top = 4.0
+margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[node name="EditMode" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BGBox" type="Node2D" parent="."]
+z_as_relative = false
+
+[node name="BG" parent="." instance=ExtResource( 12 )]
+
+[node name="GameRoot" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="EditResize" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -320.0
+margin_right = 180.0
+margin_bottom = 320.0
+theme = ExtResource( 42 )
+script = ExtResource( 62 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EditShare" type="NinePatchRect" parent="EditResize"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 28 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+script = ExtResource( 72 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="EditResize/EditShare"]
+size = Vector2( 1920, 1080 )
+own_world = true
+transparent_bg = true
+hdr = false
+usage = 0
+render_target_v_flip = true
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditShare/Viewport"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 79 )
+
+[node name="Title" type="Label" parent="EditResize/EditShare/Viewport"]
+margin_left = 96.0
+margin_top = 133.0
+margin_right = 736.0
+margin_bottom = 261.0
+rect_min_size = Vector2( 640, 200 )
+rect_clip_content = true
+custom_fonts/font = ExtResource( 76 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+text = "aouetenhurcsaic,r ahcr.,ucr., ahucr.a hrca,.h urc.a,h ucr.a,uh cra. hcurah ucr.,h ura.,hurc.a, ucra. uhra,. hurc.a, uhcra uhrca. hsu"
+autowrap = true
+clip_text = true
+
+[node name="Objective" type="RichTextLabel" parent="EditResize/EditShare/Viewport"]
+margin_left = 1276.0
+margin_top = 156.0
+margin_right = 1736.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 576, 160 )
+custom_fonts/bold_font = ExtResource( 77 )
+custom_fonts/normal_font = ExtResource( 76 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_constants/line_separation = 0
+bbcode_enabled = true
+bbcode_text = "Lorem ipsum dolor sit amet [b]20[/b] consectetuer adipiscing elit!"
+text = "Lorem ipsum dolor sit amet 20 consectetuer adipiscing elit!"
+scroll_active = false
+
+[node name="Author" type="Label" parent="EditResize/EditShare/Viewport"]
+margin_left = 772.0
+margin_top = 133.0
+margin_right = 1232.0
+margin_bottom = 333.0
+rect_min_size = Vector2( 460, 200 )
+rect_clip_content = true
+custom_fonts/font = ExtResource( 76 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+text = "aoeui aoeu aoeu aoeu aoeu aoeu aoeu eoau aoeu eao"
+autowrap = true
+clip_text = true
+
+[node name="Next" type="Label" parent="EditResize/EditShare/Viewport"]
+margin_left = 1129.0
+margin_top = 382.0
+margin_right = 1449.0
+margin_bottom = 430.0
+rect_min_size = Vector2( 320, 48 )
+rect_clip_content = true
+custom_fonts/font = ExtResource( 76 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+text = "Infinite"
+autowrap = true
+clip_text = true
+
+[node name="Speed" type="Label" parent="EditResize/EditShare/Viewport"]
+margin_left = 1129.0
+margin_top = 482.0
+margin_right = 1449.0
+margin_bottom = 530.0
+rect_min_size = Vector2( 320, 48 )
+rect_clip_content = true
+custom_fonts/font = ExtResource( 76 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+text = "20"
+autowrap = true
+clip_text = true
+
+[node name="Difficulty" type="Label" parent="EditResize/EditShare/Viewport"]
+margin_left = 1129.0
+margin_top = 582.0
+margin_right = 1449.0
+margin_bottom = 630.0
+rect_min_size = Vector2( 320, 48 )
+rect_clip_content = true
+custom_fonts/font = ExtResource( 76 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+text = "20"
+autowrap = true
+clip_text = true
+
+[node name="Hints" type="Label" parent="EditResize/EditShare/Viewport"]
+margin_left = 1129.0
+margin_top = 682.0
+margin_right = 1449.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 320, 48 )
+rect_clip_content = true
+custom_fonts/font = ExtResource( 76 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+text = "No"
+autowrap = true
+clip_text = true
+
+[node name="Date" type="Label" parent="EditResize/EditShare/Viewport"]
+margin_left = 1535.0
+margin_top = 620.0
+margin_right = 1855.0
+margin_bottom = 668.0
+rect_min_size = Vector2( 320, 48 )
+rect_clip_content = true
+custom_fonts/font = ExtResource( 76 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+text = "2021-03-14"
+autowrap = true
+clip_text = true
+
+[node name="TileMap" type="TileMap" parent="EditResize/EditShare/Viewport"]
+position = Vector2( 148, 357 )
+scale = Vector2( 1.5, 1.5 )
+tile_set = ExtResource( 78 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 1, 6, 1, 1, 6, 2, 1, 6, 3, 1, 6, 4, 1, 6, 5, 1, 6, 6, 1, 6, 65536, 1, 6, 65537, 1, 6, 65538, 1, 6, 65539, 1, 6, 65540, 1, 6, 65541, 1, 6, 65542, 1, 6, 131072, 1, 6, 131073, 1, 6, 131074, 1, 6, 131075, 1, 6, 131076, 1, 6, 131077, 1, 6, 131078, 1, 6, 196608, 1, 6, 196609, 1, 6, 196610, 1, 6, 196611, 1, 6, 196612, 1, 6, 196613, 1, 6, 196614, 1, 6, 327657, 0, 0, 262144, 1, 6, 262145, 1, 6, 262146, 1, 6, 262147, 1, 6, 262148, 1, 6, 262149, 1, 6, 262150, 1, 6, 327680, 1, 6, 327681, 1, 6, 327682, 1, 6, 327683, 1, 6, 327684, 1, 6, 327685, 1, 6, 327686, 1, 6, 393216, 1, 6, 393217, 1, 6, 393218, 1, 6, 393219, 1, 6, 393220, 1, 6, 393221, 1, 6, 393222, 1, 6, 458752, 1, 6, 458753, 1, 6, 458754, 1, 6, 458755, 1, 6, 458756, 1, 6, 458757, 1, 6, 458758, 1, 6, 524288, 1, 6, 524289, 1, 6, 524290, 1, 6, 524291, 1, 6, 524292, 1, 6, 524293, 1, 6, 524294, 1, 6, 589824, 1, 6, 589825, 1, 6, 589826, 1, 6, 589827, 1, 6, 589828, 1, 6, 589829, 1, 6, 589830, 1, 6, 655360, 1, 6, 655361, 1, 6, 655362, 1, 6, 655363, 1, 6, 655364, 1, 6, 655365, 1, 6, 655366, 1, 6, 720896, 1, 6, 720897, 1, 6, 720898, 1, 6, 720899, 1, 6, 720900, 1, 6, 720901, 1, 6, 720902, 1, 6, 851958, 0, 0 )
+
+[node name="scrl" type="ScrollContainer" parent="EditResize/EditShare"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_bottom = -16.0
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="A" type="VBoxContainer" parent="EditResize/EditShare/scrl"]
+margin_right = 320.0
+margin_bottom = 742.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer" type="Control" parent="EditResize/EditShare/scrl/A"]
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="Setting_Bool" parent="EditResize/EditShare/scrl/A" instance=ExtResource( 80 )]
+margin_top = 40.0
+margin_right = 320.0
+margin_bottom = 103.0
+option_name = "Use new level data format"
+option_help = "The new format includes the solution and RNG seed, but is a work in progress. It's best to use the old format for now."
+
+[node name="Label" type="Label" parent="EditResize/EditShare/scrl/A"]
+margin_top = 111.0
+margin_right = 320.0
+margin_bottom = 136.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_SHARE_TEXT"
+autowrap = true
+
+[node name="LevelData" type="TextEdit" parent="EditResize/EditShare/scrl/A"]
+margin_top = 144.0
+margin_right = 320.0
+margin_bottom = 272.0
+rect_min_size = Vector2( 0, 128 )
+custom_styles/read_only = ExtResource( 73 )
+custom_styles/focus = ExtResource( 69 )
+custom_styles/normal = ExtResource( 74 )
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditResize/EditShare/scrl/A"]
+margin_top = 280.0
+margin_right = 320.0
+margin_bottom = 352.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Load" type="Button" parent="EditResize/EditShare/scrl/A/HBoxContainer"]
+margin_right = 224.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+theme = ExtResource( 36 )
+icon = ExtResource( 70 )
+flat = true
+
+[node name="Generate" type="Button" parent="EditResize/EditShare/scrl/A/HBoxContainer"]
+margin_left = 232.0
+margin_right = 320.0
+margin_bottom = 72.0
+theme = ExtResource( 36 )
+icon = ExtResource( 71 )
+flat = true
+
+[node name="HSeparator3" type="HSeparator" parent="EditResize/EditShare/scrl/A"]
+margin_top = 360.0
+margin_right = 320.0
+margin_bottom = 368.0
+custom_styles/separator = ExtResource( 57 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="EditResize/EditShare/scrl/A"]
+margin_top = 376.0
+margin_right = 320.0
+margin_bottom = 401.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_SHARE_QR"
+autowrap = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="EditResize/EditShare/scrl/A"]
+margin_top = 409.0
+margin_right = 320.0
+margin_bottom = 481.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Load" type="Button" parent="EditResize/EditShare/scrl/A/HBoxContainer2"]
+margin_right = 224.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+theme = ExtResource( 36 )
+icon = ExtResource( 70 )
+flat = true
+
+[node name="Generate" type="Button" parent="EditResize/EditShare/scrl/A/HBoxContainer2"]
+margin_left = 232.0
+margin_right = 320.0
+margin_bottom = 72.0
+theme = ExtResource( 36 )
+icon = ExtResource( 71 )
+flat = true
+
+[node name="status" type="Label" parent="EditResize/EditShare/scrl/A"]
+margin_top = 489.0
+margin_right = 320.0
+margin_bottom = 514.0
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditShare/scrl/A"]
+margin_top = 522.0
+margin_right = 320.0
+margin_bottom = 702.0
+rect_min_size = Vector2( 320, 180 )
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer2" type="Control" parent="EditResize/EditShare/scrl/A"]
+margin_top = 710.0
+margin_bottom = 742.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="ButtonExit" type="TextureButton" parent="EditResize/EditShare"]
+margin_left = 296.0
+margin_top = 4.0
+margin_right = 360.0
+margin_bottom = 68.0
+focus_neighbour_left = NodePath("../ButtonObjective")
+focus_neighbour_bottom = NodePath("../ButtonNext")
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="EditResize/EditShare"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 48.0
+margin_top = 120.5
+margin_right = 156.0
+margin_bottom = 120.5
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.6, 0.6 )
+theme = ExtResource( 75 )
+popup_exclusive = true
+window_title = "Open a File"
+resizable = true
+dialog_hide_on_ok = true
+dialog_autowrap = true
+mode_overrides_title = false
+mode = 0
+access = 1
+current_dir = "user://"
+current_path = "user://"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveDialog" type="FileDialog" parent="EditResize/EditShare"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 48.0
+margin_top = 120.5
+margin_right = 156.0
+margin_bottom = 120.5
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.6, 0.6 )
+theme = ExtResource( 75 )
+popup_exclusive = true
+window_title = "Open a File"
+resizable = true
+dialog_hide_on_ok = true
+dialog_autowrap = true
+mode_overrides_title = false
+access = 2
+filters = PoolStringArray( "*.png ; PNG image" )
+current_dir = "/"
+current_path = "/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EditObjective" type="NinePatchRect" parent="EditResize"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 28 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+script = ExtResource( 63 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="S" type="ScrollContainer" parent="EditResize/EditObjective"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="A" type="VBoxContainer" parent="EditResize/EditObjective/S"]
+margin_right = 308.0
+margin_bottom = 1084.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer" type="Control" parent="EditResize/EditObjective/S/A"]
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="Label5" type="Label" parent="EditResize/EditObjective/S/A"]
+margin_top = 72.0
+margin_right = 308.0
+margin_bottom = 97.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_LEVEL"
+autowrap = true
+
+[node name="LevelHelp" type="Label" parent="EditResize/EditObjective/S/A"]
+margin_top = 105.0
+margin_right = 308.0
+margin_bottom = 127.0
+custom_fonts/font = ExtResource( 58 )
+custom_colors/font_color = Color( 0, 0, 0, 0.752941 )
+text = "I18N_EDIT_LEVEL_HELP"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditResize/EditObjective/S/A"]
+margin_top = 135.0
+margin_right = 308.0
+margin_bottom = 168.0
+
+[node name="Decrement4" type="Button" parent="EditResize/EditObjective/S/A/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+script = ExtResource( 65 )
+decrement = true
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditObjective/S/A/HBoxContainer/Decrement4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 47 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Increment4" type="Button" parent="EditResize/EditObjective/S/A/HBoxContainer"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+flat = true
+script = ExtResource( 65 )
+
+[node name="TextureRect2" type="TextureRect" parent="EditResize/EditObjective/S/A/HBoxContainer/Increment4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 46 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="SpinBox" parent="EditResize/EditObjective/S/A/HBoxContainer"]
+margin_left = 64.0
+margin_right = 128.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_vertical = 0
+theme = ExtResource( 45 )
+max_value = 20.0
+align = 2
+script = ExtResource( 64 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="EditResize/EditObjective/S/A/HBoxContainer"]
+margin_left = 136.0
+margin_top = 5.0
+margin_right = 166.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 58 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "/20"
+
+[node name="HSeparator3" type="HSeparator" parent="EditResize/EditObjective/S/A"]
+margin_top = 176.0
+margin_right = 308.0
+margin_bottom = 184.0
+custom_styles/separator = ExtResource( 57 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="EditResize/EditObjective/S/A"]
+margin_top = 192.0
+margin_right = 308.0
+margin_bottom = 217.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_DIFFICULTY"
+autowrap = true
+
+[node name="LevelHelp2" type="Label" parent="EditResize/EditObjective/S/A"]
+margin_top = 225.0
+margin_right = 308.0
+margin_bottom = 247.0
+custom_fonts/font = ExtResource( 58 )
+custom_colors/font_color = Color( 0, 0, 0, 0.752941 )
+text = "I18N_EDIT_DIFFICULTY_HELP"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="EditResize/EditObjective/S/A"]
+margin_top = 255.0
+margin_right = 308.0
+margin_bottom = 288.0
+
+[node name="Decrement4" type="Button" parent="EditResize/EditObjective/S/A/HBoxContainer2"]
+margin_right = 24.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+script = ExtResource( 65 )
+decrement = true
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditObjective/S/A/HBoxContainer2/Decrement4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 47 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Increment4" type="Button" parent="EditResize/EditObjective/S/A/HBoxContainer2"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+flat = true
+script = ExtResource( 65 )
+
+[node name="TextureRect2" type="TextureRect" parent="EditResize/EditObjective/S/A/HBoxContainer2/Increment4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 46 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Difficulty" type="SpinBox" parent="EditResize/EditObjective/S/A/HBoxContainer2"]
+margin_left = 64.0
+margin_right = 128.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_vertical = 0
+theme = ExtResource( 45 )
+max_value = 5.0
+align = 2
+script = ExtResource( 64 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="EditResize/EditObjective/S/A/HBoxContainer2"]
+margin_left = 136.0
+margin_top = 5.0
+margin_right = 156.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 58 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "/5"
+
+[node name="HSeparator" type="HSeparator" parent="EditResize/EditObjective/S/A"]
+margin_top = 296.0
+margin_right = 308.0
+margin_bottom = 304.0
+custom_styles/separator = ExtResource( 57 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label8" type="Label" parent="EditResize/EditObjective/S/A"]
+margin_top = 312.0
+margin_right = 308.0
+margin_bottom = 337.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_SEED"
+autowrap = true
+
+[node name="LevelHelp3" type="Label" parent="EditResize/EditObjective/S/A"]
+margin_top = 345.0
+margin_right = 308.0
+margin_bottom = 367.0
+custom_fonts/font = ExtResource( 58 )
+custom_colors/font_color = Color( 0, 0, 0, 0.752941 )
+text = "I18N_EDIT_SEED_HELP"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="EditResize/EditObjective/S/A"]
+margin_top = 375.0
+margin_right = 308.0
+margin_bottom = 408.0
+
+[node name="Random" type="Button" parent="EditResize/EditObjective/S/A/HBoxContainer3"]
+margin_right = 24.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="EditResize/EditObjective/S/A/HBoxContainer3/Random"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 34 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Decrement4" type="Button" parent="EditResize/EditObjective/S/A/HBoxContainer3"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+script = ExtResource( 65 )
+decrement = true
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditObjective/S/A/HBoxContainer3/Decrement4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 47 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Increment4" type="Button" parent="EditResize/EditObjective/S/A/HBoxContainer3"]
+margin_left = 64.0
+margin_right = 88.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+flat = true
+script = ExtResource( 65 )
+
+[node name="TextureRect2" type="TextureRect" parent="EditResize/EditObjective/S/A/HBoxContainer3/Increment4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 46 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seed" type="SpinBox" parent="EditResize/EditObjective/S/A/HBoxContainer3"]
+margin_left = 96.0
+margin_right = 240.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 144, 0 )
+size_flags_vertical = 0
+theme = ExtResource( 45 )
+max_value = 4.29497e+09
+value = 4.29497e+09
+align = 2
+script = ExtResource( 64 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator5" type="HSeparator" parent="EditResize/EditObjective/S/A"]
+margin_top = 416.0
+margin_right = 308.0
+margin_bottom = 424.0
+custom_styles/separator = ExtResource( 57 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="EditResize/EditObjective/S/A"]
+margin_top = 432.0
+margin_right = 308.0
+margin_bottom = 488.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_OBJECTIVE_TYPE"
+autowrap = true
+
+[node name="Objective" type="OptionButton" parent="EditResize/EditObjective/S/A"]
+margin_top = 496.0
+margin_right = 308.0
+margin_bottom = 529.0
+theme = ExtResource( 36 )
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="EditResize/EditObjective/S/A"]
+margin_top = 537.0
+margin_right = 308.0
+margin_bottom = 593.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_OBJECTIVE_PARAM"
+autowrap = true
+
+[node name="TabContainer" type="TabContainer" parent="EditResize/EditObjective/S/A"]
+margin_top = 601.0
+margin_right = 308.0
+margin_bottom = 706.0
+custom_styles/panel = SubResource( 4 )
+tabs_visible = false
+use_hidden_tabs_for_min_size = true
+script = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="None2" type="Label" parent="EditResize/EditObjective/S/A/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 64, 32 )
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 0, 0, 0, 0.501961 )
+text = "I18N_EDIT_NO_OPTIONS"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Time" type="VBoxContainer" parent="EditResize/EditObjective/S/A/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="EditResize/EditObjective/S/A/TabContainer/Time"]
+margin_right = 320.0
+margin_bottom = 13.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = " I18N_TIME_FORMAT"
+
+[node name="H" type="HBoxContainer" parent="EditResize/EditObjective/S/A/TabContainer/Time"]
+margin_top = 21.0
+margin_right = 320.0
+margin_bottom = 46.0
+
+[node name="Decrement2" type="Button" parent="EditResize/EditObjective/S/A/TabContainer/Time/H"]
+margin_right = 24.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+script = ExtResource( 65 )
+decrement = true
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditObjective/S/A/TabContainer/Time/H/Decrement2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 47 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Increment2" type="Button" parent="EditResize/EditObjective/S/A/TabContainer/Time/H"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+flat = true
+script = ExtResource( 65 )
+
+[node name="TextureRect2" type="TextureRect" parent="EditResize/EditObjective/S/A/TabContainer/Time/H/Increment2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 46 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Minutes" type="SpinBox" parent="EditResize/EditObjective/S/A/TabContainer/Time/H"]
+margin_left = 64.0
+margin_right = 128.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_vertical = 0
+theme = ExtResource( 45 )
+max_value = 15.0
+align = 2
+script = ExtResource( 64 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Decrement3" type="Button" parent="EditResize/EditObjective/S/A/TabContainer/Time/H"]
+margin_left = 136.0
+margin_right = 160.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+script = ExtResource( 65 )
+decrement = true
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditObjective/S/A/TabContainer/Time/H/Decrement3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 47 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Increment3" type="Button" parent="EditResize/EditObjective/S/A/TabContainer/Time/H"]
+margin_left = 168.0
+margin_right = 192.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+flat = true
+script = ExtResource( 65 )
+
+[node name="TextureRect2" type="TextureRect" parent="EditResize/EditObjective/S/A/TabContainer/Time/H/Increment3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 46 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seconds" type="SpinBox" parent="EditResize/EditObjective/S/A/TabContainer/Time/H"]
+margin_left = 200.0
+margin_right = 264.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_vertical = 0
+theme = ExtResource( 45 )
+max_value = 59.0
+align = 2
+script = ExtResource( 64 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Page2" type="VBoxContainer" parent="EditResize/EditObjective/S/A/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Number" type="HBoxContainer" parent="EditResize/EditObjective/S/A/TabContainer/Page2"]
+margin_right = 128.0
+margin_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 8
+
+[node name="Decrement" type="Button" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Number"]
+margin_right = 24.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+script = ExtResource( 65 )
+decrement = true
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Number/Decrement"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 47 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Increment" type="Button" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Number"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 4
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+flat = true
+script = ExtResource( 65 )
+
+[node name="TextureRect2" type="TextureRect" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Number/Increment"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 46 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="SpinBox" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Number"]
+margin_left = 64.0
+margin_right = 128.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 64, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource( 45 )
+min_value = 1.0
+value = 1.0
+align = 2
+script = ExtResource( 64 )
+
+[node name="Color" type="HBoxContainer" parent="EditResize/EditObjective/S/A/TabContainer/Page2"]
+margin_left = 6.0
+margin_top = 33.0
+margin_right = 314.0
+margin_bottom = 97.0
+size_flags_horizontal = 4
+custom_constants/separation = 4
+script = ExtResource( 66 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="C0" type="CheckButton" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Color"]
+margin_right = 48.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 48, 64 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+custom_icons/off = ExtResource( 67 )
+custom_icons/on_disabled = ExtResource( 68 )
+custom_icons/on = ExtResource( 68 )
+custom_icons/off_disabled = ExtResource( 67 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/hover_pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 40 )
+clip_text = true
+align = 1
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Color/C0"]
+position = Vector2( 8, 8 )
+frames = ExtResource( 43 )
+animation = "idle"
+centered = false
+script = ExtResource( 16 )
+sprite_name = "V0"
+
+[node name="C1" type="CheckButton" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Color"]
+margin_left = 52.0
+margin_right = 100.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 48, 64 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+custom_icons/off = ExtResource( 67 )
+custom_icons/on_disabled = ExtResource( 68 )
+custom_icons/on = ExtResource( 68 )
+custom_icons/off_disabled = ExtResource( 67 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/hover_pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 40 )
+clip_text = true
+align = 1
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Color/C1"]
+position = Vector2( 8, 8 )
+frames = ExtResource( 43 )
+animation = "idle"
+centered = false
+script = ExtResource( 16 )
+sprite_name = "V1"
+
+[node name="C2" type="CheckButton" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Color"]
+margin_left = 104.0
+margin_right = 152.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 48, 64 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+custom_icons/off = ExtResource( 67 )
+custom_icons/on_disabled = ExtResource( 68 )
+custom_icons/on = ExtResource( 68 )
+custom_icons/off_disabled = ExtResource( 67 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/hover_pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 40 )
+clip_text = true
+align = 1
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Color/C2"]
+position = Vector2( 8, 8 )
+frames = ExtResource( 43 )
+animation = "idle"
+centered = false
+script = ExtResource( 16 )
+sprite_name = "V2"
+
+[node name="C3" type="CheckButton" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Color"]
+margin_left = 156.0
+margin_right = 204.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 48, 64 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+custom_icons/off = ExtResource( 67 )
+custom_icons/on_disabled = ExtResource( 68 )
+custom_icons/on = ExtResource( 68 )
+custom_icons/off_disabled = ExtResource( 67 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/hover_pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 40 )
+clip_text = true
+align = 1
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Color/C3"]
+position = Vector2( 8, 8 )
+frames = ExtResource( 43 )
+animation = "idle"
+centered = false
+script = ExtResource( 16 )
+sprite_name = "V3"
+
+[node name="C4" type="CheckButton" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Color"]
+margin_left = 208.0
+margin_right = 256.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 48, 64 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+custom_icons/off = ExtResource( 67 )
+custom_icons/on_disabled = ExtResource( 68 )
+custom_icons/on = ExtResource( 68 )
+custom_icons/off_disabled = ExtResource( 67 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/hover_pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 40 )
+clip_text = true
+align = 1
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Color/C4"]
+position = Vector2( 8, 8 )
+frames = ExtResource( 43 )
+animation = "idle"
+centered = false
+script = ExtResource( 16 )
+sprite_name = "V4"
+
+[node name="C5" type="CheckButton" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Color"]
+margin_left = 260.0
+margin_right = 308.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 48, 64 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+custom_icons/off = ExtResource( 67 )
+custom_icons/on_disabled = ExtResource( 68 )
+custom_icons/on = ExtResource( 68 )
+custom_icons/off_disabled = ExtResource( 67 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/hover_pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 40 )
+clip_text = true
+align = 1
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="EditResize/EditObjective/S/A/TabContainer/Page2/Color/C5"]
+position = Vector2( 8, 8 )
+frames = ExtResource( 43 )
+animation = "idle"
+centered = false
+script = ExtResource( 16 )
+sprite_name = "V5"
+
+[node name="Score" type="HBoxContainer" parent="EditResize/EditObjective/S/A/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 8
+
+[node name="Decrement2" type="Button" parent="EditResize/EditObjective/S/A/TabContainer/Score"]
+margin_right = 24.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+script = ExtResource( 65 )
+decrement = true
+multiplier = 1000.0
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditObjective/S/A/TabContainer/Score/Decrement2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.0
+margin_top = -12.0
+margin_right = 4.0
+margin_bottom = 4.0
+texture = ExtResource( 47 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="EditResize/EditObjective/S/A/TabContainer/Score/Decrement2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 12.0
+margin_bottom = 12.0
+texture = ExtResource( 47 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Decrement" type="Button" parent="EditResize/EditObjective/S/A/TabContainer/Score"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+script = ExtResource( 65 )
+decrement = true
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditObjective/S/A/TabContainer/Score/Decrement"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 47 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Increment" type="Button" parent="EditResize/EditObjective/S/A/TabContainer/Score"]
+margin_left = 64.0
+margin_right = 88.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+flat = true
+script = ExtResource( 65 )
+
+[node name="TextureRect2" type="TextureRect" parent="EditResize/EditObjective/S/A/TabContainer/Score/Increment"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 46 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Increment2" type="Button" parent="EditResize/EditObjective/S/A/TabContainer/Score"]
+margin_left = 96.0
+margin_right = 120.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+flat = true
+script = ExtResource( 65 )
+multiplier = 1000.0
+
+[node name="TextureRect2" type="TextureRect" parent="EditResize/EditObjective/S/A/TabContainer/Score/Increment2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.0
+margin_top = -12.0
+margin_right = 4.0
+margin_bottom = 4.0
+texture = ExtResource( 46 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="EditResize/EditObjective/S/A/TabContainer/Score/Increment2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 12.0
+margin_bottom = 12.0
+texture = ExtResource( 46 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="SpinBox" parent="EditResize/EditObjective/S/A/TabContainer/Score"]
+margin_left = 128.0
+margin_right = 373.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 64, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource( 45 )
+max_value = 1e+08
+align = 2
+suffix = "pt"
+script = ExtResource( 64 )
+
+[node name="HSeparator2" type="HSeparator" parent="EditResize/EditObjective/S/A"]
+margin_top = 714.0
+margin_right = 308.0
+margin_bottom = 722.0
+custom_styles/separator = ExtResource( 57 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="EditResize/EditObjective/S/A"]
+margin_top = 730.0
+margin_right = 308.0
+margin_bottom = 755.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_TITLE"
+autowrap = true
+
+[node name="Label4" type="Label" parent="EditResize/EditObjective/S/A"]
+margin_top = 763.0
+margin_right = 308.0
+margin_bottom = 785.0
+custom_fonts/font = ExtResource( 58 )
+custom_colors/font_color = Color( 0, 0, 0, 0.752941 )
+text = "I18N_EDIT_TITLE_HELP"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleBox" type="HBoxContainer" parent="EditResize/EditObjective/S/A"]
+margin_top = 793.0
+margin_right = 308.0
+margin_bottom = 826.0
+custom_constants/separation = 0
+
+[node name="Title" type="LineEdit" parent="EditResize/EditObjective/S/A/TitleBox"]
+margin_right = 260.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 3
+theme = ExtResource( 45 )
+caret_blink = true
+
+[node name="TitleLength" type="Label" parent="EditResize/EditObjective/S/A/TitleBox"]
+margin_left = 260.0
+margin_top = 4.0
+margin_right = 308.0
+margin_bottom = 29.0
+grow_horizontal = 0
+rect_min_size = Vector2( 32, 16 )
+size_flags_horizontal = 0
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0/64"
+align = 2
+valign = 1
+
+[node name="Label6" type="Label" parent="EditResize/EditObjective/S/A"]
+margin_top = 834.0
+margin_right = 308.0
+margin_bottom = 859.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_AUTHOR"
+autowrap = true
+
+[node name="AuthorBox" type="HBoxContainer" parent="EditResize/EditObjective/S/A"]
+margin_top = 867.0
+margin_right = 308.0
+margin_bottom = 900.0
+custom_constants/separation = 0
+
+[node name="Author" type="LineEdit" parent="EditResize/EditObjective/S/A/AuthorBox"]
+margin_right = 260.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 3
+theme = ExtResource( 45 )
+caret_blink = true
+
+[node name="AuthorLength" type="Label" parent="EditResize/EditObjective/S/A/AuthorBox"]
+margin_left = 260.0
+margin_top = 4.0
+margin_right = 308.0
+margin_bottom = 29.0
+grow_horizontal = 0
+rect_min_size = Vector2( 32, 16 )
+size_flags_horizontal = 0
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0/64"
+align = 2
+valign = 1
+
+[node name="HSeparator4" type="HSeparator" parent="EditResize/EditObjective/S/A"]
+margin_top = 908.0
+margin_right = 308.0
+margin_bottom = 916.0
+custom_styles/separator = ExtResource( 57 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer2" type="Control" parent="EditResize/EditObjective/S/A"]
+margin_top = 924.0
+margin_bottom = 1084.0
+rect_min_size = Vector2( 0, 160 )
+focus_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="ButtonExit" type="TextureButton" parent="EditResize/EditObjective"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -64.0
+margin_bottom = 64.0
+focus_neighbour_left = NodePath("../ButtonObjective")
+focus_neighbour_bottom = NodePath("../ButtonNext")
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EditNext" type="NinePatchRect" parent="EditResize"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 28 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+script = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A" type="VBoxContainer" parent="EditResize/EditNext"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 16.0
+margin_right = -20.0
+margin_bottom = -16.0
+size_flags_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="EditResize/EditNext/A"]
+margin_right = 321.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_END_QUEUE"
+
+[node name="H" type="VBoxContainer" parent="EditResize/EditNext/A"]
+margin_top = 33.0
+margin_right = 321.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 256, 0 )
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="EditResize/EditNext/A/H"]
+margin_top = 4.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 128, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+autowrap = true
+
+[node name="OptionButton" type="OptionButton" parent="EditResize/EditNext/A/H"]
+margin_left = 8.0
+margin_right = 321.938
+margin_bottom = 33.0
+rect_min_size = Vector2( 0, 32 )
+focus_neighbour_right = NodePath("../../../ButtonExit")
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource( 36 )
+text = "I18N_EDIT_END_RANDOM"
+icon = ExtResource( 34 )
+items = [ "I18N_EDIT_END_GAMEOVER", ExtResource( 33 ), false, 0, null, "I18N_EDIT_END_LOOP", ExtResource( 32 ), false, 1, null, "I18N_EDIT_END_RANDOM", ExtResource( 34 ), false, 2, null ]
+selected = 2
+
+[node name="TabContainer" type="TabContainer" parent="EditResize/EditNext/A"]
+margin_top = 74.0
+margin_right = 321.0
+margin_bottom = 151.0
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource( 42 )
+tab_align = 2
+tabs_visible = false
+use_hidden_tabs_for_min_size = true
+script = ExtResource( 37 )
+
+[node name="Label" type="Label" parent="EditResize/EditNext/A/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 4.0
+margin_right = -12.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 64, 32 )
+custom_colors/font_color = Color( 0, 0, 0, 0.501961 )
+text = "I18N_EDIT_NO_OPTIONS"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="B" type="VBoxContainer" parent="EditResize/EditNext/A/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 4.0
+margin_right = -12.0
+margin_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 8
+
+[node name="Label" type="Label" parent="EditResize/EditNext/A/TabContainer/B"]
+margin_top = 4.0
+margin_right = 414.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_INDEX"
+autowrap = true
+
+[node name="C" type="HBoxContainer" parent="EditResize/EditNext/A/TabContainer/B"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Decrement" type="Button" parent="EditResize/EditNext/A/TabContainer/B/C"]
+margin_left = 422.0
+margin_top = 6.0
+margin_right = 446.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditNext/A/TabContainer/B/C/Decrement"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 47 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Increment" type="Button" parent="EditResize/EditNext/A/TabContainer/B/C"]
+margin_left = 454.0
+margin_top = 6.0
+margin_right = 478.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 24, 24 )
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+size_flags_vertical = 4
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="EditResize/EditNext/A/TabContainer/B/C/Increment"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 46 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RangeSelector" type="SpinBox" parent="EditResize/EditNext/A/TabContainer/B/C"]
+margin_left = 486.0
+margin_right = 550.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 64, 24 )
+size_flags_vertical = 4
+theme = ExtResource( 45 )
+align = 2
+script = ExtResource( 64 )
+
+[node name="A" type="VBoxContainer" parent="EditResize/EditNext/A/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 4.0
+margin_right = -12.0
+margin_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+custom_constants/separation = 12
+
+[node name="Label" type="Label" parent="EditResize/EditNext/A/TabContainer/A"]
+margin_right = 550.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_ALLOWED_COLORS"
+
+[node name="B" type="HBoxContainer" parent="EditResize/EditNext/A/TabContainer/A"]
+margin_top = 41.0
+margin_right = 550.0
+margin_bottom = 73.0
+
+[node name="EditColorButton0" type="CheckButton" parent="EditResize/EditNext/A/TabContainer/A/B"]
+margin_right = 24.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 24, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource( 42 )
+custom_icons/off = ExtResource( 41 )
+custom_icons/on_disabled = ExtResource( 35 )
+custom_icons/on = ExtResource( 35 )
+custom_icons/off_disabled = ExtResource( 41 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/hover_pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+icon = ExtResource( 40 )
+clip_text = true
+align = 1
+expand_icon = true
+script = ExtResource( 59 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="EditResize/EditNext/A/TabContainer/A/B/EditColorButton0"]
+position = Vector2( 4, 4 )
+frames = ExtResource( 43 )
+animation = "idle"
+centered = false
+script = ExtResource( 16 )
+ideal_size = Vector2( 16, 16 )
+sprite_name = "Block1"
+
+[node name="EditColorButton1" type="CheckButton" parent="EditResize/EditNext/A/TabContainer/A/B"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 24, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource( 42 )
+custom_icons/off = ExtResource( 41 )
+custom_icons/on_disabled = ExtResource( 35 )
+custom_icons/on = ExtResource( 35 )
+custom_icons/off_disabled = ExtResource( 41 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/hover_pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+icon = ExtResource( 40 )
+clip_text = true
+align = 1
+expand_icon = true
+script = ExtResource( 59 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="EditResize/EditNext/A/TabContainer/A/B/EditColorButton1"]
+position = Vector2( 4, 4 )
+frames = ExtResource( 43 )
+animation = "idle"
+centered = false
+script = ExtResource( 16 )
+ideal_size = Vector2( 16, 16 )
+sprite_name = "Block2"
+
+[node name="EditColorButton2" type="CheckButton" parent="EditResize/EditNext/A/TabContainer/A/B"]
+margin_left = 64.0
+margin_right = 88.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 24, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource( 42 )
+custom_icons/off = ExtResource( 41 )
+custom_icons/on_disabled = ExtResource( 35 )
+custom_icons/on = ExtResource( 35 )
+custom_icons/off_disabled = ExtResource( 41 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/hover_pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+icon = ExtResource( 40 )
+clip_text = true
+align = 1
+expand_icon = true
+script = ExtResource( 59 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="EditResize/EditNext/A/TabContainer/A/B/EditColorButton2"]
+position = Vector2( 4, 4 )
+frames = ExtResource( 43 )
+animation = "idle"
+centered = false
+script = ExtResource( 16 )
+ideal_size = Vector2( 16, 16 )
+sprite_name = "Block3"
+
+[node name="EditColorButton3" type="CheckButton" parent="EditResize/EditNext/A/TabContainer/A/B"]
+margin_left = 96.0
+margin_right = 120.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 24, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource( 42 )
+custom_icons/off = ExtResource( 41 )
+custom_icons/on_disabled = ExtResource( 35 )
+custom_icons/on = ExtResource( 35 )
+custom_icons/off_disabled = ExtResource( 41 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/hover_pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+icon = ExtResource( 40 )
+clip_text = true
+align = 1
+expand_icon = true
+script = ExtResource( 59 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="EditResize/EditNext/A/TabContainer/A/B/EditColorButton3"]
+position = Vector2( 4, 4 )
+frames = ExtResource( 43 )
+animation = "idle"
+centered = false
+script = ExtResource( 16 )
+ideal_size = Vector2( 16, 16 )
+sprite_name = "Block4"
+
+[node name="EditColorButton4" type="CheckButton" parent="EditResize/EditNext/A/TabContainer/A/B"]
+margin_left = 128.0
+margin_right = 152.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 24, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource( 42 )
+custom_icons/off = ExtResource( 41 )
+custom_icons/on_disabled = ExtResource( 35 )
+custom_icons/on = ExtResource( 35 )
+custom_icons/off_disabled = ExtResource( 41 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/hover_pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+icon = ExtResource( 40 )
+clip_text = true
+align = 1
+expand_icon = true
+script = ExtResource( 59 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="EditResize/EditNext/A/TabContainer/A/B/EditColorButton4"]
+position = Vector2( 4, 4 )
+frames = ExtResource( 43 )
+animation = "idle"
+centered = false
+script = ExtResource( 16 )
+ideal_size = Vector2( 16, 16 )
+sprite_name = "Block5"
+
+[node name="WarnLabel" type="Label" parent="EditResize/EditNext/A"]
+margin_top = 159.0
+margin_right = 321.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.858824, 0.482353, 0, 1 )
+autowrap = true
+
+[node name="Label" type="Label" parent="EditResize/EditNext/A"]
+margin_top = 192.0
+margin_right = 321.0
+margin_bottom = 217.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_NEXT_QUEUE"
+
+[node name="Dominoes" type="ScrollContainer" parent="EditResize/EditNext/A"]
+margin_top = 225.0
+margin_right = 321.0
+margin_bottom = 608.0
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="EditResize/EditNext/A/Dominoes"]
+columns = 6
+
+[node name="WindowDialog" type="WindowDialog" parent="EditResize/EditNext"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource( 31 )
+popup_exclusive = true
+script = ExtResource( 48 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditResize/EditNext/WindowDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="EditResize/EditNext/WindowDialog/VBoxContainer"]
+margin_right = 296.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+custom_styles/panel = ExtResource( 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="EditResize/EditNext/WindowDialog/VBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Editing domino at index %d"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator2" type="HSeparator" parent="EditResize/EditNext/WindowDialog/VBoxContainer"]
+margin_top = 34.0
+margin_right = 296.0
+margin_bottom = 42.0
+custom_styles/separator = ExtResource( 57 )
+
+[node name="Label" type="Label" parent="EditResize/EditNext/WindowDialog/VBoxContainer"]
+margin_top = 44.0
+margin_right = 296.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 4.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Colors"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A" type="HBoxContainer" parent="EditResize/EditNext/WindowDialog/VBoxContainer"]
+margin_top = 59.0
+margin_right = 296.0
+margin_bottom = 127.0
+
+[node name="Control2" type="Control" parent="EditResize/EditNext/WindowDialog/VBoxContainer/A"]
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="EditResize/EditNext/WindowDialog/VBoxContainer/A"]
+margin_left = 101.0
+margin_right = 194.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditNext/WindowDialog/VBoxContainer/A/Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -24.0
+margin_right = 24.0
+margin_bottom = 24.0
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="EditResize/EditNext/WindowDialog/VBoxContainer/A"]
+margin_left = 202.0
+margin_right = 202.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="OuterDominoRow" parent="EditResize/EditNext/WindowDialog/VBoxContainer" instance=ExtResource( 49 )]
+margin_top = 129.0
+margin_bottom = 197.0
+
+[node name="CenterDominoRow" parent="EditResize/EditNext/WindowDialog/VBoxContainer" instance=ExtResource( 49 )]
+margin_top = 199.0
+margin_bottom = 267.0
+
+[node name="HSeparator" type="HSeparator" parent="EditResize/EditNext/WindowDialog/VBoxContainer"]
+margin_top = 269.0
+margin_right = 296.0
+margin_bottom = 277.0
+custom_styles/separator = ExtResource( 57 )
+
+[node name="Label2" type="Label" parent="EditResize/EditNext/WindowDialog/VBoxContainer"]
+margin_top = 279.0
+margin_right = 296.0
+margin_bottom = 292.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 4.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Swap"
+valign = 2
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="EditResize/EditNext/WindowDialog/VBoxContainer"]
+margin_top = 294.0
+margin_right = 296.0
+margin_bottom = 307.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 4.0
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "(This will discard your changes!)"
+valign = 2
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="B" type="HBoxContainer" parent="EditResize/EditNext/WindowDialog/VBoxContainer"]
+margin_top = 309.0
+margin_right = 296.0
+margin_bottom = 357.0
+
+[node name="SwapPrev" type="Button" parent="EditResize/EditNext/WindowDialog/VBoxContainer/B"]
+margin_right = 144.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 51 )
+custom_styles/focus = ExtResource( 51 )
+custom_styles/normal = ExtResource( 50 )
+shortcut_in_tooltip = false
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditNext/WindowDialog/VBoxContainer/B/SwapPrev"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -16.0
+margin_right = 24.0
+margin_bottom = 16.0
+texture = ExtResource( 55 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SwapNext" type="Button" parent="EditResize/EditNext/WindowDialog/VBoxContainer/B"]
+margin_left = 152.0
+margin_right = 296.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 51 )
+custom_styles/focus = ExtResource( 51 )
+custom_styles/normal = ExtResource( 50 )
+shortcut_in_tooltip = false
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditNext/WindowDialog/VBoxContainer/B/SwapNext"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -16.0
+margin_right = 24.0
+margin_bottom = 16.0
+texture = ExtResource( 56 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator3" type="HSeparator" parent="EditResize/EditNext/WindowDialog/VBoxContainer"]
+margin_top = 359.0
+margin_right = 296.0
+margin_bottom = 367.0
+custom_styles/separator = ExtResource( 57 )
+
+[node name="Label3" type="Label" parent="EditResize/EditNext/WindowDialog/VBoxContainer"]
+margin_top = 369.0
+margin_right = 296.0
+margin_bottom = 382.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 4.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Save or discard"
+valign = 2
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="C" type="HBoxContainer" parent="EditResize/EditNext/WindowDialog/VBoxContainer"]
+margin_top = 384.0
+margin_right = 296.0
+margin_bottom = 432.0
+
+[node name="Overwrite" type="Button" parent="EditResize/EditNext/WindowDialog/VBoxContainer/C"]
+margin_right = 93.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+size_flags_horizontal = 3
+size_flags_vertical = 8
+custom_styles/hover = ExtResource( 51 )
+custom_styles/focus = ExtResource( 51 )
+custom_styles/normal = ExtResource( 50 )
+shortcut_in_tooltip = false
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditNext/WindowDialog/VBoxContainer/C/Overwrite"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -16.0
+margin_right = 24.0
+margin_bottom = 16.0
+texture = ExtResource( 53 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Insert" type="Button" parent="EditResize/EditNext/WindowDialog/VBoxContainer/C"]
+margin_left = 101.0
+margin_right = 194.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+size_flags_horizontal = 3
+size_flags_vertical = 8
+custom_styles/hover = ExtResource( 51 )
+custom_styles/focus = ExtResource( 51 )
+custom_styles/normal = ExtResource( 50 )
+shortcut_in_tooltip = false
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditNext/WindowDialog/VBoxContainer/C/Insert"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -16.0
+margin_right = 24.0
+margin_bottom = 16.0
+texture = ExtResource( 54 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Delete" type="Button" parent="EditResize/EditNext/WindowDialog/VBoxContainer/C"]
+margin_left = 202.0
+margin_right = 296.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+size_flags_horizontal = 3
+size_flags_vertical = 8
+custom_styles/hover = ExtResource( 51 )
+custom_styles/focus = ExtResource( 51 )
+custom_styles/normal = ExtResource( 50 )
+shortcut_in_tooltip = false
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditNext/WindowDialog/VBoxContainer/C/Delete"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -16.0
+margin_right = 24.0
+margin_bottom = 16.0
+texture = ExtResource( 52 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonExit" type="TextureButton" parent="EditResize/EditNext"]
+margin_left = 296.0
+margin_top = 4.0
+margin_right = 360.0
+margin_bottom = 68.0
+focus_neighbour_bottom = NodePath("../A/H/OptionButton")
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EditPlayfield" type="NinePatchRect" parent="EditResize"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 28 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FieldRect" type="TextureRect" parent="EditResize/EditPlayfield"]
+margin_left = 22.0
+margin_top = 22.0
+margin_right = 246.0
+margin_bottom = 470.0
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="X1" type="TextureRect" parent="EditResize/EditPlayfield/FieldRect"]
+modulate = Color( 1, 1, 1, 0.501961 )
+margin_left = 96.0
+margin_right = 128.0
+margin_bottom = 32.0
+texture = ExtResource( 17 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="X2" type="TextureRect" parent="EditResize/EditPlayfield/FieldRect"]
+modulate = Color( 1, 1, 1, 0.501961 )
+margin_left = 96.0
+margin_top = 32.0
+margin_right = 128.0
+margin_bottom = 64.0
+texture = ExtResource( 17 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="X3" type="TextureRect" parent="EditResize/EditPlayfield/FieldRect"]
+modulate = Color( 1, 1, 1, 0.501961 )
+margin_left = 96.0
+margin_top = 64.0
+margin_right = 128.0
+margin_bottom = 96.0
+texture = ExtResource( 17 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rows" type="VBoxContainer" parent="EditResize/EditPlayfield/FieldRect"]
+margin_right = 224.0
+margin_bottom = 448.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Row0" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_right = 224.0
+
+[node name="Row1" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 32.0
+margin_right = 224.0
+margin_bottom = 64.0
+
+[node name="Row2" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 64.0
+margin_right = 224.0
+margin_bottom = 96.0
+
+[node name="Row3" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 96.0
+margin_right = 224.0
+margin_bottom = 128.0
+
+[node name="Row4" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 128.0
+margin_right = 224.0
+margin_bottom = 160.0
+
+[node name="Row5" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 160.0
+margin_right = 224.0
+margin_bottom = 192.0
+
+[node name="Row6" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 192.0
+margin_right = 224.0
+margin_bottom = 224.0
+
+[node name="Row7" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 224.0
+margin_right = 224.0
+margin_bottom = 256.0
+
+[node name="Row8" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 256.0
+margin_right = 224.0
+margin_bottom = 288.0
+
+[node name="Row9" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 288.0
+margin_right = 224.0
+margin_bottom = 320.0
+
+[node name="Row10" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 320.0
+margin_right = 224.0
+margin_bottom = 352.0
+
+[node name="Row11" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 352.0
+margin_right = 224.0
+margin_bottom = 384.0
+
+[node name="Row12" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 384.0
+margin_right = 224.0
+margin_bottom = 416.0
+
+[node name="Row13" parent="EditResize/EditPlayfield/FieldRect/Rows" instance=ExtResource( 19 )]
+margin_top = 416.0
+margin_right = 224.0
+margin_bottom = 448.0
+
+[node name="PaletteRect" type="ColorRect" parent="EditResize/EditPlayfield"]
+margin_left = 264.0
+margin_top = 96.0
+margin_right = 336.0
+margin_bottom = 384.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Palette" type="VBoxContainer" parent="EditResize/EditPlayfield/PaletteRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = -2.0
+size_flags_vertical = 3
+custom_constants/separation = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Row0" type="HBoxContainer" parent="EditResize/EditPlayfield/PaletteRect/Palette"]
+margin_right = 68.0
+margin_bottom = 32.0
+custom_constants/separation = 4
+
+[node name="L" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row0" instance=ExtResource( 44 )]
+script = ExtResource( 27 )
+
+[node name="R" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row0" instance=ExtResource( 44 )]
+margin_left = 36.0
+margin_right = 68.0
+script = ExtResource( 27 )
+
+[node name="Row1" type="HBoxContainer" parent="EditResize/EditPlayfield/PaletteRect/Palette"]
+margin_top = 36.0
+margin_right = 68.0
+margin_bottom = 68.0
+custom_constants/separation = 4
+
+[node name="L" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row1" instance=ExtResource( 44 )]
+script = ExtResource( 27 )
+
+[node name="R" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row1" instance=ExtResource( 44 )]
+margin_left = 36.0
+margin_right = 68.0
+script = ExtResource( 27 )
+
+[node name="Row2" type="HBoxContainer" parent="EditResize/EditPlayfield/PaletteRect/Palette"]
+margin_top = 72.0
+margin_right = 68.0
+margin_bottom = 104.0
+custom_constants/separation = 4
+
+[node name="L" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row2" instance=ExtResource( 44 )]
+script = ExtResource( 27 )
+
+[node name="R" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row2" instance=ExtResource( 44 )]
+margin_left = 36.0
+margin_right = 68.0
+script = ExtResource( 27 )
+
+[node name="Row3" type="HBoxContainer" parent="EditResize/EditPlayfield/PaletteRect/Palette"]
+margin_top = 108.0
+margin_right = 68.0
+margin_bottom = 140.0
+custom_constants/separation = 4
+
+[node name="L" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row3" instance=ExtResource( 44 )]
+script = ExtResource( 27 )
+
+[node name="R" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row3" instance=ExtResource( 44 )]
+margin_left = 36.0
+margin_right = 68.0
+script = ExtResource( 27 )
+
+[node name="Row4" type="HBoxContainer" parent="EditResize/EditPlayfield/PaletteRect/Palette"]
+margin_top = 144.0
+margin_right = 68.0
+margin_bottom = 176.0
+custom_constants/separation = 4
+
+[node name="L" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row4" instance=ExtResource( 44 )]
+script = ExtResource( 27 )
+
+[node name="R" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row4" instance=ExtResource( 44 )]
+margin_left = 36.0
+margin_right = 68.0
+script = ExtResource( 27 )
+
+[node name="Row5" type="HBoxContainer" parent="EditResize/EditPlayfield/PaletteRect/Palette"]
+margin_top = 180.0
+margin_right = 68.0
+margin_bottom = 212.0
+custom_constants/separation = 4
+
+[node name="L" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row5" instance=ExtResource( 44 )]
+script = ExtResource( 27 )
+
+[node name="R" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row5" instance=ExtResource( 44 )]
+margin_left = 36.0
+margin_right = 68.0
+script = ExtResource( 27 )
+
+[node name="Row6" type="HBoxContainer" parent="EditResize/EditPlayfield/PaletteRect/Palette"]
+margin_top = 216.0
+margin_right = 68.0
+margin_bottom = 248.0
+custom_constants/separation = 4
+
+[node name="L" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row6" instance=ExtResource( 44 )]
+script = ExtResource( 27 )
+
+[node name="R" type="Button" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row6"]
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+shortcut_in_tooltip = false
+button_mask = 7
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row6/R"]
+shape = SubResource( 12 )
+passby_press = true
+
+[node name="ScaledSprite" type="AnimatedSprite" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row6/R"]
+frames = SubResource( 13 )
+animation = "idle"
+centered = false
+script = ExtResource( 25 )
+
+[node name="Label" type="Label" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row6/R"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 18 )
+text = "+"
+align = 2
+valign = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Row7" type="HBoxContainer" parent="EditResize/EditPlayfield/PaletteRect/Palette"]
+margin_top = 252.0
+margin_right = 68.0
+margin_bottom = 284.0
+custom_constants/separation = 4
+
+[node name="L" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row7" instance=ExtResource( 44 )]
+script = ExtResource( 27 )
+
+[node name="R" type="Button" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row7"]
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+shortcut_in_tooltip = false
+button_mask = 7
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row7/R"]
+shape = SubResource( 12 )
+passby_press = true
+
+[node name="ScaledSprite" type="AnimatedSprite" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row7/R"]
+frames = SubResource( 13 )
+animation = "idle"
+centered = false
+script = ExtResource( 25 )
+
+[node name="Label" type="Label" parent="EditResize/EditPlayfield/PaletteRect/Palette/Row7/R"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 18 )
+text = "−"
+align = 2
+valign = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="EditResize/EditPlayfield"]
+margin_left = 16.0
+margin_top = 488.0
+margin_right = 340.0
+margin_bottom = 632.0
+custom_styles/panel = ExtResource( 23 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Tabs" type="TabContainer" parent="EditResize/EditPlayfield/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 14 )
+tabs_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="EditResize/EditPlayfield/Panel/Tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 22 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_constants/line_separation = 2
+bbcode_enabled = true
+
+[node name="Label2" type="RichTextLabel" parent="EditResize/EditPlayfield/Panel/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 22 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_constants/line_separation = 2
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="RichTextLabel" parent="EditResize/EditPlayfield/Panel/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 22 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_constants/line_separation = 2
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="EditResize/EditPlayfield/Panel"]
+wait_time = 3.0
+autostart = true
+
+[node name="ButtonExit" type="TextureButton" parent="EditResize/EditPlayfield"]
+margin_left = 296.0
+margin_top = 4.0
+margin_right = 360.0
+margin_bottom = 68.0
+focus_neighbour_left = NodePath("../FieldRect/Rows/Row0")
+focus_neighbour_bottom = NodePath("../PaletteRect/Palette/Row0/L")
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EditMain" type="Control" parent="EditResize"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 360, 480 )
+rect_pivot_offset = Vector2( 180, 240 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditMain"]
+margin_top = 48.0
+margin_right = 360.0
+margin_bottom = 474.0
+texture = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ObjectiveBox" type="NinePatchRect" parent="EditResize/EditMain"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -160.0
+margin_top = 4.0
+margin_right = 108.0
+margin_bottom = 72.0
+grow_horizontal = 2
+texture = ExtResource( 60 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="TextureRect" parent="EditResize/EditMain"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 258.0
+margin_top = 78.0
+margin_right = 330.0
+margin_bottom = 298.0
+texture = ExtResource( 61 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonObjective" type="Button" parent="EditResize/EditMain"]
+margin_left = 24.0
+margin_top = 4.0
+margin_right = 286.0
+margin_bottom = 72.0
+focus_neighbour_right = NodePath("../ButtonExit")
+focus_neighbour_bottom = NodePath("../ButtonPlayfield")
+custom_styles/hover = ExtResource( 4 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="EditResize/EditMain/ButtonObjective"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_EDIT_OBJECTIVE"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonPlayfield" type="Button" parent="EditResize/EditMain"]
+margin_left = 28.0
+margin_top = 78.0
+margin_right = 252.0
+margin_bottom = 462.0
+focus_neighbour_top = NodePath("../ButtonObjective")
+focus_neighbour_right = NodePath("../ButtonNext")
+focus_neighbour_bottom = NodePath("../VBoxContainer/ButtonTest")
+custom_styles/hover = ExtResource( 4 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="EditResize/EditMain/ButtonPlayfield"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 3 )
+text = "I18N_EDIT_PLAYFIELD"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonNext" type="Button" parent="EditResize/EditMain"]
+margin_left = 258.0
+margin_top = 78.0
+margin_right = 330.0
+margin_bottom = 298.0
+focus_neighbour_left = NodePath("../ButtonPlayfield")
+focus_neighbour_top = NodePath("../ButtonObjective")
+focus_neighbour_bottom = NodePath("../VBoxContainer/ButtonTest")
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="EditResize/EditMain/ButtonNext"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 3 )
+text = "I18N_EDIT_NEXT"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditResize/EditMain"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 28.0
+margin_right = 330.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonTest" type="Button" parent="EditResize/EditMain/VBoxContainer"]
+margin_right = 302.0
+margin_bottom = 57.0
+focus_neighbour_top = NodePath("../../ButtonPlayfield")
+focus_neighbour_bottom = NodePath("../ButtonShare")
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 14 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 8 )
+custom_fonts/font = ExtResource( 3 )
+align = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditResize/EditMain/VBoxContainer/ButtonTest"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 6.0
+margin_right = -14.0
+margin_bottom = -6.0
+size_flags_vertical = 4
+custom_constants/separation = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditMain/VBoxContainer/ButtonTest/HBoxContainer"]
+margin_top = 9.0
+margin_right = 32.0
+margin_bottom = 41.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource( 7 )
+stretch_mode = 3
+
+[node name="TextEdit" type="Label" parent="EditResize/EditMain/VBoxContainer/ButtonTest/HBoxContainer"]
+margin_left = 34.0
+margin_right = 278.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+text = "I18N_EDIT_PLAYTEST"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonShare" type="Button" parent="EditResize/EditMain/VBoxContainer"]
+margin_top = 57.0
+margin_right = 302.0
+margin_bottom = 114.0
+focus_neighbour_left = NodePath("../../ButtonPlayfield")
+focus_neighbour_top = NodePath("../ButtonTest")
+focus_neighbour_bottom = NodePath("../ButtonRestart")
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 14 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 8 )
+custom_fonts/font = ExtResource( 3 )
+align = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditResize/EditMain/VBoxContainer/ButtonShare"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 6.0
+margin_right = -14.0
+margin_bottom = -6.0
+size_flags_vertical = 4
+custom_constants/separation = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditMain/VBoxContainer/ButtonShare/HBoxContainer"]
+margin_top = 6.0
+margin_right = 32.0
+margin_bottom = 38.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource( 6 )
+
+[node name="TextEdit" type="Label" parent="EditResize/EditMain/VBoxContainer/ButtonShare/HBoxContainer"]
+margin_left = 34.0
+margin_right = 278.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+text = "I18N_EDIT_SHARE"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonRestart" type="Button" parent="EditResize/EditMain/VBoxContainer"]
+margin_top = 114.0
+margin_right = 302.0
+margin_bottom = 171.0
+focus_neighbour_left = NodePath("../../ButtonPlayfield")
+focus_neighbour_top = NodePath("../ButtonShare")
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 14 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 8 )
+custom_fonts/font = ExtResource( 3 )
+align = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditResize/EditMain/VBoxContainer/ButtonRestart"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 6.0
+margin_right = -14.0
+margin_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+custom_constants/separation = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="EditResize/EditMain/VBoxContainer/ButtonRestart/HBoxContainer"]
+margin_top = 6.0
+margin_right = 32.0
+margin_bottom = 38.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource( 5 )
+
+[node name="TextEdit" type="Label" parent="EditResize/EditMain/VBoxContainer/ButtonRestart/HBoxContainer"]
+margin_left = 34.0
+margin_right = 278.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+text = "I18N_EDIT_RESET"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonExit" type="TextureButton" parent="EditResize/EditMain"]
+margin_left = 296.0
+margin_top = 4.0
+margin_right = 360.0
+margin_bottom = 68.0
+focus_neighbour_left = NodePath("../ButtonObjective")
+focus_neighbour_bottom = NodePath("../ButtonNext")
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="setting_bool_changed" from="EditResize/EditShare/scrl/A/Setting_Bool" to="EditResize/EditShare" method="_on_mode_changed"]
+[connection signal="pressed" from="EditResize/EditShare/scrl/A/HBoxContainer/Load" to="EditResize/EditShare" method="_on_Load_pressed"]
+[connection signal="pressed" from="EditResize/EditShare/scrl/A/HBoxContainer/Generate" to="EditResize/EditShare" method="_on_Generate_pressed"]
+[connection signal="pressed" from="EditResize/EditShare/scrl/A/HBoxContainer2/Load" to="EditResize/EditShare" method="_on_LoadQR_pressed"]
+[connection signal="pressed" from="EditResize/EditShare/scrl/A/HBoxContainer2/Generate" to="EditResize/EditShare" method="_on_GenerateQR_pressed"]
+[connection signal="pressed" from="EditResize/EditShare/ButtonExit" to="EditResize/EditShare" method="_on_ButtonExit_pressed"]
+[connection signal="file_selected" from="EditResize/EditShare/FileDialog" to="EditResize/EditShare" method="_on_FileDialog_file_selected"]
+[connection signal="file_selected" from="EditResize/EditShare/SaveDialog" to="EditResize/EditShare" method="_on_SaveDialog_file_selected"]
+[connection signal="decrement_by" from="EditResize/EditObjective/S/A/HBoxContainer/Decrement4" to="EditResize/EditObjective/S/A/HBoxContainer/Level" method="_decrement"]
+[connection signal="increment_by" from="EditResize/EditObjective/S/A/HBoxContainer/Increment4" to="EditResize/EditObjective/S/A/HBoxContainer/Level" method="_increment"]
+[connection signal="value_changed" from="EditResize/EditObjective/S/A/HBoxContainer/Level" to="EditResize/EditObjective" method="_on_level_changed"]
+[connection signal="decrement_by" from="EditResize/EditObjective/S/A/HBoxContainer2/Decrement4" to="EditResize/EditObjective/S/A/HBoxContainer2/Difficulty" method="_decrement"]
+[connection signal="increment_by" from="EditResize/EditObjective/S/A/HBoxContainer2/Increment4" to="EditResize/EditObjective/S/A/HBoxContainer2/Difficulty" method="_increment"]
+[connection signal="value_changed" from="EditResize/EditObjective/S/A/HBoxContainer2/Difficulty" to="EditResize/EditObjective" method="_on_difficulty_changed"]
+[connection signal="pressed" from="EditResize/EditObjective/S/A/HBoxContainer3/Random" to="EditResize/EditObjective" method="_on_Random_pressed"]
+[connection signal="decrement_by" from="EditResize/EditObjective/S/A/HBoxContainer3/Decrement4" to="EditResize/EditObjective/S/A/HBoxContainer3/Seed" method="_decrement"]
+[connection signal="increment_by" from="EditResize/EditObjective/S/A/HBoxContainer3/Increment4" to="EditResize/EditObjective/S/A/HBoxContainer3/Seed" method="_increment"]
+[connection signal="value_changed" from="EditResize/EditObjective/S/A/HBoxContainer3/Seed" to="EditResize/EditObjective" method="_on_seed_changed"]
+[connection signal="item_selected" from="EditResize/EditObjective/S/A/Objective" to="EditResize/EditObjective/S/A/TabContainer" method="_on_Objective_item_selected"]
+[connection signal="item_selected" from="EditResize/EditObjective/S/A/Objective" to="EditResize/EditObjective" method="_on_Objective_item_selected"]
+[connection signal="decrement_by" from="EditResize/EditObjective/S/A/TabContainer/Time/H/Decrement2" to="EditResize/EditObjective/S/A/TabContainer/Time/H/Minutes" method="_decrement"]
+[connection signal="increment_by" from="EditResize/EditObjective/S/A/TabContainer/Time/H/Increment2" to="EditResize/EditObjective/S/A/TabContainer/Time/H/Minutes" method="_increment"]
+[connection signal="value_changed" from="EditResize/EditObjective/S/A/TabContainer/Time/H/Minutes" to="EditResize/EditObjective" method="_on_time_changed"]
+[connection signal="decrement_by" from="EditResize/EditObjective/S/A/TabContainer/Time/H/Decrement3" to="EditResize/EditObjective/S/A/TabContainer/Time/H/Seconds" method="_decrement"]
+[connection signal="increment_by" from="EditResize/EditObjective/S/A/TabContainer/Time/H/Increment3" to="EditResize/EditObjective/S/A/TabContainer/Time/H/Seconds" method="_increment"]
+[connection signal="value_changed" from="EditResize/EditObjective/S/A/TabContainer/Time/H/Seconds" to="EditResize/EditObjective" method="_on_time_changed"]
+[connection signal="decrement_by" from="EditResize/EditObjective/S/A/TabContainer/Page2/Number/Decrement" to="EditResize/EditObjective/S/A/TabContainer/Page2/Number/Value" method="_decrement"]
+[connection signal="increment_by" from="EditResize/EditObjective/S/A/TabContainer/Page2/Number/Increment" to="EditResize/EditObjective/S/A/TabContainer/Page2/Number/Value" method="_increment"]
+[connection signal="toggled" from="EditResize/EditObjective/S/A/TabContainer/Page2/Color/C0" to="EditResize/EditObjective/S/A/TabContainer/Page2/Color" method="_on_child_toggled" binds= [ 0 ]]
+[connection signal="toggled" from="EditResize/EditObjective/S/A/TabContainer/Page2/Color/C1" to="EditResize/EditObjective/S/A/TabContainer/Page2/Color" method="_on_child_toggled" binds= [ 1 ]]
+[connection signal="toggled" from="EditResize/EditObjective/S/A/TabContainer/Page2/Color/C2" to="EditResize/EditObjective/S/A/TabContainer/Page2/Color" method="_on_child_toggled" binds= [ 2 ]]
+[connection signal="toggled" from="EditResize/EditObjective/S/A/TabContainer/Page2/Color/C3" to="EditResize/EditObjective/S/A/TabContainer/Page2/Color" method="_on_child_toggled" binds= [ 3 ]]
+[connection signal="toggled" from="EditResize/EditObjective/S/A/TabContainer/Page2/Color/C4" to="EditResize/EditObjective/S/A/TabContainer/Page2/Color" method="_on_child_toggled" binds= [ 4 ]]
+[connection signal="toggled" from="EditResize/EditObjective/S/A/TabContainer/Page2/Color/C5" to="EditResize/EditObjective/S/A/TabContainer/Page2/Color" method="_on_child_toggled" binds= [ 5 ]]
+[connection signal="decrement_by" from="EditResize/EditObjective/S/A/TabContainer/Score/Decrement2" to="EditResize/EditObjective/S/A/TabContainer/Score/Value" method="_decrement"]
+[connection signal="increment_by" from="EditResize/EditObjective/S/A/TabContainer/Score/Decrement2" to="EditResize/EditObjective/S/A/TabContainer/Score/Value" method="_increment"]
+[connection signal="decrement_by" from="EditResize/EditObjective/S/A/TabContainer/Score/Decrement" to="EditResize/EditObjective/S/A/TabContainer/Score/Value" method="_decrement"]
+[connection signal="increment_by" from="EditResize/EditObjective/S/A/TabContainer/Score/Decrement" to="EditResize/EditObjective/S/A/TabContainer/Score/Value" method="_increment"]
+[connection signal="decrement_by" from="EditResize/EditObjective/S/A/TabContainer/Score/Increment" to="EditResize/EditObjective/S/A/TabContainer/Score/Value" method="_decrement"]
+[connection signal="increment_by" from="EditResize/EditObjective/S/A/TabContainer/Score/Increment" to="EditResize/EditObjective/S/A/TabContainer/Score/Value" method="_increment"]
+[connection signal="decrement_by" from="EditResize/EditObjective/S/A/TabContainer/Score/Increment2" to="EditResize/EditObjective/S/A/TabContainer/Score/Value" method="_decrement"]
+[connection signal="increment_by" from="EditResize/EditObjective/S/A/TabContainer/Score/Increment2" to="EditResize/EditObjective/S/A/TabContainer/Score/Value" method="_increment"]
+[connection signal="gui_input" from="EditResize/EditObjective/S/A/TitleBox/Title" to="." method="_on_textbox_gui_input"]
+[connection signal="text_changed" from="EditResize/EditObjective/S/A/TitleBox/Title" to="EditResize/EditObjective" method="_on_Title_text_changed"]
+[connection signal="gui_input" from="EditResize/EditObjective/S/A/AuthorBox/Author" to="." method="_on_textbox_gui_input"]
+[connection signal="text_changed" from="EditResize/EditObjective/S/A/AuthorBox/Author" to="EditResize/EditObjective" method="_on_Author_text_changed"]
+[connection signal="pressed" from="EditResize/EditObjective/ButtonExit" to="EditResize/EditObjective" method="_on_ButtonExit_pressed"]
+[connection signal="item_selected" from="EditResize/EditNext/A/H/OptionButton" to="EditResize/EditNext/A/TabContainer" method="_paginate"]
+[connection signal="pressed" from="EditResize/EditNext/A/TabContainer/B/C/Decrement" to="EditResize/EditNext/A/TabContainer/B/C/RangeSelector" method="_decrement"]
+[connection signal="pressed" from="EditResize/EditNext/A/TabContainer/B/C/Increment" to="EditResize/EditNext/A/TabContainer/B/C/RangeSelector" method="_increment"]
+[connection signal="value_changed" from="EditResize/EditNext/A/TabContainer/B/C/RangeSelector" to="EditResize/EditNext" method="_on_loop_index_changed"]
+[connection signal="color_check" from="EditResize/EditNext/A/TabContainer/A/B/EditColorButton0" to="EditResize/EditNext" method="_on_color_check"]
+[connection signal="color_check" from="EditResize/EditNext/A/TabContainer/A/B/EditColorButton1" to="EditResize/EditNext" method="_on_color_check"]
+[connection signal="color_check" from="EditResize/EditNext/A/TabContainer/A/B/EditColorButton2" to="EditResize/EditNext" method="_on_color_check"]
+[connection signal="color_check" from="EditResize/EditNext/A/TabContainer/A/B/EditColorButton3" to="EditResize/EditNext" method="_on_color_check"]
+[connection signal="color_check" from="EditResize/EditNext/A/TabContainer/A/B/EditColorButton4" to="EditResize/EditNext" method="_on_color_check"]
+[connection signal="pressed" from="EditResize/EditNext/WindowDialog/VBoxContainer/A/Button" to="EditResize/EditNext/WindowDialog" method="_on_X_pressed"]
+[connection signal="domino_row_changed" from="EditResize/EditNext/WindowDialog/VBoxContainer/OuterDominoRow" to="EditResize/EditNext/WindowDialog" method="_on_domino_row_changed"]
+[connection signal="domino_row_changed" from="EditResize/EditNext/WindowDialog/VBoxContainer/CenterDominoRow" to="EditResize/EditNext/WindowDialog" method="_on_domino_row_changed"]
+[connection signal="pressed" from="EditResize/EditNext/WindowDialog/VBoxContainer/B/SwapPrev" to="EditResize/EditNext/WindowDialog" method="_on_prev_pressed"]
+[connection signal="pressed" from="EditResize/EditNext/WindowDialog/VBoxContainer/B/SwapNext" to="EditResize/EditNext/WindowDialog" method="_on_next_pressed"]
+[connection signal="pressed" from="EditResize/EditNext/WindowDialog/VBoxContainer/C/Overwrite" to="EditResize/EditNext/WindowDialog" method="_on_overwrite_pressed"]
+[connection signal="pressed" from="EditResize/EditNext/WindowDialog/VBoxContainer/C/Insert" to="EditResize/EditNext/WindowDialog" method="_on_insert_pressed"]
+[connection signal="pressed" from="EditResize/EditNext/WindowDialog/VBoxContainer/C/Delete" to="EditResize/EditNext/WindowDialog" method="_on_delete_pressed"]
+[connection signal="pressed" from="EditResize/EditNext/ButtonExit" to="EditResize/EditNext" method="_on_ButtonExit_pressed"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row0" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row0" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row0" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row0" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row1" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row1" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row1" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row1" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row2" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row2" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row2" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row2" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row3" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row3" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row3" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row3" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row4" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row4" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row4" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row4" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row5" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row5" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row5" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row5" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row6" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row6" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row6" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row6" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row7" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row7" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row7" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row7" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row8" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row8" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row8" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row8" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row9" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row9" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row9" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row9" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row10" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row10" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row10" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row10" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row11" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row11" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row11" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row11" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row12" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row12" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row12" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row12" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="hp_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row13" to="EditResize/EditPlayfield" method="_on_hp_cursor"]
+[connection signal="piece_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row13" to="EditResize/EditPlayfield" method="_on_piece_click"]
+[connection signal="piece_right_click" from="EditResize/EditPlayfield/FieldRect/Rows/Row13" to="EditResize/EditPlayfield" method="_on_piece_right_click"]
+[connection signal="select_cursor" from="EditResize/EditPlayfield/FieldRect/Rows/Row13" to="EditResize/EditPlayfield" method="_on_select_cursor"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row0/L" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row0/R" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row1/L" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row1/R" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row2/L" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row2/R" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row3/L" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row3/R" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row4/L" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row4/R" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row5/L" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row5/R" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row6/L" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="gui_input" from="EditResize/EditPlayfield/PaletteRect/Palette/Row6/R" to="EditResize/EditPlayfield/PaletteRect/Palette/Row6/R" method="_on_self_gui_input"]
+[connection signal="pressed" from="EditResize/EditPlayfield/PaletteRect/Palette/Row6/R" to="EditResize/EditPlayfield" method="_on_hp_cursor" binds= [ true ]]
+[connection signal="pressed" from="EditResize/EditPlayfield/PaletteRect/Palette/Row6/R/TouchScreenButton" to="EditResize/EditPlayfield/PaletteRect/Palette/Row6/R" method="_on_TouchScreenButton_pressed"]
+[connection signal="select_piece" from="EditResize/EditPlayfield/PaletteRect/Palette/Row7/L" to="EditResize/EditPlayfield" method="_on_select_piece"]
+[connection signal="gui_input" from="EditResize/EditPlayfield/PaletteRect/Palette/Row7/R" to="EditResize/EditPlayfield/PaletteRect/Palette/Row7/R" method="_on_self_gui_input"]
+[connection signal="pressed" from="EditResize/EditPlayfield/PaletteRect/Palette/Row7/R" to="EditResize/EditPlayfield" method="_on_hp_cursor" binds= [ false ]]
+[connection signal="pressed" from="EditResize/EditPlayfield/PaletteRect/Palette/Row7/R/TouchScreenButton" to="EditResize/EditPlayfield/PaletteRect/Palette/Row7/R" method="_on_TouchScreenButton_pressed"]
+[connection signal="timeout" from="EditResize/EditPlayfield/Panel/Timer" to="EditResize/EditPlayfield" method="_on_Timer_timeout"]
+[connection signal="pressed" from="EditResize/EditPlayfield/ButtonExit" to="EditResize/EditPlayfield" method="_on_ButtonExit_pressed"]
+[connection signal="pressed" from="EditResize/EditMain/ButtonObjective" to="." method="_on_ButtonObjective_pressed"]
+[connection signal="pressed" from="EditResize/EditMain/ButtonPlayfield" to="." method="_on_ButtonPlayfield_pressed"]
+[connection signal="pressed" from="EditResize/EditMain/ButtonNext" to="." method="_on_ButtonNext_pressed"]
+[connection signal="pressed" from="EditResize/EditMain/VBoxContainer/ButtonTest" to="." method="_on_ButtonTest_pressed"]
+[connection signal="pressed" from="EditResize/EditMain/VBoxContainer/ButtonShare" to="." method="_on_ButtonShare_pressed"]
+[connection signal="pressed" from="EditResize/EditMain/VBoxContainer/ButtonRestart" to="." method="_on_ButtonRestart_pressed"]
+[connection signal="pressed" from="EditResize/EditMain/ButtonExit" to="." method="_on_ButtonExit_pressed"]

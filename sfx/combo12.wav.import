@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/combo12.wav-1d79cd3055d6e2299e5fb4ffee41a378.sample"
+
+[deps]
+
+source_file="res://sfx/combo12.wav"
+dest_files=[ "res://.import/combo12.wav-1d79cd3055d6e2299e5fb4ffee41a378.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

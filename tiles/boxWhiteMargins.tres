@@ -1,0 +1,19 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=2]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/bubbleWhite.png-a49f5a90323681d78fec9aed461a3d57.stex"
+
+[resource]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+texture = SubResource( 1 )
+region_rect = Rect2( 0, 0, 32, 32 )
+margin_left = 12.0
+margin_right = 12.0
+margin_top = 14.0
+margin_bottom = 14.0
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+axis_stretch_horizontal = 1

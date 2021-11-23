@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/mask.png-f5fd4753ce1f9615f713fd74f09df102.res"
+
+[deps]
+
+source_file="res://gamepad/mask.png"
+dest_files=[ "res://.import/mask.png-f5fd4753ce1f9615f713fd74f09df102.res" ]
+
+[params]
+
+create_from=1
+threshold=0.5

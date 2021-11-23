@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://EditPiece.gd" type="Script" id=1]
+[ext_resource path="res://fonts/SWAP_Piece.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ThemedScaledSprite.gd" type="Script" id=3]
+[ext_resource path="res://tiles/cursorBox.stylebox.tres" type="StyleBox" id=4]
+[ext_resource path="res://sprites/Gen3/Wall.spriteframes.tres" type="SpriteFrames" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="0" type="Button"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+shortcut_in_tooltip = false
+button_mask = 7
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemedScaledSprite" type="AnimatedSprite" parent="."]
+visible = false
+frames = ExtResource( 5 )
+animation = "idle"
+centered = false
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+align = 2
+valign = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="gui_input" from="." to="." method="_on_self_gui_input"]

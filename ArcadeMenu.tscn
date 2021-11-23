@@ -1,0 +1,461 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://buttons/exit_pressed.png" type="Texture" id=1]
+[ext_resource path="res://buttons/exit_active.png" type="Texture" id=2]
+[ext_resource path="res://buttons/exit_normal.png" type="Texture" id=3]
+[ext_resource path="res://ArcadeMenuMode.gd" type="Script" id=4]
+[ext_resource path="res://ArcadeMenu.gd" type="Script" id=5]
+[ext_resource path="res://tiles/decorativeWindow.png" type="Texture" id=6]
+[ext_resource path="res://i18n/logo_en.png" type="Texture" id=7]
+[ext_resource path="res://fonts/decorative_big.tres" type="DynamicFont" id=8]
+[ext_resource path="res://menuTheme.tres" type="Theme" id=9]
+[ext_resource path="res://fonts/SWAP_12_Bold.tres" type="DynamicFont" id=10]
+[ext_resource path="res://bg/bg_arcade.tscn" type="PackedScene" id=11]
+[ext_resource path="res://tiles/arcade_bg.tres" type="StyleBox" id=12]
+
+[sub_resource type="StyleBoxTexture" id=1]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 0.0
+content_margin_bottom = 12.0
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 22.0
+margin_right = 22.0
+margin_top = 22.0
+margin_bottom = 22.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="ArcadeMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" parent="." instance=ExtResource( 11 )]
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 8.0
+margin_top = -320.0
+margin_right = 296.0
+margin_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 8 )
+text = "Select Mode"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Carousel" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -256.0
+margin_right = 180.0
+margin_bottom = 320.0
+theme = ExtResource( 9 )
+custom_styles/bg = ExtResource( 12 )
+follow_focus = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Carousel"]
+margin_right = 538.0
+margin_bottom = 1596.0
+size_flags_horizontal = 3
+
+[node name="Spacer" type="Control" parent="Carousel/VBoxContainer"]
+margin_right = 538.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="Panel" type="PanelContainer" parent="Carousel/VBoxContainer"]
+margin_top = 72.0
+margin_right = 538.0
+margin_bottom = 356.0
+focus_mode = 2
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Carousel/VBoxContainer/Panel"]
+margin_left = 16.0
+margin_right = 522.0
+margin_bottom = 272.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Carousel/VBoxContainer/Panel/VBoxContainer"]
+margin_right = 506.0
+margin_bottom = 68.0
+focus_neighbour_top = NodePath("../../../../../ButtonExit")
+focus_neighbour_bottom = NodePath("../../../Panel2")
+text = "I18N_MODE_MARATHON"
+align = 2
+
+[node name="TextureRect" type="TextureRect" parent="Carousel/VBoxContainer/Panel/VBoxContainer"]
+margin_top = 76.0
+margin_right = 506.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 0, 128 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/VBoxContainer/Panel/VBoxContainer"]
+margin_top = 212.0
+margin_right = 506.0
+margin_bottom = 239.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+meta_underlined = false
+fit_content_height = true
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Carousel/VBoxContainer/Panel/VBoxContainer"]
+margin_left = 139.0
+margin_top = 247.0
+margin_right = 367.0
+margin_bottom = 272.0
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Carousel/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+margin_right = 108.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "High Score:"
+
+[node name="Label2" type="Label" parent="Carousel/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+margin_left = 116.0
+margin_right = 228.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "00000000"
+
+[node name="Panel2" type="PanelContainer" parent="Carousel/VBoxContainer"]
+margin_top = 364.0
+margin_right = 538.0
+margin_bottom = 648.0
+focus_mode = 2
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Carousel/VBoxContainer/Panel2"]
+margin_left = 16.0
+margin_right = 522.0
+margin_bottom = 272.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Carousel/VBoxContainer/Panel2/VBoxContainer"]
+margin_right = 506.0
+margin_bottom = 68.0
+focus_neighbour_top = NodePath("../../../Panel")
+focus_neighbour_bottom = NodePath("../../../Panel3")
+text = "I18N_MODE_PETRI"
+align = 2
+
+[node name="TextureRect" type="TextureRect" parent="Carousel/VBoxContainer/Panel2/VBoxContainer"]
+margin_top = 76.0
+margin_right = 506.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 0, 128 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/VBoxContainer/Panel2/VBoxContainer"]
+margin_top = 212.0
+margin_right = 506.0
+margin_bottom = 239.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "I18N_MODE_PETRI_HELP"
+meta_underlined = false
+text = "I18N_MODE_PETRI_HELP"
+fit_content_height = true
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Carousel/VBoxContainer/Panel2/VBoxContainer"]
+margin_left = 139.0
+margin_top = 247.0
+margin_right = 367.0
+margin_bottom = 272.0
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Carousel/VBoxContainer/Panel2/VBoxContainer/HBoxContainer"]
+margin_right = 108.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "High Score:"
+
+[node name="Label2" type="Label" parent="Carousel/VBoxContainer/Panel2/VBoxContainer/HBoxContainer"]
+margin_left = 116.0
+margin_right = 228.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "00000000"
+
+[node name="Panel3" type="PanelContainer" parent="Carousel/VBoxContainer"]
+margin_top = 656.0
+margin_right = 538.0
+margin_bottom = 940.0
+focus_mode = 2
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Carousel/VBoxContainer/Panel3"]
+margin_left = 16.0
+margin_right = 522.0
+margin_bottom = 272.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Carousel/VBoxContainer/Panel3/VBoxContainer"]
+margin_right = 506.0
+margin_bottom = 68.0
+focus_neighbour_top = NodePath("../../../Panel2")
+focus_neighbour_bottom = NodePath("../../../Panel4")
+text = "I18N_MODE_ONSLAUGHT"
+align = 2
+
+[node name="TextureRect" type="TextureRect" parent="Carousel/VBoxContainer/Panel3/VBoxContainer"]
+margin_top = 76.0
+margin_right = 506.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 0, 128 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/VBoxContainer/Panel3/VBoxContainer"]
+margin_top = 212.0
+margin_right = 506.0
+margin_bottom = 239.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "I18N_MODE_ONSLAUGHT_HELP"
+meta_underlined = false
+text = "I18N_MODE_ONSLAUGHT_HELP"
+fit_content_height = true
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Carousel/VBoxContainer/Panel3/VBoxContainer"]
+margin_left = 139.0
+margin_top = 247.0
+margin_right = 367.0
+margin_bottom = 272.0
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Carousel/VBoxContainer/Panel3/VBoxContainer/HBoxContainer"]
+margin_right = 108.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "High Score:"
+
+[node name="Label2" type="Label" parent="Carousel/VBoxContainer/Panel3/VBoxContainer/HBoxContainer"]
+margin_left = 116.0
+margin_right = 228.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "00000000"
+
+[node name="Panel4" type="PanelContainer" parent="Carousel/VBoxContainer"]
+margin_top = 948.0
+margin_right = 538.0
+margin_bottom = 1232.0
+focus_mode = 2
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Carousel/VBoxContainer/Panel4"]
+margin_left = 16.0
+margin_right = 522.0
+margin_bottom = 272.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Carousel/VBoxContainer/Panel4/VBoxContainer"]
+margin_right = 506.0
+margin_bottom = 68.0
+focus_neighbour_top = NodePath("../../../Panel3")
+focus_neighbour_bottom = NodePath("../../../Panel5")
+text = "I18N_MODE_MISSION"
+align = 2
+
+[node name="TextureRect" type="TextureRect" parent="Carousel/VBoxContainer/Panel4/VBoxContainer"]
+margin_top = 76.0
+margin_right = 506.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 0, 128 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/VBoxContainer/Panel4/VBoxContainer"]
+margin_top = 212.0
+margin_right = 506.0
+margin_bottom = 239.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "I18N_MODE_MISSION_HELP"
+meta_underlined = false
+text = "I18N_MODE_MISSION_HELP"
+fit_content_height = true
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Carousel/VBoxContainer/Panel4/VBoxContainer"]
+margin_left = 139.0
+margin_top = 247.0
+margin_right = 367.0
+margin_bottom = 272.0
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Carousel/VBoxContainer/Panel4/VBoxContainer/HBoxContainer"]
+margin_right = 108.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "High Score:"
+
+[node name="Label2" type="Label" parent="Carousel/VBoxContainer/Panel4/VBoxContainer/HBoxContainer"]
+margin_left = 116.0
+margin_right = 228.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "00000000"
+
+[node name="Panel5" type="PanelContainer" parent="Carousel/VBoxContainer"]
+margin_top = 1240.0
+margin_right = 538.0
+margin_bottom = 1524.0
+focus_mode = 2
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Carousel/VBoxContainer/Panel5"]
+margin_left = 16.0
+margin_right = 522.0
+margin_bottom = 272.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Carousel/VBoxContainer/Panel5/VBoxContainer"]
+margin_right = 506.0
+margin_bottom = 68.0
+focus_neighbour_top = NodePath("../../../Panel4")
+focus_neighbour_bottom = NodePath("../../../../../ButtonExit")
+text = "I18N_MODE_ZEN"
+align = 2
+
+[node name="TextureRect" type="TextureRect" parent="Carousel/VBoxContainer/Panel5/VBoxContainer"]
+margin_top = 76.0
+margin_right = 506.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 0, 128 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carousel/VBoxContainer/Panel5/VBoxContainer"]
+margin_top = 212.0
+margin_right = 506.0
+margin_bottom = 239.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "I18N_MODE_ZEN_HELP"
+meta_underlined = false
+text = "I18N_MODE_ZEN_HELP"
+fit_content_height = true
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Carousel/VBoxContainer/Panel5/VBoxContainer"]
+margin_left = 139.0
+margin_top = 247.0
+margin_right = 367.0
+margin_bottom = 272.0
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Carousel/VBoxContainer/Panel5/VBoxContainer/HBoxContainer"]
+margin_right = 108.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "High Score:"
+
+[node name="Label2" type="Label" parent="Carousel/VBoxContainer/Panel5/VBoxContainer/HBoxContainer"]
+margin_left = 116.0
+margin_right = 228.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "00000000"
+
+[node name="Spacer2" type="Control" parent="Carousel/VBoxContainer"]
+margin_top = 1532.0
+margin_right = 538.0
+margin_bottom = 1596.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="ButtonExit" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -320.0
+margin_bottom = -256.0
+grow_horizontal = 0
+focus_neighbour_left = NodePath("../Carousel/VBoxContainer/Panel/VBoxContainer/Button")
+focus_neighbour_bottom = NodePath("../Carousel/VBoxContainer/Panel/VBoxContainer/Button")
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Carousel/VBoxContainer/Panel/VBoxContainer/Button" to="." method="_on_Marathon_pressed"]
+[connection signal="pressed" from="Carousel/VBoxContainer/Panel2/VBoxContainer/Button" to="." method="_on_Petri_pressed"]
+[connection signal="pressed" from="Carousel/VBoxContainer/Panel3/VBoxContainer/Button" to="." method="_on_Onslaught_pressed"]
+[connection signal="pressed" from="Carousel/VBoxContainer/Panel4/VBoxContainer/Button" to="." method="_on_Mission_pressed"]
+[connection signal="pressed" from="Carousel/VBoxContainer/Panel5/VBoxContainer/Button" to="." method="_on_Zen_pressed"]
+[connection signal="pressed" from="ButtonExit" to="." method="_on_ButtonExit_pressed"]

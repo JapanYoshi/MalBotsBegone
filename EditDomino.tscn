@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icons/plus.png" type="Texture" id=2]
+[ext_resource path="res://EditDomino.gd" type="Script" id=3]
+[ext_resource path="res://ThemedScaledSprite.gd" type="Script" id=4]
+[ext_resource path="res://tiles/cursorBox.stylebox.tres" type="StyleBox" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="EditDomino" type="Button"]
+margin_right = 32.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 32, 64 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/normal = SubResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Block1" type="AnimatedSprite" parent="."]
+visible = false
+scale = Vector2( 2, 2 )
+centered = false
+script = ExtResource( 4 )
+
+[node name="Block0" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 0, 32 )
+scale = Vector2( 2, 2 )
+centered = false
+script = ExtResource( 4 )
+
+[node name="Plus" type="Sprite" parent="."]
+position = Vector2( 0, 16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+[connection signal="pressed" from="." to="." method="_on_EditDomino_pressed"]

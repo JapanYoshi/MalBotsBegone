@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tiles/PopupMenuTheme.tres" type="Theme" id=1]
+[ext_resource path="res://fonts/SWAP_10_Regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/SWAP_12_Regular.tres" type="DynamicFont" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends PanelContainer
+export var option_name: String
+export var option_help: String
+export var option_checked: bool
+signal option_checked(option_name, option_checked)
+var first_time = true
+
+signal setting_bool_changed(name, checked)
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$HBoxContainer/VBoxContainer/Name.text = option_name
+	if option_help == \"\":
+		$HBoxContainer/VBoxContainer/Help.hide()
+	else:
+		$HBoxContainer/VBoxContainer/Help.text = option_help
+
+func _on_CheckButton_toggled(button_pressed):
+	if find_parent(\"SettingsMenuRoot\"):
+		find_parent(\"SettingsMenuRoot\").on_bool(button_pressed)
+	set_value(button_pressed)
+	emit_signal(\"option_checked\", option_name, option_checked)
+
+func set_value(checked):
+	$HBoxContainer/CheckButton.set_pressed(checked)
+	print(\"set_value on checkbutton fired. value is \", checked	)
+	option_checked = checked
+
+func get_value():
+	print(\"get_value on checkbutton fired. value is \", option_checked)
+	return option_checked
+
+func reload_font(fonts):
+	print(\"reloading font in type bool\")
+	$HBoxContainer/VBoxContainer/Name.set(\"custom_fonts/font\", null)
+	$HBoxContainer/VBoxContainer/Name.set(\"custom_fonts/font\", fonts[0])
+	$HBoxContainer/VBoxContainer/Help.set(\"custom_fonts/font\", null)
+	$HBoxContainer/VBoxContainer/Help.set(\"custom_fonts/font\", fonts[2])
+	pass
+
+func grab_focus():
+	$HBoxContainer/CheckButton.grab_focus()
+"
+
+[node name="Setting_Bool" type="PanelContainer"]
+margin_right = 264.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 12
+theme = ExtResource( 1 )
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 12.0
+margin_top = 4.0
+margin_right = 252.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 168.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Setting name"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Help" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_top = 33.0
+margin_right = 168.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 0.752941 )
+text = "Help text (optional)"
+autowrap = true
+
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer"]
+margin_left = 176.0
+margin_right = 240.0
+margin_bottom = 83.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource( 1 )
+[connection signal="toggled" from="HBoxContainer/CheckButton" to="." method="_on_CheckButton_toggled"]

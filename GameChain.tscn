@@ -1,0 +1,187 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fonts/fontdata/_chain_number_data.tres" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/chain_text.tres" type="DynamicFont" id=2]
+[ext_resource path="res://GameChain.gd" type="Script" id=3]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 2
+outline_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+extra_spacing_bottom = -16
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.659755, 1 ),
+"update": 0,
+"values": [ 0.0, 36.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.659754, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TextureRect:rect_pivot_offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 44, 64 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.5
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 0.210224, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect:rect_pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 64, 144 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TextureRect:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="GameChain" type="Node2D"]
+z_index = 5
+z_as_relative = false
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 256.0
+margin_bottom = 128.0
+rect_rotation = 36.5
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 44, 64 )
+mouse_filter = 2
+texture = SubResource( 1 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 256, 128 )
+transparent_bg = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Viewport"]
+light_mask = 4
+margin_left = 4.0
+margin_right = 260.0
+margin_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 256, 64 )
+rect_pivot_offset = Vector2( 44, 64 )
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="before" type="Label" parent="Viewport/VBoxContainer"]
+light_mask = 4
+margin_right = 256.0
+margin_bottom = 40.0
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
+text = "¡RACHA DE"
+valign = 2
+
+[node name="number" type="Label" parent="Viewport/VBoxContainer"]
+light_mask = 4
+margin_top = 48.0
+margin_right = 256.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "00"
+valign = 1
+
+[node name="after" type="Label" parent="Viewport/VBoxContainer"]
+light_mask = 4
+margin_top = 88.0
+margin_right = 256.0
+margin_bottom = 128.0
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
+text = "!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/hide = SubResource( 3 )
+anims/show = SubResource( 4 )

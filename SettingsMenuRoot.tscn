@@ -1,0 +1,785 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://fonts/decorative_big.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Setting_Slider.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tiles/PopupMenuTheme.tres" type="Theme" id=3]
+[ext_resource path="res://Setting_Choice.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Setting_Bool.tscn" type="PackedScene" id=5]
+[ext_resource path="res://buttons/load_normal.png" type="Texture" id=6]
+[ext_resource path="res://SettingsMenuRoot.gd" type="Script" id=7]
+[ext_resource path="res://SkinPreviewTile.tscn" type="PackedScene" id=8]
+[ext_resource path="res://fonts/SWAP_12_Regular.tres" type="DynamicFont" id=9]
+[ext_resource path="res://buttons/next_pressed.png" type="Texture" id=10]
+[ext_resource path="res://buttons/back_normal.png" type="Texture" id=11]
+[ext_resource path="res://buttons/next_normal.png" type="Texture" id=12]
+[ext_resource path="res://buttons/back_active.png" type="Texture" id=13]
+[ext_resource path="res://buttons/next_active.png" type="Texture" id=14]
+[ext_resource path="res://buttons/back_pressed.png" type="Texture" id=15]
+[ext_resource path="res://buttons/exit_active.png" type="Texture" id=16]
+[ext_resource path="res://buttons/exit_pressed.png" type="Texture" id=17]
+[ext_resource path="res://buttons/exit_normal.png" type="Texture" id=18]
+[ext_resource path="res://fonts/SWAP_12_Bold.tres" type="DynamicFont" id=19]
+[ext_resource path="res://buttons/save_active.png" type="Texture" id=20]
+[ext_resource path="res://buttons/load_pressed.png" type="Texture" id=21]
+[ext_resource path="res://buttons/save_pressed.png" type="Texture" id=22]
+[ext_resource path="res://buttons/save_normal.png" type="Texture" id=23]
+[ext_resource path="res://buttons/load_active.png" type="Texture" id=24]
+[ext_resource path="res://icons/keybind.png" type="Texture" id=25]
+[ext_resource path="res://tiles/tab_button_theme.tres" type="Theme" id=26]
+[ext_resource path="res://SkinBox.tres.gd" type="Script" id=27]
+[ext_resource path="res://fonts/SWAP_10_Regular.tres" type="DynamicFont" id=28]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends HBoxContainer
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+func _on_A11Y_pressed():
+	find_parent(\"SettingsMenuRoot\").find_node(\"TabContainer\", true).current_tab = 0
+
+
+func _on_MAIN_pressed():
+	find_parent(\"SettingsMenuRoot\").find_node(\"TabContainer\", true).current_tab = 1
+
+
+func _on_CTRL_pressed():
+	find_parent(\"SettingsMenuRoot\").find_node(\"TabContainer\", true).current_tab = 2
+
+
+func _on_SKIN_pressed():
+	find_parent(\"SettingsMenuRoot\").find_node(\"TabContainer\", true).current_tab = 3
+"
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.333333, 0.333333, 0.333333, 1 )
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[node name="SettingsMenuRoot" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -320.0
+margin_right = 180.0
+margin_bottom = 320.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -80.0
+grow_horizontal = 2
+size_flags_vertical = 2
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_left = 36.0
+margin_right = 323.0
+margin_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 1 )
+text = "I18N_SETTINGS"
+align = 1
+valign = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 360.0
+margin_bottom = 92.0
+theme = ExtResource( 26 )
+follow_focus = true
+scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageSelect" type="HBoxContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 832.0
+margin_bottom = 32.0
+size_flags_horizontal = 7
+custom_constants/separation = 0
+alignment = 1
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="a11y" type="Button" parent="VBoxContainer/ScrollContainer/PageSelect"]
+margin_right = 227.781
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+focus_neighbour_left = NodePath("../custom")
+focus_neighbour_right = NodePath("../main")
+text = "I18N_PAGE_A11Y"
+
+[node name="main" type="Button" parent="VBoxContainer/ScrollContainer/PageSelect"]
+margin_left = 227.0
+margin_right = 454.797
+margin_bottom = 32.0
+focus_neighbour_left = NodePath("../a11y")
+focus_neighbour_right = NodePath("../ctrl")
+text = "I18N_PAGE_MAIN"
+
+[node name="ctrl" type="Button" parent="VBoxContainer/ScrollContainer/PageSelect"]
+margin_left = 454.0
+margin_right = 609.859
+margin_bottom = 32.0
+focus_neighbour_left = NodePath("../main")
+focus_neighbour_right = NodePath("../custom")
+text = "I18N_CTRL"
+
+[node name="custom" type="Button" parent="VBoxContainer/ScrollContainer/PageSelect"]
+margin_left = 609.0
+margin_right = 832.781
+margin_bottom = 32.0
+focus_neighbour_left = NodePath("../ctrl")
+focus_neighbour_right = NodePath("../a11y")
+text = "I18N_PAGE_SKIN"
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+margin_top = 92.0
+margin_right = 360.0
+margin_bottom = 560.0
+rect_clip_content = true
+size_flags_horizontal = 5
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+tabs_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="I18N_PAGE_A11Y" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_A11Y"]
+margin_right = 344.0
+margin_bottom = 452.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slider_FONT_SIZE" parent="VBoxContainer/TabContainer/I18N_PAGE_A11Y/VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 344.0
+margin_bottom = 103.0
+focus_neighbour_top = NodePath("../../..")
+option_name = "I18N_FONT_SIZE"
+option_help = "I18N_FONT_SIZE_HELP"
+option_max = 16.0
+option_format = "+%d"
+
+[node name="VBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_A11Y/VBoxContainer/Slider_FONT_SIZE" index="0"]
+margin_right = 332.0
+margin_bottom = 99.0
+
+[node name="Name" parent="VBoxContainer/TabContainer/I18N_PAGE_A11Y/VBoxContainer/Slider_FONT_SIZE/VBoxContainer" index="0"]
+margin_right = 320.0
+margin_bottom = 25.0
+
+[node name="Help" parent="VBoxContainer/TabContainer/I18N_PAGE_A11Y/VBoxContainer/Slider_FONT_SIZE/VBoxContainer" index="1"]
+margin_top = 33.0
+margin_right = 320.0
+margin_bottom = 55.0
+
+[node name="HBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_A11Y/VBoxContainer/Slider_FONT_SIZE/VBoxContainer" index="2"]
+margin_top = 63.0
+margin_right = 320.0
+margin_bottom = 95.0
+
+[node name="HSlider" parent="VBoxContainer/TabContainer/I18N_PAGE_A11Y/VBoxContainer/Slider_FONT_SIZE/VBoxContainer/HBoxContainer" index="0"]
+margin_right = 312.0
+
+[node name="Label" parent="VBoxContainer/TabContainer/I18N_PAGE_A11Y/VBoxContainer/Slider_FONT_SIZE/VBoxContainer/HBoxContainer" index="1"]
+margin_left = 320.0
+margin_right = 320.0
+
+[node name="Bool_DISABLE_PARTICLES" parent="VBoxContainer/TabContainer/I18N_PAGE_A11Y/VBoxContainer" instance=ExtResource( 5 )]
+margin_top = 111.0
+margin_right = 344.0
+margin_bottom = 174.0
+option_name = "I18N_DISABLE_PARTICLES"
+option_help = "I18N_DISABLE_PARTICLES_HELP"
+
+[node name="Button_SETUP" type="Button" parent="VBoxContainer/TabContainer/I18N_PAGE_A11Y/VBoxContainer"]
+margin_top = 182.0
+margin_right = 344.0
+margin_bottom = 215.0
+focus_neighbour_top = NodePath("../../..")
+custom_fonts/font = ExtResource( 19 )
+text = "I18N_SETUP"
+align = 0
+
+[node name="I18N_PAGE_MAIN" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_MAIN"]
+margin_right = 344.0
+margin_bottom = 452.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slider_VOL_BGM" parent="VBoxContainer/TabContainer/I18N_PAGE_MAIN/VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 344.0
+margin_bottom = 103.0
+focus_neighbour_top = NodePath("../../..")
+option_name = "I18N_VOL_BGM"
+option_max = 16.0
+option_format = "%d/16"
+
+[node name="Slider_VOL_SFX" parent="VBoxContainer/TabContainer/I18N_PAGE_MAIN/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 111.0
+margin_right = 344.0
+margin_bottom = 214.0
+option_name = "I18N_VOL_SFX"
+option_max = 16.0
+option_format = "%d/16"
+
+[node name="Choice_LANGUAGE" parent="VBoxContainer/TabContainer/I18N_PAGE_MAIN/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 222.0
+margin_right = 344.0
+margin_bottom = 326.0
+theme = null
+option_name = "I18N_LANGUAGE"
+
+[node name="Button_RESET" type="Button" parent="VBoxContainer/TabContainer/I18N_PAGE_MAIN/VBoxContainer"]
+margin_top = 334.0
+margin_right = 344.0
+margin_bottom = 367.0
+focus_neighbour_top = NodePath("../../..")
+custom_fonts/font = ExtResource( 19 )
+text = "I18N_DELETE_SAVE"
+align = 0
+
+[node name="I18N_PAGE_CTRL" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL"]
+margin_right = 344.0
+margin_bottom = 452.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button_KEY_CONFIG" type="Button" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer"]
+margin_right = 320.0
+margin_bottom = 40.0
+focus_neighbour_top = NodePath("../../..")
+custom_fonts/font = ExtResource( 19 )
+text = "I18N_KEY_CONFIG"
+icon = ExtResource( 25 )
+clip_text = true
+align = 0
+
+[node name="Choice_TYPE" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 48.0
+margin_right = 320.0
+margin_bottom = 152.0
+theme = null
+option_name = "I18N_CTRL"
+option_help = "I18N_CTRL_HELP"
+option_array = [ "I18N_CTRL_TOUCH", "I18N_CTRL_GEST" ]
+
+[node name="Slider_ROT_DELAY" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 160.0
+margin_right = 320.0
+margin_bottom = 263.0
+focus_neighbour_top = NodePath("../../..")
+option_name = "I18N_ROT_DELAY"
+option_help = "I18N_ROT_DELAY_HELP"
+option_value = 0.25
+option_min = 0.05
+option_max = 0.5
+option_step = 0.05
+option_format = "%1.2f sec"
+
+[node name="VBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_ROT_DELAY" index="0"]
+margin_right = 308.0
+margin_bottom = 99.0
+
+[node name="Name" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_ROT_DELAY/VBoxContainer" index="0"]
+margin_right = 296.0
+margin_bottom = 25.0
+
+[node name="Help" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_ROT_DELAY/VBoxContainer" index="1"]
+margin_top = 33.0
+margin_right = 296.0
+margin_bottom = 55.0
+
+[node name="HBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_ROT_DELAY/VBoxContainer" index="2"]
+margin_top = 63.0
+margin_right = 296.0
+margin_bottom = 95.0
+
+[node name="HSlider" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_ROT_DELAY/VBoxContainer/HBoxContainer" index="0"]
+margin_right = 288.0
+focus_neighbour_top = NodePath("../../../../Slider_HARD_SENS/VBoxContainer/HBoxContainer/HSlider")
+focus_neighbour_bottom = NodePath("../../../../../../I18N_PAGE_SKIN/Panel/SkinBox/SkinLabel/BackButton")
+
+[node name="Label" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_ROT_DELAY/VBoxContainer/HBoxContainer" index="1"]
+margin_left = 296.0
+margin_right = 296.0
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer"]
+margin_top = 271.0
+margin_right = 320.0
+margin_bottom = 296.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 19 )
+text = "I18N_SECT_BTN"
+autowrap = true
+
+[node name="Bool_ROT_INV" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer" instance=ExtResource( 5 )]
+margin_top = 304.0
+margin_right = 320.0
+margin_bottom = 367.0
+option_name = "I18N_ROT_INV"
+option_help = "I18N_ROT_INV_HELP"
+
+[node name="Slider_DAS" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 375.0
+margin_right = 320.0
+margin_bottom = 478.0
+focus_neighbour_top = NodePath("../../..")
+option_name = "I18N_DAS"
+option_help = "I18N_DAS_HELP"
+option_value = 12.0
+option_min = 6.0
+option_max = 20.0
+option_format = "%2d/60s"
+
+[node name="Slider_ARR" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 486.0
+margin_right = 320.0
+margin_bottom = 589.0
+focus_neighbour_top = NodePath("../../..")
+option_name = "I18N_ARR"
+option_help = "I18N_ARR_HELP"
+option_value = 2.0
+option_max = 5.0
+option_format = "%2d/60s"
+
+[node name="Label2" type="Label" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer"]
+margin_top = 597.0
+margin_right = 320.0
+margin_bottom = 622.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 19 )
+text = "I18N_SECT_GEST"
+autowrap = true
+
+[node name="Slider_MOVE_SENS" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 630.0
+margin_right = 320.0
+margin_bottom = 733.0
+option_name = "I18N_MOVE_SENS"
+option_value = 32.0
+option_min = 16.0
+option_max = 96.0
+option_step = 4.0
+option_format = "%ddp"
+
+[node name="Slider_SOFT_SENS" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 741.0
+margin_right = 320.0
+margin_bottom = 844.0
+focus_neighbour_top = NodePath("../../..")
+option_name = "I18N_SOFT_SENS"
+option_value = 32.0
+option_min = 16.0
+option_max = 96.0
+option_step = 4.0
+option_format = "%ddp"
+
+[node name="VBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_SOFT_SENS" index="0"]
+margin_right = 308.0
+margin_bottom = 99.0
+
+[node name="Name" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_SOFT_SENS/VBoxContainer" index="0"]
+margin_right = 296.0
+margin_bottom = 25.0
+
+[node name="Help" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_SOFT_SENS/VBoxContainer" index="1"]
+margin_top = 33.0
+margin_right = 296.0
+margin_bottom = 55.0
+
+[node name="HBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_SOFT_SENS/VBoxContainer" index="2"]
+margin_top = 63.0
+margin_right = 296.0
+margin_bottom = 95.0
+
+[node name="HSlider" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_SOFT_SENS/VBoxContainer/HBoxContainer" index="0"]
+margin_right = 288.0
+focus_neighbour_bottom = NodePath("../../../../Slider_HARD_SENS/VBoxContainer/HBoxContainer/HSlider")
+
+[node name="Label" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_SOFT_SENS/VBoxContainer/HBoxContainer" index="1"]
+margin_left = 296.0
+margin_right = 296.0
+
+[node name="Slider_HARD_SENS" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 852.0
+margin_right = 320.0
+margin_bottom = 955.0
+focus_neighbour_top = NodePath("../../..")
+option_name = "I18N_HARD_SENS"
+option_value = 96.0
+option_min = 48.0
+option_max = 192.0
+option_step = 8.0
+option_format = "%ddp"
+
+[node name="VBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_HARD_SENS" index="0"]
+margin_right = 308.0
+margin_bottom = 99.0
+
+[node name="Name" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_HARD_SENS/VBoxContainer" index="0"]
+margin_right = 296.0
+margin_bottom = 25.0
+
+[node name="Help" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_HARD_SENS/VBoxContainer" index="1"]
+margin_top = 33.0
+margin_right = 296.0
+margin_bottom = 55.0
+
+[node name="HBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_HARD_SENS/VBoxContainer" index="2"]
+margin_top = 63.0
+margin_right = 296.0
+margin_bottom = 95.0
+
+[node name="HSlider" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_HARD_SENS/VBoxContainer/HBoxContainer" index="0"]
+margin_right = 288.0
+focus_neighbour_top = NodePath("../../../../Slider_SOFT_SENS/VBoxContainer/HBoxContainer/HSlider")
+focus_neighbour_bottom = NodePath("../../../../Slider_ROT_DELAY/VBoxContainer/HBoxContainer/HSlider")
+
+[node name="Label" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_HARD_SENS/VBoxContainer/HBoxContainer" index="1"]
+margin_left = 296.0
+margin_right = 296.0
+
+[node name="I18N_PAGE_SKIN" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+rect_clip_content = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN"]
+margin_right = 344.0
+margin_bottom = 8.0
+size_flags_horizontal = 3
+
+[node name="SkinBox" type="VBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel"]
+margin_left = 12.0
+margin_top = 4.0
+margin_right = 332.0
+margin_bottom = 319.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+script = ExtResource( 27 )
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox"]
+margin_right = 320.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 16 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I18N_SKIN"
+autowrap = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox"]
+margin_top = 33.0
+margin_right = 320.0
+margin_bottom = 153.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreviewGrid" type="GridContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer"]
+margin_right = 320.0
+margin_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 0, 120 )
+size_flags_horizontal = 3
+size_flags_vertical = 7
+columns = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer/PreviewGrid" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 46.0
+margin_bottom = 56.0
+
+[node name="Container2" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer/PreviewGrid" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 54.0
+margin_right = 100.0
+margin_bottom = 56.0
+
+[node name="Container3" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer/PreviewGrid" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 108.0
+margin_right = 154.0
+margin_bottom = 56.0
+
+[node name="Container4" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer/PreviewGrid" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 162.0
+margin_right = 208.0
+margin_bottom = 56.0
+
+[node name="Container5" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer/PreviewGrid" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_right = 262.0
+margin_bottom = 56.0
+
+[node name="Container6" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer/PreviewGrid" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 270.0
+margin_right = 316.0
+margin_bottom = 56.0
+
+[node name="Container7" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer/PreviewGrid" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 64.0
+margin_right = 46.0
+margin_bottom = 120.0
+
+[node name="Container8" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer/PreviewGrid" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 54.0
+margin_top = 64.0
+margin_right = 100.0
+margin_bottom = 120.0
+
+[node name="Container9" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer/PreviewGrid" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 108.0
+margin_top = 64.0
+margin_right = 154.0
+margin_bottom = 120.0
+
+[node name="Container10" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer/PreviewGrid" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 162.0
+margin_top = 64.0
+margin_right = 208.0
+margin_bottom = 120.0
+
+[node name="Container11" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer/PreviewGrid" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 64.0
+margin_right = 262.0
+margin_bottom = 120.0
+
+[node name="Container12" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/PanelContainer/PreviewGrid" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 270.0
+margin_top = 64.0
+margin_right = 316.0
+margin_bottom = 120.0
+
+[node name="Space" type="Control" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox"]
+margin_top = 161.0
+margin_bottom = 161.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="SkinLabel" type="HBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox"]
+margin_top = 169.0
+margin_right = 320.0
+margin_bottom = 220.0
+
+[node name="BackButton" type="TextureButton" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/SkinLabel"]
+margin_right = 32.0
+margin_bottom = 51.0
+focus_neighbour_right = NodePath("../NextButton")
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 13 )
+texture_focused = ExtResource( 13 )
+
+[node name="SkinDescContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/SkinLabel"]
+margin_left = 40.0
+margin_right = 280.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+custom_constants/separation = 4
+
+[node name="SkinName" type="Label" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/SkinLabel/SkinDescContainer"]
+margin_right = 240.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 19 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "SKIN NAME"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="SkinNumber" type="Label" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/SkinLabel/SkinDescContainer"]
+margin_top = 29.0
+margin_right = 240.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 28 )
+custom_colors/font_color = Color( 0, 0, 0, 0.752941 )
+text = "SKIN NAME"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="NextButton" type="TextureButton" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/SkinLabel"]
+margin_left = 288.0
+margin_right = 320.0
+margin_bottom = 51.0
+focus_neighbour_left = NodePath("../BackButton")
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 14 )
+texture_focused = ExtResource( 14 )
+
+[node name="SkinDesc" type="Label" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox"]
+margin_top = 228.0
+margin_right = 320.0
+margin_bottom = 315.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "SKIN DESCRIPTION LOREM IPSUM DOLOR SIT AMET CONSECTETUER ADIPISCING ELIT."
+valign = 1
+autowrap = true
+
+[node name="AnimSwitchTimer" type="Timer" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox"]
+wait_time = 2.0
+autostart = true
+
+[node name="Bottombar" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+custom_constants/separation = 48
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="TextureButton" parent="Bottombar"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 16 )
+texture_focused = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadButton" type="TextureButton" parent="Bottombar"]
+margin_left = 112.0
+margin_right = 176.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 21 )
+texture_hover = ExtResource( 24 )
+texture_focused = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="TextureButton" parent="Bottombar"]
+margin_left = 224.0
+margin_right = 288.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 20 )
+texture_focused = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/PageSelect/a11y" to="VBoxContainer/ScrollContainer/PageSelect" method="_on_A11Y_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/PageSelect/main" to="VBoxContainer/ScrollContainer/PageSelect" method="_on_MAIN_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/PageSelect/ctrl" to="VBoxContainer/ScrollContainer/PageSelect" method="_on_CTRL_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/PageSelect/custom" to="VBoxContainer/ScrollContainer/PageSelect" method="_on_SKIN_pressed"]
+[connection signal="tab_changed" from="VBoxContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/I18N_PAGE_A11Y/VBoxContainer/Button_SETUP" to="." method="_on_Setup_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/I18N_PAGE_MAIN/VBoxContainer/Button_RESET" to="." method="_on_Reset_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Button_KEY_CONFIG" to="." method="_on_KeyConfig_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/SkinLabel/BackButton" to="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox" method="decrement"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/SkinLabel/NextButton" to="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox" method="increment"]
+[connection signal="timeout" from="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox/AnimSwitchTimer" to="VBoxContainer/TabContainer/I18N_PAGE_SKIN/Panel/SkinBox" method="_on_AnimSwitchTimer_timeout"]
+[connection signal="pressed" from="Bottombar/ExitButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Bottombar/LoadButton" to="." method="_on_LoadButton_pressed"]
+[connection signal="pressed" from="Bottombar/SaveButton" to="." method="_on_SaveButton_pressed"]
+
+[editable path="VBoxContainer/TabContainer/I18N_PAGE_A11Y/VBoxContainer/Slider_FONT_SIZE"]
+[editable path="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_ROT_DELAY"]
+[editable path="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_SOFT_SENS"]
+[editable path="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_HARD_SENS"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://bg/cycle_8.shader" type="Shader" id=1]
+[ext_resource path="res://bg/arcade.png" type="Texture" id=2]
+[ext_resource path="res://bg/arcadep.png" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/bg_color = Color( 0, 0, 0, 0 )
+shader_param/speed = 0.1
+shader_param/palette = ExtResource( 3 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Viewport")
+
+[node name="BG" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 160, 160 )
+handle_input_locally = false
+hdr = false
+
+[node name="TextureRect" type="TextureRect" parent="Viewport"]
+material = SubResource( 1 )
+margin_right = 64.0
+margin_bottom = 64.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tile" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://GamePiece.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Gen3/Wall.spriteframes.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://fonts/piece_number.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ThemedScaledSprite.gd" type="Script" id=4]
+[ext_resource path="res://sprites/Gen3/P1.texture.tres" type="Texture" id=5]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.7, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 640.0
+initial_velocity_random = 0.9
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -40.0
+angle_random = 1.0
+scale = 0.25
+color_ramp = SubResource( 2 )
+
+[node name="GamePiece" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Node" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node"]
+frames = ExtResource( 2 )
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -32.0
+margin_right = 32.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 0
+custom_fonts/font = ExtResource( 3 )
+align = 2
+valign = 2
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Particles" type="Particles2D" parent="."]
+position = Vector2( 16, -16 )
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+local_coords = false
+process_material = SubResource( 3 )
+texture = ExtResource( 5 )
+
+[node name="FreeTimer" type="Timer" parent="Particles"]
+one_shot = true
+
+[node name="IdleTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="timeout" from="IdleTimer" to="." method="_on_IdleTimer_timeout"]
