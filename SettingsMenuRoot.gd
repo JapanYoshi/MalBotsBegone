@@ -224,8 +224,8 @@ func request_slider_sfx(ratio):
 
 func _on_Button_pressed():
 	Root.request_sfx("back")
-	Root.set_vol_bgm(config.get_value("main", "vol_bgm"))
-	Root.set_vol_sfx(config.get_value("main", "vol_sfx"))
+	Root.set_vol_bgm(config.get_value("main", "vol_bgm", config_defaults.main.vol_bgm))
+	Root.set_vol_sfx(config.get_value("main", "vol_sfx", config_defaults.main.vol_sfx))
 	Root.unload_sfx("slider")
 	Root.unload_sfx("tab")
 	Root.unload_sfx("on")
