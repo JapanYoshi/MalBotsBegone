@@ -35,6 +35,7 @@ axis_stretch_horizontal = 1
 default_font = ExtResource( 5 )
 Button/colors/font_color = Color( 0, 0, 0, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0, 0.0352941, 0.333333, 1 )
 Button/colors/font_color_hover = Color( 0, 0.258824, 0.807843, 1 )
 Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
 Button/constants/hseparation = 4
