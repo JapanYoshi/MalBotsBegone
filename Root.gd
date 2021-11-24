@@ -1,5 +1,7 @@
 extends Node
 
+const DEBUG = true;
+
 # To be auto-loaded as Singleton
 
 # The `GlobalRoot` node is placed right below the root node,
@@ -109,9 +111,9 @@ var load_progress: float = 0;
 
 func _process(delta):
 	if _loader != null:
-		print("Root - result polling (wait time %5.2fs)" % load_wait)
+		dp("Root - result polling (wait time %5.2fs)" % load_wait)
 		var result = _loader.poll()
-		print("Root - result == %d" % result)
+		dp("Root - result == %d" % result)
 		if result == OK and load_wait < 30.0:
 			load_progress = (float(_loader.get_stage()) / _loader.get_stage_count() * 100)
 # warning-ignore:unsafe_method_access
@@ -123,7 +125,7 @@ func _process(delta):
 			return
 		elif result == ERR_FILE_EOF:
 			# don't worry, this just means it's done loading
-			print("Root - Resource finished loading")
+			dp("Root - Resource finished loading")
 # warning-ignore:unsafe_method_access
 			$CanvasLayer/Loading/Prog.set_text(
 				"Almost there"
@@ -131,7 +133,7 @@ func _process(delta):
 			_add_scene()
 			return
 		else:
-			print("Root - Failed to load resource at %05.1f%% with error code %s" % [load_progress, result])
+			add_log("Root - Failed to load resource at %05.1f%% with error code %s" % [load_progress, result])
 			_loader = null
 			show_error("Failed to load resource: Error code %s" % result)
 			return
@@ -146,7 +148,7 @@ func _ready():
 	if config.has_section("main"):
 		first_time = false
 	else:
-		print("First time boot!")
+		dp("First time boot!")
 	# Load keybinds
 	load_inputs()
 	# Load system constants from JSON
@@ -156,12 +158,17 @@ func _ready():
 	file.close()
 	if SYSCON.error == OK:
 		SYSCON = SYSCON.get_result()
-		print("SYStem CONstants parsed successfully.")
+		dp("SYStem CONstants parsed successfully.")
 	else:
-		print("SYStem CONstants could not be parsed!\nJSON parse error on line ", SYSCON.get_error_line(), ";\n", SYSCON.get_error_string())
+		printerr(
+			"SYStem CONstants could not be parsed!\n"
+			+ "JSON parse error on line "
+			+ String(SYSCON.get_error_line()) + ";\n"
+			+ String(SYSCON.get_error_string())
+		)
 	# Load and instantiate the sound handler
 	var new_sound_handler = SOUND_HANDLER.instance()
-	print(new_sound_handler, "SoundHandler")
+	dp(str(new_sound_handler) + "SoundHandler")
 	self.add_child(new_sound_handler)
 	sound_handler = new_sound_handler
 	# Apply the saved sound volume
@@ -170,13 +177,13 @@ func _ready():
 	# Get the list of locales supported
 	locales = TranslationServer.get_loaded_locales()
 	locales.sort()
-	print("Loaded locales: ", locales)
+	dp("Loaded locales: " + String(locales))
 	# Get the default locale
 	default_locale = TranslationServer.get_locale()
 	# Change the locale, if the player has changed it
 	if config.has_section("main") and config.has_section_key("main", "language"):
 		if typeof(config.get_value("main", "language")) == TYPE_STRING:
-			print("Initializing locale to: ", config.get_value("main", "language"))
+			dp("Initializing locale to: " + config.get_value("main", "language"))
 			TranslationServer.set_locale(config.get_value("main", "language"))
 	# Apply the user's font settings
 	px_regular = load(SYSCON.font_root + "sys12_400.tres")
@@ -189,7 +196,7 @@ func _ready():
 	fb_piece = load(SYSCON.font_root + "fallback_piece.tres")
 	if config.has_section("a11y") and config.has_section_key("a11y", "font_size"):
 		if typeof(config.get_value("a11y", "font_size")) == TYPE_STRING:
-			print("Initializing font size to: ", config.get_value("a11y", "font_size"))
+			dp("Initializing font size to: " + str(config.get_value("a11y", "font_size")))
 			apply_font(config.get_value("a11y", "font_size"))
 	else:
 		apply_font(0)
@@ -204,8 +211,8 @@ func _ready():
 func change_scene(name_: String):
 	if len(scene_stack) and name_ == scene_stack.back(): return
 	if get_tree().get_current_scene() and name_ == get_tree().get_current_scene().name: return
-	print("Root - change_scene(%s), %s" % [name_, scene_stack])
-	print("Root - loading scene res://%s.tscn" % name_)
+	dp("Root - change_scene(%s), %s" % [name_, scene_stack])
+	dp("Root - loading scene res://%s.tscn" % name_)
 # warning-ignore:unsafe_method_access
 	$CanvasLayer/Loading.show()
 # warning-ignore:unsafe_method_access
@@ -214,13 +221,13 @@ func change_scene(name_: String):
 		get_tree().get_current_scene().queue_free()
 	load_wait = 0
 	load_progress = 0
-	print("Root - freed current scene")
+	dp("Root - freed current scene")
 	var new_uri = "res://" + name_ + ".tscn"
 	if _loader != null:
 		show_error("Already loading a scene")
 		return
 	_loader = ResourceLoader.load_interactive(new_uri, "PackedScene")
-	print("Root - started loading scene resource")
+	dp("Root - started loading scene resource")
 	if _loader == null: # Check for errors.
 # warning-ignore:unsafe_method_access
 		$CanvasLayer/Loading.hide()
@@ -235,15 +242,15 @@ func change_scene(name_: String):
 func change_scene_direct(name_: String):
 	if len(scene_stack) and name_ == scene_stack.back(): return
 	if get_tree().get_current_scene() and name_ == get_tree().get_current_scene().name: return
-	print("Root - change_scene_direct(%s), %s" % [name_, scene_stack])
-	print("Root - loading scene res://%s.tscn" % name_)
+	dp("Root - change_scene_direct(%s), %s" % [name_, scene_stack])
+	dp("Root - loading scene res://%s.tscn" % name_)
 	if get_tree().get_current_scene():
 		get_tree().get_current_scene().queue_free()
 	get_tree().change_scene("res://%s.tscn" % name_)
 	scene_stack.push_back(name_)
 
 func _add_scene():
-	print("Root - adding scene to tree")
+	dp("Root - adding scene to tree")
 # warning-ignore:unsafe_method_access
 	_new_node = _loader.get_resource().instance()
 	_loader = null
@@ -253,27 +260,27 @@ func _add_scene():
 	#if _new_node.has_signal("ready_finished"):
 		# this causes the main thread to freeze
 		# start a thread
-		print("Root - connecting ready signal to this node")
+		dp("Root - connecting ready signal to this node")
 		_new_node.connect("ready_finished", self, "_on_scene_loaded")
 		get_tree().get_root().add_child(_new_node)
 		# this causes the main thread to freeze, but
 		# we assume it's not a problem
 	else:
-		print("Root - adding child to root of scene tree")
+		dp("Root - adding child to root of scene tree")
 		get_tree().get_root().add_child(_new_node)
 		_on_scene_loaded()
 	#set_process(true)
 
 func _add_to_scene_tree(_dummy):
-	print("Root - Thread reporting! Adding child to root of scene tree")
+	dp("Root - Thread reporting! Adding child to root of scene tree")
 	get_tree().get_root().add_child(_new_node)
-	print("Root - added child to root of scene tree in thread")
+	dp("Root - added child to root of scene tree in thread")
 	return
 
 func _on_scene_loaded():
 # warning-ignore:unsafe_method_access
 	$Timer.stop()
-	print("Root - new scene is now ready to go")
+	dp("Root - new scene is now ready to go")
 	_new_node.visible = true
 # warning-ignore:unsafe_method_access
 	$CanvasLayer/Loading.hide()
@@ -282,16 +289,16 @@ func _on_scene_loaded():
 	if "enable_input" in _new_node:
 		_new_node.enable_input = true
 	get_tree().set_current_scene(_new_node)
-	print("Root - all done!")
+	dp("Root - all done!")
 	#get_tree().paused = false
 
 ## Resets the entire scene tree
 func reset_scene():
-	print("reset_scene, %s" % str(scene_stack))
+	dp("reset_scene, %s" % str(scene_stack))
 	change_scene("MainMenuRoot")
 
 func back_scene():
-	print("back_scene(), %s" % [scene_stack])
+	dp("back_scene(), %s" % [scene_stack])
 	var leaving_name = scene_stack.pop_back()
 	if leaving_name == null:
 		change_scene("MainMenuRoot")
@@ -301,11 +308,11 @@ func back_scene():
 	if entering_name:
 		change_scene(entering_name)
 	else:
-		print("Scene stack is empty! ", scene_stack)
+		dp("Scene stack is empty! " + str(scene_stack))
 		change_scene("MainMenuRoot")
 
 func restart_scene():
-	print("Root - restart_scene()")
+	dp("Root - restart_scene()")
 	if scene_stack:
 		change_scene("_blank")
 	else:
@@ -328,7 +335,7 @@ func change_scene_preloaded():
 		get_tree().get_root().add_child(preloaded_scene)
 		get_tree().set_current_scene(preloaded_scene)
 		scene_stack.push_back(preloaded_scene_name)
-		print("Changed scene to preloaded scene %s" % preloaded_scene_name)
+		dp("Changed scene to preloaded scene %s" % preloaded_scene_name)
 		preloaded_scene_name = ""
 
 # Gets the value of a configuration, if it exists.
@@ -407,7 +414,7 @@ func unload_sfx(name_: String):
 	sound_handler.unload_sfx(name_)
 
 func apply_font(size: int):
-	print("apply_font ", size)
+	dp("apply_font " + str(size))
 	var font_regular:DynamicFont = load(SYSCON.font_root + "SWAP_12_Regular.tres")
 	var font_bold:DynamicFont = load(SYSCON.font_root + "SWAP_12_Bold.tres")
 	var font_small:DynamicFont = load(SYSCON.font_root + "SWAP_10_Regular.tres")
@@ -415,7 +422,7 @@ func apply_font(size: int):
 	if size:
 		# accessible font
 		var multiplier = pow(2, (size - 1) * 0.05)
-		print("font multiplier is ", multiplier)
+		dp("font multiplier is " + str(multiplier))
 		font_regular = fb_regular
 		font_bold    = fb_bold
 		font_small   = fb_small
@@ -426,7 +433,7 @@ func apply_font(size: int):
 		font_piece.set_size(12 * multiplier)
 	else:
 		# default font
-		print("default font set")
+		dp("default font set")
 		font_regular = px_regular
 		font_bold    = px_bold
 		font_small   = px_small
@@ -445,7 +452,7 @@ func apply_font(size: int):
 	return [font_regular, font_bold, font_small, font_piece]
 
 func load_inputs():
-	print("Loading keybinds...")
+	dp("Loading keybinds...")
 	var file := File.new()
 	if file.open("user://keyconfig.json", File.READ) != OK:
 		printerr("Could not open settings.json for loading")
@@ -463,7 +470,7 @@ func load_inputs():
 
 	var data = json_res.get_result()
 	assert(typeof(data) == TYPE_DICTIONARY)
-	print("Loaded Keybind JSON")
+	dp("Loaded Keybind JSON")
 #	print(data)
 	data = data.input
 	var invert = config.get_value("config", "ab_inv", false)
@@ -495,12 +502,12 @@ func load_inputs():
 					InputMap.action_add_event("ui_cancel", right_button)
 			_:
 				if not data.has(action_name):
-					print("Input map for the action %s is blank." % action_name)
+					dp("Input map for the action %s is blank." % action_name)
 					continue
-				print("Input map for the action %s is:" % action_name)
+				dp("Input map for the action %s is:" % action_name)
 # warning-ignore:unsafe_cast
 				var item = data[action_name] as Dictionary
-				print(item)
+				dp(str(item))
 				var list = [null, null, null]
 				if item.has("key"):
 					var keycode = item["key"]
@@ -545,11 +552,11 @@ func save_inputs():
 				item["axis_dir"] = 1 if bind.axis_value > 0 else -1
 		data[action] = item
 		config.set_value("config", action, item)
-	print(data)
+	dp(data)
 
 	var file := File.new()
 	if file.open("user://keyconfig.json", File.WRITE) != OK:
-		print("Error opening keyconfig.json for save")
+		dp("Error opening keyconfig.json for save")
 		return
 
 	var jsonstr := JSON.print({
@@ -560,7 +567,7 @@ func save_inputs():
 	file.close()
 
 func focus_neighbor(node: Control, index: int):
-	print("Focusing neighbor ", index, " of node ", node)
+	dp("Focusing neighbor " + str(index) + " of node " + str(node))
 	var path
 	match index:
 		0:
@@ -572,11 +579,11 @@ func focus_neighbor(node: Control, index: int):
 		3:
 			path = node.focus_neighbour_left
 	if path:
-		print("Got path: ", path)
+		dp("Got path: " + str(path))
 		Root.request_sfx("cursor")
 		(node.get_node(path) as Control).grab_focus()
 	else:
-		print("Got no path")
+		dp("Got no path")
 
 func text_to_utf16_bytes(text: String, little_endian: bool = false) -> PoolByteArray:
 	var output = PoolByteArray()
@@ -588,15 +595,15 @@ func text_to_utf16_bytes(text: String, little_endian: bool = false) -> PoolByteA
 	var test_char_code = PoolByteArray([0xF0, 0x9F, 0x92, 0xA9]).get_string_from_utf8().ord_at(0)
 	match test_char_code:
 		0x0001F489:
-			print("GlobalScripts.text_to_utf16_bytes: Char codes are 32 bits.")
+			dp("GlobalScripts.text_to_utf16_bytes: Char codes are 32 bits.")
 			is_32_bit = true
 		0xD83D:
-			print("GlobalScripts.text_to_utf16_bytes: Char codes are 16 bits.")
+			dp("GlobalScripts.text_to_utf16_bytes: Char codes are 16 bits.")
 			is_32_bit = false
 			is_32_bit = true
 	while len(text) > 0:
 		var char_code = text.ord_at(0)
-		print("Char code is %02x" % char_code)
+		dp("Char code is %02x" % char_code)
 		text = text.substr(1)
 		if !is_32_bit or char_code <= 0xFFFF:
 			# Direct mapping
@@ -654,7 +661,7 @@ func level_data_to_bytes(lv_dat: Dictionary) -> PoolByteArray:
 			printerr("Does not have necessary key: %s" % key)
 			return PoolByteArray()
 	
-	print("Root - Level data to bytes\nMission: ", Array(lv_dat.mission))
+	dp("Root - Level data to bytes\nMission: " + str(Array(lv_dat.mission)))
 	var sig = "MB" + lv_dat.ver
 	var output = PoolByteArray([
 		sig.ord_at(0),
@@ -666,7 +673,7 @@ func level_data_to_bytes(lv_dat: Dictionary) -> PoolByteArray:
 	var items = PoolByteArray()
 	# Encode difficulty level
 	items.push_back(lv_dat.level & 0x3F)
-	print("Difficulty level\n%s" % rep_oct(items))
+	dp("Difficulty level\n%s" % rep_oct(items))
 	# Encode playfield
 	# Trim trailing blank rows
 	while true:
@@ -694,7 +701,7 @@ func level_data_to_bytes(lv_dat: Dictionary) -> PoolByteArray:
 				items.push_back(14)
 			# If the row is already all 7 grid-spaces long, just do nothing,
 			# and let the parser move onto the next row on its own.
-	print("Playfield\n%s" % rep_oct(items))
+	dp("Playfield\n%s" % rep_oct(items))
 	# Encode NEXT queue
 	if len(lv_dat.next):
 		for domino in lv_dat.next:
@@ -713,7 +720,7 @@ func level_data_to_bytes(lv_dat: Dictionary) -> PoolByteArray:
 	else:
 		printerr("NEXT queue is empty!")
 		return PoolByteArray()
-	print("NEXT\n%s" % rep_oct(items))
+	dp("NEXT\n%s" % rep_oct(items))
 	# solution (Version 1)
 	if lv_dat.ver == "1":
 		var solution_terminate = (7 << 6) | (0 << 2) | 0
@@ -790,14 +797,14 @@ func level_data_to_bytes(lv_dat: Dictionary) -> PoolByteArray:
 			# remove 2 bytes
 			output.remove(len(output) - 1)
 			output.remove(len(output) - 1)
-	print("Base64 so far: \n%s" % octal_to_base64(items))
-	print("Converted to hexadecimal: \n%s" % rep_hex(output))
+	dp("Base64 so far: \n%s" % octal_to_base64(items))
+	dp("Converted to hexadecimal: \n%s" % rep_hex(output))
 	# The following sections are 8 bits per word.
 	# Directly manipulate the PoolByteArray.
 	
 	# Encode RNG seed
 	if lv_dat.ver == "1":
-		print("Seed: %d\n" % lv_dat.seed)
+		dp("Seed: %d\n" % lv_dat.seed)
 		output.append((lv_dat.seed >> 24) & 0xFF)
 		output.append((lv_dat.seed >> 16) & 0xFF)
 		output.append((lv_dat.seed >>  8) & 0xFF)
@@ -806,7 +813,7 @@ func level_data_to_bytes(lv_dat: Dictionary) -> PoolByteArray:
 	# Encode mission
 	output.append_array(PoolByteArray(lv_dat.mission))
 	
-	print("Mission\n%s" % rep_hex(output))
+	dp("Mission\n%s" % rep_hex(output))
 	
 	# Encode name
 	var max_name_length_in_bytes = 128
@@ -819,7 +826,7 @@ func level_data_to_bytes(lv_dat: Dictionary) -> PoolByteArray:
 		name_length = 1
 	output.append(name_length - 1)
 	output.append_array(lv_dat.name_16)
-	print("Name\n%s" % rep_hex(output))
+	dp("Name\n%s" % rep_hex(output))
 	# Encode author
 # warning-ignore:integer_division
 	var author_length = len(lv_dat.auth_16) / 2
@@ -830,7 +837,7 @@ func level_data_to_bytes(lv_dat: Dictionary) -> PoolByteArray:
 		author_length = 1
 	output.append(author_length - 1)
 	output.append_array(lv_dat.auth_16)
-	print("Author\n%s" % rep_hex(output))
+	dp("Author\n%s" % rep_hex(output))
 	
 	# Finally, calculate checksum and complement
 	var sum = 0
@@ -838,7 +845,7 @@ func level_data_to_bytes(lv_dat: Dictionary) -> PoolByteArray:
 		sum = (sum + byte) & 0xFF
 	output.append(sum)
 	output.append((~sum + 1) & 0xFF)
-	print("Encode complete!\n%s" % rep_hex(output))
+	dp("Encode complete!\n%s" % rep_hex(output))
 	assert(output[0] == "M".ord_at(0))
 	assert(output[1] == "B".ord_at(0))
 	assert(output[2] == lv_dat.ver.ord_at(0))
@@ -862,9 +869,9 @@ func bytes_to_level_data(data: PoolByteArray) -> Dictionary:
 		printerr("Data not long enough.")
 		out.result = "ERR_TOO_SHORT"
 		return out
-	print("Signature is %c%c%c" % [data[0], data[1], data[2]])
+	dp("Signature is %c%c%c" % [data[0], data[1], data[2]])
 	if data[0] == 0x4D and data[1] == 0x42:
-		print("Signature found.")
+		dp("Signature found.")
 		out.ver = char(data[2])
 	else:
 		printerr("Signature not found.")
@@ -926,7 +933,7 @@ func bytes_to_level_data(data: PoolByteArray) -> Dictionary:
 					break
 				elif octal_data[i] >= 0x16 and octal_data[i] & 0x07 == 0x06:
 					var addition = (octal_data[i] >> 3) - 1
-					print("Add 7 HP to next piece (not implemented yet)")
+					dp("Add 7 HP to next piece (not implemented yet)")
 					# and load following piece
 					i += 1
 					out.field[row][column] = octal_data[i] + (56 * addition)
@@ -935,13 +942,13 @@ func bytes_to_level_data(data: PoolByteArray) -> Dictionary:
 					out.field[row][column] = octal_data[i]
 				i += 1
 				column += 1
-			print("Root - read row: ", out.field[row], " (from data)")
+			dp("Root - read row: " + str(out.field[row]) + " (from data)")
 			if break_out:
 				break
 	while len(out.field) < ROWS:
 		out.field.append([0, 0, 0, 0, 0, 0, 0])
-		print("Root - read row: ", out.field.back(), " (padding)")
-	print("Root - That's all she wrote!")
+		dp("Root - read row: " + str(out.field.back()) + " (padding)")
+	dp("Root - That's all she wrote!")
 	# decode next
 	out.next = []
 	while true:
@@ -951,7 +958,7 @@ func bytes_to_level_data(data: PoolByteArray) -> Dictionary:
 			next_piece.id_0 = 0
 			next_piece.id_1 = 0
 			out.next.push_back(next_piece)
-			print("Root - Last next piece: Game over")
+			dp("Root - Last next piece: Game over")
 			break
 		elif octal_data[i] == 0x02:
 			# generate random
@@ -959,7 +966,7 @@ func bytes_to_level_data(data: PoolByteArray) -> Dictionary:
 			i += 1
 			next_piece.id_1 = octal_data[i]
 			out.next.push_back(next_piece)
-			print("Root - Last next piece: Generate randomly: %x" % next_piece.id_1)
+			dp("Root - Last next piece: Generate randomly: %x" % next_piece.id_1)
 			break
 		elif octal_data[i] >= 0x60:
 			# loop to index
@@ -967,7 +974,7 @@ func bytes_to_level_data(data: PoolByteArray) -> Dictionary:
 			i += 1
 			next_piece.id_1 = (octal_data[i-1] & 15) << 6 ^ octal_data[i]
 			out.next.push_back(next_piece)
-			print("Root - Last next piece: Loop to %d" % next_piece.id_1)
+			dp("Root - Last next piece: Loop to %d" % next_piece.id_1)
 			break
 		else:
 			# normal domino
@@ -975,12 +982,12 @@ func bytes_to_level_data(data: PoolByteArray) -> Dictionary:
 			next_piece.id_1 = octal_data[i] & 7
 			out.next.push_back(next_piece)
 			i += 1
-			print("Root - New next piece: ", next_piece.id_0, "|", next_piece.id_1)
+			dp("Root - New next piece: " + str(next_piece.id_0) + "|" + str(next_piece.id_1))
 	i += 1
 	var i_temp = i
 	# solution (version 1)
 	if out.ver == "1":
-		print("%02d" % i + " Decoding solution")
+		dp("%02d" % i + " Decoding solution")
 		var steps_of_solution: int = 0
 		var done_with_solution: bool = false
 		while !done_with_solution:
@@ -1004,7 +1011,7 @@ func bytes_to_level_data(data: PoolByteArray) -> Dictionary:
 				this_move.x = this_move_bits >> 6 & 0x7
 				this_move.y = this_move_bits >> 2 & 0xF
 				this_move.rot = this_move_bits & 0x3
-				print("%02d" % i + " Solution step: x{x} y{y} rot{rot}".format(this_move))
+				dp("%02d" % i + " Solution step: x{x} y{y} rot{rot}".format(this_move))
 				steps_of_solution += 1
 				out.solution.push_back(this_move)
 				if this_move.x == 7:
@@ -1019,10 +1026,10 @@ func bytes_to_level_data(data: PoolByteArray) -> Dictionary:
 		# Should not be overread, but just in case,
 		# Align the index to the real size of the solutions
 		i = i_temp + ceil(1.5 * steps_of_solution)
-		print("%02d" % i)
+		dp("%02d" % i)
 	# go back to hex bytes
 	var pointer_in_bits = i * 6
-	print("Used up %d 6-bit words. That's %d bits or %f bytes." % [i, pointer_in_bits, pointer_in_bits / 8.0])
+	dp("Used up %d 6-bit words. That's %d bits or %f bytes." % [i, pointer_in_bits, pointer_in_bits / 8.0])
 	i = ceil(pointer_in_bits / 8.0)
 	
 	# rng seed (version 1)
@@ -1038,7 +1045,7 @@ func bytes_to_level_data(data: PoolByteArray) -> Dictionary:
 	# decode mission
 	out.mission = []
 	out.mission.append(data[i])
-	print("Mission is %02x" % out.mission[0])
+	dp("Mission is %02x" % out.mission[0])
 	var param_bytes: int
 	if data[i] == 0x01:
 		param_bytes = 2
@@ -1054,13 +1061,13 @@ func bytes_to_level_data(data: PoolByteArray) -> Dictionary:
 		printerr("Unrecognized mission! %02x" % data[i])
 	i += 1
 	for j in range(param_bytes):
-		print("%d of %d mission data bytes: %02x" % [j, param_bytes, data[i]])
+		dp("%d of %d mission data bytes: %02x" % [j, param_bytes, data[i]])
 		out.mission.push_back(data[i])
 		i += 1
 	# decode title
 	var title_length = data[i] + 1
 	out.name = ""
-	print("Title length is %d + 1" % data[i])
+	dp("Title length is %d + 1" % data[i])
 	i += 1
 	while title_length > 0:
 		out.name += char((data[i] * 256) ^ data[i+1])
@@ -1069,7 +1076,7 @@ func bytes_to_level_data(data: PoolByteArray) -> Dictionary:
 	# decode author
 	var author_length = data[i] + 1
 	out.auth = ""
-	print("Author length is %d + 1" % data[i])
+	dp("Author length is %d + 1" % data[i])
 	i += 1
 	while author_length > 0:
 		out.auth += char((data[i] * 256) ^ data[i+1])
@@ -1202,7 +1209,7 @@ func show_confirm(message: String, type, connect_to: Node = null, method_name: S
 	if is_instance_valid(connect_to):
 		self.connect("dialog_result", connect_to, method_name, [id], CONNECT_ONESHOT & CONNECT_DEFERRED)
 	else:
-		print("Root.tscn: Can't connect to dialog callback.")
+		dp("Root.tscn: Can't connect to dialog callback.")
 	get_tree().paused = true
 
 func _on_AcceptDialog_confirmed():
@@ -1244,8 +1251,8 @@ func load_game():
 	if err != OK:
 		show_error("Could not load game due to an error while opening the file: %d" % err)
 		return
-	print("Save game loaded")
-	print(save_game.get_as_text())
+	dp("Save game loaded")
+	dp(save_game.get_as_text())
 	var json_parse_result = JSON.parse(save_game.get_as_text())
 	if json_parse_result.get_error() != OK:
 		show_error("Could not load game due to an error while parsing JSON: %s" % json_parse_result.get_error_string())
@@ -1290,11 +1297,11 @@ func load_levels(world: String) -> Array:
 	for i in range(len(levels)):
 		if !levels[i].has("data"):
 			edited = true
-			print("decoding data:" + levels[i].base64)
+			dp("decoding data:" + levels[i].base64)
 			var this_data = bytes_to_level_data(decode_base64(levels[i].base64))
 			levels[i].data = this_data
 		else:
-			print("got data:" + (levels[i].data.name))
+			dp("got data:" + (levels[i].data.name))
 		for key in levels[i].data.keys():
 			if typeof(levels[i].data[key]) == TYPE_REAL:
 				levels[i].data[key] = int(levels[i].data[key])
@@ -1311,3 +1318,10 @@ func load_levels(world: String) -> Array:
 		level_data_edit.store_string(to_json(levels))
 		level_data_edit.close()
 	return levels
+
+func dp(content: String):
+	if DEBUG:
+		print(content)
+
+func add_log(content: String):
+	$LogLayer.show_log(content)

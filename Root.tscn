@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Root.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Gen3/V1.spriteframes.tres" type="SpriteFrames" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://BlockInputs.gd" type="Script" id=10]
 [ext_resource path="res://fonts/SWAP_10_Regular.tres" type="DynamicFont" id=11]
 [ext_resource path="res://icons/msg_info.png" type="Texture" id=12]
+[ext_resource path="res://tiles/arcade_bg.tres" type="StyleBox" id=13]
+[ext_resource path="res://LogLayer.gd" type="Script" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Loading"
@@ -138,11 +140,11 @@ margin_left = -172.0
 margin_top = 200.0
 margin_right = 44.0
 margin_bottom = 225.0
-custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
 custom_constants/shadow_as_outline = 1
+custom_fonts/font = ExtResource( 4 )
 text = "Loading..."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -157,11 +159,11 @@ margin_left = 3.99998
 margin_top = 200.0
 margin_right = 172.0
 margin_bottom = 225.0
-custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
 custom_constants/shadow_as_outline = 1
+custom_fonts/font = ExtResource( 4 )
 text = "000.00%"
 align = 2
 __meta__ = {
@@ -175,11 +177,11 @@ margin_left = 8.0
 margin_top = -312.0
 margin_right = 352.0
 margin_bottom = -248.0
-custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
 custom_constants/shadow_as_outline = 1
+custom_fonts/font = ExtResource( 11 )
 text = "Dev note: If this screen takes too long or freezes, please tell me what the Developer Console says. (Ctrl+Shift+K outside the game's focus, on Chrome for Windows)"
 autowrap = true
 __meta__ = {
@@ -205,6 +207,7 @@ position = Vector2( 9.6088, 40 )
 scale = Vector2( 4, 4 )
 frames = ExtResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="v2" type="AnimatedSprite" parent="CanvasLayer/Loading/Control"]
@@ -212,7 +215,6 @@ position = Vector2( 115.609, 40 )
 scale = Vector2( 4, 4 )
 frames = ExtResource( 3 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="v3" type="AnimatedSprite" parent="CanvasLayer/Loading/Control"]
@@ -244,6 +246,7 @@ position = Vector2( 244.391, 40 )
 scale = Vector2( 4, 4 )
 frames = ExtResource( 8 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
@@ -255,7 +258,6 @@ layer = 100
 
 [node name="AcceptDialog" type="AcceptDialog" parent="ErrorLayer"]
 pause_mode = 2
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -329,8 +331,8 @@ __meta__ = {
 }
 
 [node name="icon" type="TextureRect" parent="ErrorLayer/ConfirmDialog/VBoxContainer"]
-margin_left = 120.0
-margin_right = 152.0
+margin_left = 138.0
+margin_right = 170.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
 size_flags_horizontal = 4
@@ -339,11 +341,42 @@ expand = true
 
 [node name="content" type="Label" parent="ErrorLayer/ConfirmDialog/VBoxContainer"]
 margin_top = 40.0
-margin_right = 273.0
+margin_right = 309.0
 margin_bottom = 65.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Error"
 autowrap = true
+
+[node name="LogLayer" type="CanvasLayer" parent="."]
+layer = 101
+script = ExtResource( 15 )
+
+[node name="LogBox" type="VBoxContainer" parent="LogLayer"]
+anchor_right = 1.0
+margin_bottom = 640.0
+grow_vertical = 0
+rect_clip_content = true
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogItem" type="PanelContainer" parent="LogLayer/LogBox"]
+margin_top = 615.0
+margin_right = 360.0
+margin_bottom = 640.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="LogContent" type="Label" parent="LogLayer/LogBox/LogItem"]
+margin_right = 360.0
+margin_bottom = 25.0
+custom_constants/line_spacing = 0
+text = "aoeuaoeuaoeuaoueu"
+autowrap = true
+
+[node name="Timer" type="Timer" parent="LogLayer/LogBox/LogItem"]
+wait_time = 5.0
+one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -351,3 +384,4 @@ one_shot = true
 
 [connection signal="confirmed" from="ErrorLayer/AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]
 [connection signal="confirmed" from="ErrorLayer/ConfirmDialog" to="." method="_on_ConfirmDialog_confirmed"]
+[connection signal="timeout" from="LogLayer/LogBox/LogItem/Timer" to="LogLayer/LogBox/LogItem" method="queue_free"]
