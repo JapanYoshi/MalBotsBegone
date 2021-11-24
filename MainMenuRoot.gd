@@ -124,6 +124,7 @@ func _on_SettingsButton_pressed():
 # Fires when the Heart button is pressed.
 func _on_ReviewButton_pressed():
 	Root.request_sfx("decide")
+	Root.show_message("Thank you for playing! <3")
 
 func _on_TuteButton_pressed():
 	Root.change_scene("World0")
