@@ -171,7 +171,6 @@ __meta__ = {
 }
 
 [node name="s" parent="." instance=ExtResource( 2 )]
-scroll_vertical = 0
 
 [node name="Light2D" type="Light2D" parent="s"]
 light_mask = 0
@@ -195,6 +194,7 @@ margin_left = -128.0
 margin_top = -144.0
 margin_right = 128.0
 margin_bottom = -64.0
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -206,6 +206,7 @@ margin_bottom = 80.0
 rect_min_size = Vector2( 256, 80 )
 rect_pivot_offset = Vector2( 128, 0 )
 rect_clip_content = true
+mouse_filter = 1
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false

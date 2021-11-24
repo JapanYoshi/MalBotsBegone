@@ -189,6 +189,7 @@ dialogic={
 [input_devices]
 
 pointing/ios/touch_delay=0.05
+pointing/emulate_touch_from_mouse=true
 
 [locale]
 

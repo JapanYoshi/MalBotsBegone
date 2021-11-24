@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://SwipeContainer.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+scroll_horizontal_enabled = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer"]
+margin_right = 336.0
+margin_bottom = 1296.0
+size_flags_horizontal = 3
+text = "aouaeohu tenth tanoehtnseuohaeonth oenthau onhseatnuh oa nhtueetnhuo aehu toe hsntoeah unteoh utnsaeo htuno hutnoea husneoah utneoa hustaonh untoaeh utnoau hotnaeu htnaoeu hnastoe uhtneoas uhtoaens husntoa hutaeno huetonas uheotn uhatone
+
+TNOUHATEON HTNSOAEAO UHTHNTSAU HA.,CU.RC,A HUC.RA,U CR.A,SHUC.R,AK CAS HKRCOEHK EN H;RCSHCOR.UHCRho>cerCZQ C><u RC.<ucR >u<rchu rcoehuRch R;CH RC HCRh crIH;OHS.HC.RP IAKH,SRC
+
+546848+9489489282894892984580  08  8048989 8049 +894 089 8480 4+2/*889 89+4 429+8 892 7/+ 89+2 82 +8*714 078+8 74182 89 *820 7+987 2+72 89270 /+9 72+927 +/*270 1/+*2 709/+* 720/ 27+0/+9* 72/*+9 70/ *70+ */70 +*/87 4+*2
+ /09 17 027+* 07*/+9 1 0
+
+hcrhc0rtsmrc0lhchmtcrc0hrmt0rmlc09cr0chr09c09t9crm0chrthcrc0hrct0hrmthcrt0crmt9c0trwlr09chmrtw9chmrtwnl09chmtrc9hmrtw9chmtnwlr0c9hmrtnwlr9c8gdfxbhtmnwlrcgdfikuje.puyfdgchrtnwthbdxikujpy67gcrhthbdxikuyf78g9crltnwmtbxhikujpyfgcrtnmhbdxikujepuyf8gchrt"
+autowrap = true

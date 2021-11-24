@@ -25,9 +25,9 @@ func _on_button_pressed(extra_arg_0):
 	else:
 		emit_signal("level_hovered", tier, extra_arg_0)
 
-func _input(event):
-	if event is InputEventMouseMotion:
-		accept_event()
+#func _input(event):
+#	if event is InputEventMouseMotion:
+#		accept_event()
 
 func set_access(accessible: bool):
 	tier_accessible = accessible

@@ -1,4 +1,4 @@
-extends ScrollContainer
+extends "res://SwipeContainer.gd"
 
 var world_directory: String = "tutorial"
 var world_number: int = 0

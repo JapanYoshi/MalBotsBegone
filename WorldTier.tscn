@@ -30,6 +30,7 @@ margin_top = 408.0
 margin_right = 336.0
 margin_bottom = 536.0
 rect_min_size = Vector2( 336, 128 )
+mouse_filter = 1
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 9 )
 __meta__ = {
@@ -57,7 +58,6 @@ margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 size_flags_horizontal = 3
 size_flags_vertical = 0
-action_mode = 0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 3 )
 texture_hover = ExtResource( 5 )
@@ -78,7 +78,6 @@ margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 size_flags_horizontal = 3
 size_flags_vertical = 0
-action_mode = 0
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 6 )
@@ -99,7 +98,6 @@ margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 size_flags_horizontal = 3
 size_flags_vertical = 0
-action_mode = 0
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 2 )
@@ -120,7 +118,6 @@ margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 size_flags_horizontal = 3
 size_flags_vertical = 0
-action_mode = 0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 1 )
@@ -147,6 +144,7 @@ text = "Tier 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="mouse_entered" from="hl/l1" to="." method="_on_button_focus_entered" binds= [ 0 ]]
 [connection signal="pressed" from="hl/l1" to="." method="_on_button_pressed" binds= [ 0 ]]
 [connection signal="mouse_entered" from="hl/l2" to="." method="_on_button_focus_entered" binds= [ 1 ]]
