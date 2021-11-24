@@ -120,16 +120,6 @@ static func listdir(path: String) -> Array:
 			break
 		elif not file.begins_with("."):
 			files.append(file)
-	## DEBUG
-	# TODO: Figure out why the Android export says
-	# the folder contains the files "_cl_", "images", and "webkit",
-	# not the files that actually exist!!
-	if RESULT000 or RESULT001:
-		Root.show_message(
-		"RESULT000: " + String(RESULT000) +
-		"\nRESULT001: " + String(RESULT001) +
-		"\nThe directory " + path + " has these files: " + to_json(files))
-	## END DEBUG
 	dir.list_dir_end()
 	return files
 
@@ -172,9 +162,6 @@ static func get_character_list() -> Array:
 
 static func get_timeline_list() -> Array:
 	var timelines: Array = []
-	## DEBUG
-	Root.show_message("get_path('TIMELINE_DIR')) =\n" + to_json(get_path('TIMELINE_DIR')))
-	## END DEBUG
 	for file in listdir(get_path('TIMELINE_DIR')):
 		if '.json' in file:
 			var data = load_json(get_path('TIMELINE_DIR', file))
