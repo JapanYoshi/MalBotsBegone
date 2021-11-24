@@ -186,6 +186,10 @@ dialogic={
  ]
 }
 
+[input_devices]
+
+pointing/ios/touch_delay=0.05
+
 [locale]
 
 test="ja"
