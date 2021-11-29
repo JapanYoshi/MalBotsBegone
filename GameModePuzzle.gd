@@ -40,63 +40,66 @@ func enter_phase_spawn():
 	button_node.set_active(false)
 # warning-ignore:unsafe_method_access
 	input_node.pause()
-	while len(lvscript):
-		if lvscript[0].turn <= turn:
-			ok_elem.show()
-			var this_script = lvscript.pop_front()
-			if this_script.has("condition"):
-				var result
-				if typeof(this_script.condition) == TYPE_BOOL:
-					result = this_script.condition
+	if len(lvscript):
+		while len(lvscript):
+			if lvscript[0].turn <= turn:
+				ok_elem.show()
+				var this_script = lvscript.pop_front()
+				if this_script.has("condition"):
+					var result
+					if typeof(this_script.condition) == TYPE_BOOL:
+						result = this_script.condition
+					else:
+						var xprs = Expression.new()
+						var parsed = xprs.parse(this_script.condition, PoolStringArray(["self"]))
+						if parsed != OK:
+							printerr("Could not parse expression: " + this_script.condition + " (%s)" % xprs.get_error_text())
+							continue
+						result = xprs.execute()
+						if xprs.has_execute_failed():
+							printerr("Could not execute expression: " + this_script.condition)
+							continue
+					if result == false:
+						continue
+				if this_script.has("cursor"):
+					while len(cursors) < len(this_script.cursor):
+						var new_cursor = Cursor.instance()
+						cursors.push_back(new_cursor)
+	# warning-ignore:unsafe_property_access
+						GameRoot.board.add_child(new_cursor)
+					if len(cursors) > len(this_script.cursor):
+						for i in range(len(this_script.cursor), len(cursors)):
+							cursors[i].hide()
+					for i in range(len(this_script.cursor)):
+						cursors[i].point_to(this_script.cursor[i])
+						cursors[i].show()
+				if this_script.has("text"):
+	# warning-ignore:unsafe_method_access
+					bubble.set_bbcode(this_script.text)
+					bubble.show()
+					if this_script.has("text_position"):
+						bubble.position = Vector2(this_script.text_position[0], this_script.text_position[1])
 				else:
-					var xprs = Expression.new()
-					var parsed = xprs.parse(this_script.condition, PoolStringArray(["self"]))
-					if parsed != OK:
-						printerr("Could not parse expression: " + this_script.condition + " (%s)" % xprs.get_error_text())
-						continue
-					result = xprs.execute()
-					if xprs.has_execute_failed():
-						printerr("Could not execute expression: " + this_script.condition)
-						continue
-				if result == false:
-					continue
-			if this_script.has("cursor"):
-				while len(cursors) < len(this_script.cursor):
-					var new_cursor = Cursor.instance()
-					cursors.push_back(new_cursor)
-# warning-ignore:unsafe_property_access
-					GameRoot.board.add_child(new_cursor)
-				if len(cursors) > len(this_script.cursor):
-					for i in range(len(this_script.cursor), len(cursors)):
-						cursors[i].hide()
-				for i in range(len(this_script.cursor)):
-					cursors[i].point_to(this_script.cursor[i])
-					cursors[i].show()
-			if this_script.has("text"):
-# warning-ignore:unsafe_method_access
-				bubble.set_bbcode(this_script.text)
-				bubble.show()
-				if this_script.has("text_position"):
-					bubble.position = Vector2(this_script.text_position[0], this_script.text_position[1])
+					bubble.hide()
+				waiting_for_input = true
+				return
 			else:
-				bubble.hide()
-			waiting_for_input = true
-			return
-		else:
-			start_turn()
-			return
-	start_turn()
-	return
+				start_turn()
+				return
+	else:
+		start_turn()
+		return
 
 func start_turn():
-	turn += 1
 # warning-ignore:unsafe_method_access
 	button_node.set_active(true)
 # warning-ignore:unsafe_method_access
 	input_node.unpause()
 	bubble.hide()
 	ok_elem.hide()
-	.enter_phase_spawn()
+	#.enter_phase_spawn()
+	turn += 1
+	GameRoot.on_phase_spawn()
 
 func _on_Hint_pressed():
 	Root.show_message("Hints are not implemented yet", 0)
