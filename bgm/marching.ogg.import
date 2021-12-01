@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/marching.ogg-9546d8573257a1e3d89040b9f51de99e.oggstr"
+
+[deps]
+
+source_file="res://bgm/marching.ogg"
+dest_files=[ "res://.import/marching.ogg-9546d8573257a1e3d89040b9f51de99e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

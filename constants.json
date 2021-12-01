@@ -6,8 +6,8 @@
         "arcade": "titlescreen",
         "worldmap": "titlescreen",
         "main": "main",
-        "lesson": "hiphop",
-        "boss": "happy",
+        "lesson": "tutorial",
+        "boss": "marching",
         "game_over": "gameover",
         "game_clear": "gameclear"
     },
