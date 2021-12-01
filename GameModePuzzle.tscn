@@ -88,4 +88,3 @@ shape = SubResource( 4 )
 [connection signal="pressed" from="GameRoot/Hint" to="." method="_on_Hint_pressed"]
 [connection signal="button_down" from="GameRoot/Hint/Button" to="." method="_on_Hint_pressed"]
 [connection signal="pressed" from="ok" to="." method="_on_ok_pressed"]
-[connection signal="released" from="ok/TouchScreenButton" to="." method="_on_ok_pressed"]
