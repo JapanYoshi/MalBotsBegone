@@ -13,6 +13,7 @@ func _ready():
 	Root.preload_sfx("tab")
 	Root.preload_sfx("on")
 	Root.preload_sfx("off")
+	Root.preload_sfx("alarm")
 	Root.preload_sfx("save")
 	Root.preload_sfx("discard")
 	config_defaults = Root.SYSCON.config_defaults
@@ -45,6 +46,10 @@ func _ready():
 			"language": [
 				"choice",
 				$VBoxContainer/TabContainer/I18N_PAGE_MAIN/VBoxContainer/Choice_LANGUAGE
+			],
+			"reset": [
+				"button",
+				$VBoxContainer/TabContainer/I18N_PAGE_MAIN/VBoxContainer/Button_RESET
 			]
 		},
 		"ctrl": {
@@ -95,6 +100,7 @@ func _ready():
 	for loc in Root.locales:
 		element_dict.main.language[1].add_item(Root.SYSCON.autonyms[loc])
 	print("ready is finished.")
+	Root.request_bgm("settings")
 	load_all()
 
 func _input(event):
@@ -301,14 +307,4 @@ func _on_Setup_pressed():
 	Root.change_scene("FirstTime")
 
 func _on_Reset_pressed():
-	# todo: make custom modal for this specific purpose
-	Root.show_confirm(
-		"I18N_DELETE_SAVE_CONFIRM",
-		1, # warning
-		self,
-		"_on_Reset_confirmed"
-	)
-
-func _on_Reset_confirmed(result, _id):
-	if result == true:
-		Root.reset_game()
+	$DeleteWarning.show_warning()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://fonts/decorative_big.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Setting_Slider.tscn" type="PackedScene" id=2]
@@ -28,6 +28,21 @@
 [ext_resource path="res://tiles/tab_button_theme.tres" type="Theme" id=26]
 [ext_resource path="res://SkinBox.tres.gd" type="Script" id=27]
 [ext_resource path="res://fonts/SWAP_10_Regular.tres" type="DynamicFont" id=28]
+[ext_resource path="res://tiles/warningFrame.png" type="Texture" id=29]
+[ext_resource path="res://tiles/DialogTheme.tres" type="Theme" id=30]
+[ext_resource path="res://sprites/delete/yes5.png" type="Texture" id=31]
+[ext_resource path="res://sprites/delete/yes9.png" type="Texture" id=32]
+[ext_resource path="res://sprites/delete/no.png" type="Texture" id=33]
+[ext_resource path="res://sprites/delete/yes0.png" type="Texture" id=34]
+[ext_resource path="res://sprites/delete/yes3.png" type="Texture" id=35]
+[ext_resource path="res://sprites/delete/yes2.png" type="Texture" id=36]
+[ext_resource path="res://sprites/delete/ask.png" type="Texture" id=37]
+[ext_resource path="res://sprites/delete/yes7.png" type="Texture" id=38]
+[ext_resource path="res://sprites/delete/yes6.png" type="Texture" id=39]
+[ext_resource path="res://sprites/delete/yes4.png" type="Texture" id=40]
+[ext_resource path="res://sprites/delete/yes8.png" type="Texture" id=41]
+[ext_resource path="res://sprites/delete/yes1.png" type="Texture" id=42]
+[ext_resource path="res://DeleteWarning.gd" type="Script" id=43]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends HBoxContainer
@@ -58,6 +73,34 @@ expand_margin_left = 8.0
 expand_margin_right = 8.0
 expand_margin_top = 8.0
 expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 29 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 16.0
+margin_right = 16.0
+margin_top = 16.0
+margin_bottom = 16.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 37 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 34 ), ExtResource( 34 ), ExtResource( 34 ), ExtResource( 42 ), ExtResource( 36 ), ExtResource( 35 ), ExtResource( 40 ), ExtResource( 31 ), ExtResource( 39 ), ExtResource( 38 ), ExtResource( 41 ), ExtResource( 32 ), ExtResource( 32 ), ExtResource( 32 ), ExtResource( 32 ) ],
+"loop": false,
+"name": "yes",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 33 ) ],
+"loop": true,
+"name": "no",
+"speed": 1.0
+} ]
 
 [node name="SettingsMenuRoot" type="Control"]
 anchor_left = 0.5
@@ -164,7 +207,6 @@ __meta__ = {
 }
 
 [node name="I18N_PAGE_A11Y" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -233,6 +275,7 @@ text = "I18N_SETUP"
 align = 0
 
 [node name="I18N_PAGE_MAIN" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -269,6 +312,7 @@ option_format = "%d/16"
 margin_top = 222.0
 margin_right = 344.0
 margin_bottom = 326.0
+focus_neighbour_bottom = NodePath("../Button_RESET")
 theme = null
 option_name = "I18N_LANGUAGE"
 
@@ -672,8 +716,8 @@ custom_constants/separation = 4
 margin_right = 240.0
 margin_bottom = 25.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 19 )
 text = "SKIN NAME"
 align = 1
 valign = 1
@@ -684,8 +728,8 @@ margin_top = 29.0
 margin_right = 240.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 28 )
 custom_colors/font_color = Color( 0, 0, 0, 0.752941 )
+custom_fonts/font = ExtResource( 28 )
 text = "SKIN NAME"
 align = 1
 valign = 1
@@ -706,8 +750,8 @@ margin_top = 228.0
 margin_right = 320.0
 margin_bottom = 315.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 9 )
 text = "SKIN DESCRIPTION LOREM IPSUM DOLOR SIT AMET CONSECTETUER ADIPISCING ELIT."
 valign = 1
 autowrap = true
@@ -764,6 +808,103 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DeleteWarning" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.752941 )
+script = ExtResource( 43 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="DeleteWarning"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -168.0
+margin_top = -240.0
+margin_right = 168.0
+margin_bottom = 240.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DeleteWarning/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="DeleteWarning/ColorRect/Panel"]
+position = Vector2( 180, 112 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 4 )
+playing = true
+
+[node name="Label" type="Label" parent="DeleteWarning/ColorRect/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -156.0
+margin_top = 208.0
+margin_right = 156.0
+margin_bottom = 344.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 0.431373, 0.431373, 1 )
+text = "I18N_DELETE_SAVE_CONFIRM"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="DeleteWarning/ColorRect/Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = -144.0
+margin_right = -12.0
+margin_bottom = -88.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../Button2")
+focus_next = NodePath("../Button2")
+focus_previous = NodePath(".")
+theme = ExtResource( 30 )
+custom_colors/font_color = Color( 0.945098, 0.0705882, 0.0705882, 1 )
+text = "I18N_DELETE_SAVE_DATA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="DeleteWarning/ColorRect/Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = -72.0
+margin_right = -12.0
+margin_bottom = -16.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath("../Button")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../Button")
+theme = ExtResource( 30 )
+text = "I18N_DONT_DELETE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/PageSelect/a11y" to="VBoxContainer/ScrollContainer/PageSelect" method="_on_A11Y_pressed"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/PageSelect/main" to="VBoxContainer/ScrollContainer/PageSelect" method="_on_MAIN_pressed"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/PageSelect/ctrl" to="VBoxContainer/ScrollContainer/PageSelect" method="_on_CTRL_pressed"]
@@ -778,6 +919,9 @@ __meta__ = {
 [connection signal="pressed" from="Bottombar/ExitButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Bottombar/LoadButton" to="." method="_on_LoadButton_pressed"]
 [connection signal="pressed" from="Bottombar/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="animation_finished" from="DeleteWarning/ColorRect/Panel/AnimatedSprite" to="DeleteWarning" method="_on_animation_finished"]
+[connection signal="button_up" from="DeleteWarning/ColorRect/Panel/Button" to="DeleteWarning" method="_on_yes"]
+[connection signal="button_up" from="DeleteWarning/ColorRect/Panel/Button2" to="DeleteWarning" method="_on_no"]
 
 [editable path="VBoxContainer/TabContainer/I18N_PAGE_A11Y/VBoxContainer/Slider_FONT_SIZE"]
 [editable path="VBoxContainer/TabContainer/I18N_PAGE_CTRL/VBoxContainer/Slider_ROT_DELAY"]
