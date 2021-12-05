@@ -23,11 +23,11 @@ var first_time = true
 var save_dict = {
 	"arcade": {
 		"highscores": {
-			0: 0,
-			1: 0,
-			2: 0,
-			3: 0,
-			4: 0
+			"marathon": 0,
+			"petri": 0,
+			"onslaught": 0,
+			"mission": 0,
+			"zen": 0
 		}
 	},
 	"tutorial": {
