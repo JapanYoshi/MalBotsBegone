@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://fonts/decorative_big.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Setting_Slider.tscn" type="PackedScene" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://sprites/delete/yes8.png" type="Texture" id=41]
 [ext_resource path="res://sprites/delete/yes1.png" type="Texture" id=42]
 [ext_resource path="res://DeleteWarning.gd" type="Script" id=43]
+[ext_resource path="res://SwipeContainer.gd" type="Script" id=44]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends HBoxContainer
@@ -217,6 +218,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 follow_focus = true
 scroll_horizontal_enabled = false
+script = ExtResource( 44 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_A11Y"]
 margin_right = 344.0
@@ -285,6 +287,7 @@ margin_bottom = -8.0
 size_flags_vertical = 3
 follow_focus = true
 scroll_horizontal_enabled = false
+script = ExtResource( 44 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_MAIN"]
 margin_right = 344.0
@@ -336,6 +339,7 @@ margin_bottom = -8.0
 size_flags_vertical = 3
 follow_focus = true
 scroll_horizontal_enabled = false
+script = ExtResource( 44 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_CTRL"]
 margin_right = 344.0
@@ -551,6 +555,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 follow_focus = true
 scroll_horizontal_enabled = false
+script = ExtResource( 44 )
 
 [node name="Panel" type="PanelContainer" parent="VBoxContainer/TabContainer/I18N_PAGE_SKIN"]
 margin_right = 344.0
