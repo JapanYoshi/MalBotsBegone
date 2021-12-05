@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://GameRoot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameModePuzzle.gd" type="Script" id=2]
@@ -12,9 +12,6 @@ extents = Vector2( 24, 24 )
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=3]
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 180, 68 )
 
 [node name="GameModePuzzle" type="Control"]
 anchor_right = 1.0
@@ -81,9 +78,6 @@ text = "OK!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="ok"]
-shape = SubResource( 4 )
 
 [connection signal="pressed" from="GameRoot/Hint" to="." method="_on_Hint_pressed"]
 [connection signal="button_down" from="GameRoot/Hint/Button" to="." method="_on_Hint_pressed"]

@@ -17,7 +17,7 @@ func set_params(colors_: int, height_: int, color_ratio_: float, avg_health_: fl
 
 func _ready():
 	if !initialized:
-		if "pass_between" in Root and Root.pass_between.mode == "Petri":
+		if "mode" in Root.pass_between and Root.pass_between.mode == "Petri":
 			set_params(
 				Root.pass_between.colors,
 				Root.pass_between.rows,
@@ -45,13 +45,23 @@ func init_game():
 		colormask << 1, # enemy color mask
 		height
 	)
-	GameRoot.insert_row_below(battalion)
-	$Timer.wait_time = 0.3 * len(battalion)
-	$Timer.connect("timeout", self, "enter_phase_spawn")
-	$Timer.start()
 	GameRoot.init_dominoes_in_next([
 		0x02, colormask
 	])
 	Root.request_bgm("main")
-	GameRoot.load_objective([0x7F, 0]) # Defeat all enemies
 	GameRoot.set_title(TranslationServer.translate("I18N_MODE_PETRI"))
+	GameRoot.insert_row_below(battalion)
+	GameRoot.load_objective([0x7F, 0]) # Defeat all enemies
+	# the below probably should be triggered by a signal back from root instead 
+	#$Timer.wait_time = 1.0 - pow(0.5, len(battalion))
+	#$Timer.connect("timeout", self, "enter_phase_spawn", ["Petri: Init game"])
+	#$Timer.start()
+
+func game_clear():
+	GameRoot.check_highscore("arcade", "petri")
+	.game_clear()
+	GameRoot.call_deferred("on_game_clear")
+
+func game_over():
+	GameRoot.check_highscore("arcade", "onslaught")
+	.game_over()

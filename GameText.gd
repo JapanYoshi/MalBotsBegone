@@ -1,4 +1,7 @@
 extends Control
+
+signal game_clear_timer
+
 var all_clear_rect: Node
 var clear_rect: Node
 var game_over_rect: Node
@@ -33,6 +36,8 @@ func game_clear():
 	playing = 2
 	clear_rect.show()
 	$AnimationPlayer.play("PopUp")
+	# wait 5 seconds before returning to the previous menu
+	$GameClearedTimer.start()
 
 func game_over():
 	reset()
@@ -40,6 +45,8 @@ func game_over():
 	playing = 3
 	game_over_rect.show()
 	$AnimationPlayer.play("PopUp")
+	# wait 5 seconds before returning to the previous menu
+	$GameClearedTimer.start()
 
 func bonus():
 	reset()
@@ -51,3 +58,6 @@ func bonus():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "PopUp" and (playing == 1 or playing == 4):
 		$AnimationPlayer.play("FadeOut")
+
+func _on_GameClearedTimer_timeout():
+	emit_signal("game_clear_timer")

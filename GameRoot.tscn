@@ -97,9 +97,9 @@ margin_top = 4.0
 margin_right = 204.0
 margin_bottom = 52.0
 size_flags_vertical = 0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/bold_font = ExtResource( 12 )
 custom_fonts/normal_font = ExtResource( 13 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "HIGH SCORE!
 00000000 → 00000000"
 fit_content_height = true
@@ -137,8 +137,8 @@ margin_top = 32.0
 margin_right = 352.0
 margin_bottom = 54.0
 rect_min_size = Vector2( 32, 8 )
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Pieces"
 align = 2
 autowrap = true
@@ -160,8 +160,8 @@ grow_vertical = 2
 rect_min_size = Vector2( 16, 8 )
 rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 16, 8 )
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "∞"
 align = 2
 max_lines_visible = 1
@@ -175,8 +175,8 @@ margin_top = 251.0
 margin_right = 318.0
 margin_bottom = 267.0
 rect_min_size = Vector2( 32, 16 )
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.113725, 0.537255, 0.768627, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Time"
 autowrap = true
 __meta__ = {
@@ -189,8 +189,8 @@ margin_top = 259.0
 margin_right = 318.0
 margin_bottom = 275.0
 rect_min_size = Vector2( 32, 16 )
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.113725, 0.537255, 0.768627, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "00'00.0"
 autowrap = true
 __meta__ = {
@@ -203,8 +203,8 @@ margin_top = 288.0
 margin_right = 344.0
 margin_bottom = 304.0
 rect_min_size = Vector2( 32, 16 )
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.792157, 0.905882, 0.929412, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Score"
 autowrap = true
 __meta__ = {
@@ -218,8 +218,8 @@ margin_right = 328.0
 margin_bottom = 318.0
 rect_min_size = Vector2( 32, 16 )
 rect_clip_content = true
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.792157, 0.905882, 0.929412, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "00000000"
 align = 2
 clip_text = true
@@ -234,8 +234,8 @@ margin_right = 292.0
 margin_bottom = 12.0
 rect_min_size = Vector2( 32, 8 )
 rect_scale = Vector2( 2, 2 )
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.792157, 0.905882, 0.929412, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Next"
 clip_text = true
 max_lines_visible = 1
@@ -250,8 +250,8 @@ margin_right = 124.0
 margin_bottom = 12.0
 rect_min_size = Vector2( 120, 8 )
 rect_scale = Vector2( 2, 2 )
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.792157, 0.905882, 0.929412, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Stage 000"
 clip_text = true
 __meta__ = {
@@ -263,12 +263,12 @@ margin_left = 264.0
 margin_top = 318.0
 margin_right = 360.0
 margin_bottom = 331.0
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/line_spacing = 0
 custom_constants/shadow_offset_y = 1
+custom_fonts/font = ExtResource( 5 )
 text = "0123456789"
 align = 2
 autowrap = true
@@ -311,10 +311,6 @@ position = Vector2( -24, 110 )
 wait_time = 0.5
 one_shot = true
 
-[node name="GameClearedTimer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-
 [node name="InputJoyKey" parent="." instance=ExtResource( 8 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -327,7 +323,6 @@ margin_bottom = 496.0
 [connection signal="pressed" from="Plate/Pause/Button" to="." method="_on_Pause_pressed"]
 [connection signal="tween_all_completed" from="NextTween" to="." method="_on_NextTween_end"]
 [connection signal="timeout" from="PopTimer" to="." method="_on_PopTimer_timeout"]
-[connection signal="timeout" from="GameClearedTimer" to="." method="_on_GameClearedTimer_timeout"]
 [connection signal="hard_drop_start" from="InputJoyKey" to="." method="_on_hard_drop_start"]
 [connection signal="move_left" from="InputJoyKey" to="." method="_on_move_left"]
 [connection signal="move_right" from="InputJoyKey" to="." method="_on_move_right"]

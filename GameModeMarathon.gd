@@ -23,7 +23,7 @@ func _ready():
 		0x02, bit_mask_from_colors(colors_allowed)
 	])
 	GameRoot.set_title(1)
-	GameRoot.on_phase_spawn()
+	GameRoot.on_phase_spawn("Marathon: Initialize")
 	Root.request_bgm("main")
 	current_bg = bgs[0].instance()
 	add_child_below_node(BGBox, current_bg)
@@ -32,6 +32,8 @@ func _ready():
 func game_clear():
 	if level == 20:
 		.game_clear()
+		GameRoot.check_highscore("arcade", "marathon")
+		GameRoot.call_deferred("on_game_clear")
 	else:
 		Root.request_sfx("level_up")
 		level += 1
@@ -41,9 +43,11 @@ func game_clear():
 		GameRoot.set_difficulty(level)
 		GameRoot.load_objective([0xBF, 50]) # Clear 50 blocks!
 		GameRoot.set_title(level)
-		.enter_phase_spawn()
+		.enter_phase_spawn("Marathon: Starting level %f" % level)
 		if color_change_threshold.has(level):
 			colors_allowed += 1
 			GameRoot.NEXT.load_data([2, bit_mask_from_colors(colors_allowed)])
 
-		
+func game_over():
+	GameRoot.check_highscore("arcade", "marathon")
+	.game_over()

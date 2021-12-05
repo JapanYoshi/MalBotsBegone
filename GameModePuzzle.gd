@@ -31,10 +31,10 @@ func _ready():
 		lvdat.seed
 	)
 	# todo: script
-	enter_phase_spawn()
+	enter_phase_spawn("Puzzle: ready")
 	# todo: hints
 	
-func enter_phase_spawn():
+func enter_phase_spawn(reason: String):
 	GameRoot.set_paused(true)
 # warning-ignore:unsafe_method_access
 	button_node.set_active(false)
@@ -99,7 +99,7 @@ func start_turn():
 	ok_elem.hide()
 	#.enter_phase_spawn()
 	turn += 1
-	GameRoot.on_phase_spawn()
+	GameRoot.emit_signal("enter_phase_spawn", "Puzzle: start turn")
 
 func _on_Hint_pressed():
 	Root.show_message("Hints are not implemented yet", 0)
@@ -108,14 +108,14 @@ func _input(event):
 	if waiting_for_input:
 		if event.is_action_pressed("ui_accept"):
 			accept_event()
-			enter_phase_spawn()
+			enter_phase_spawn("Puzzle: Accept button")
 			return
 
 func _on_rejected_input(id):
 	print("Rejected input %d" % id)
 
 func _on_ok_pressed():
-	enter_phase_spawn()
+	enter_phase_spawn("Puzzle: OK pressed")
 
 func game_clear():
 	print("Your score is %08d" % GameRoot.score)
@@ -126,15 +126,10 @@ func game_clear():
 	Root.save_dict[\
 		Root.pass_between.world\
 	].cleared = "0x%x" % save.cleared
-	var highscore = 0
-	if save.highscores.has(Root.pass_between.level_index):
-		highscore = save.highscores[Root.pass_between.level_index]
-	if highscore < GameRoot.score:
-		GameRoot.show_highscore(highscore)
-		Root.save_dict[\
-			Root.pass_between.world\
-		].highscores[\
-			Root.pass_between.level_index\
-		] = GameRoot.score
+	GameRoot.check_highscore(Root.pass_between.world, Root.pass_between.level_index)
 	GameRoot.call_deferred("on_game_clear")
 	Root.save_game()
+
+func game_over():
+	GameRoot.check_highscore(Root.pass_between.world, Root.pass_between.level_index)
+	.game_over()

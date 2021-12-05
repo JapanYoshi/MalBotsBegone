@@ -12,7 +12,7 @@ extends Node
 var phase: String = "init"
 signal enter_phase_drop(placed_domino, x, y, direction)
 signal enter_phase_erase(block_count, color_count, enemy_damage_count, blob_sizes)
-signal enter_phase_spawn
+signal enter_phase_spawn(reason)
 signal enter_phase_move
 signal game_over
 signal game_clear
@@ -21,6 +21,9 @@ signal rejected_input(id)
 
 # Store how much time has passed so processes can use it
 var game_time: float = 0
+# Auxiliary variable that increases with time.
+# Originally meant for Onslaught.
+var aux_timer: float = 0
 
 # Internal variables to be used during piece clearing.
 var block_count # int; count
@@ -232,6 +235,7 @@ func _ready():
 	hdp0.theme()
 	hdp1.theme()
 	game_text = board.get_node("GameText")
+	game_text.connect("game_clear_timer", self, "_on_GameClearedTimer_timeout")
 	reset()
 
 func set_title(title_or_level):
@@ -253,6 +257,7 @@ func reset(objective = [0], board_state = [], dominoes_in_next = [false], rng_se
 	now_falling = 0
 	now_deleting = 0
 	game_time = 0
+	aux_timer = 0
 	chain_count = 0
 	move_queue = []
 	if typeof(rng_seed) == TYPE_BOOL:
@@ -270,8 +275,10 @@ func reset(objective = [0], board_state = [], dominoes_in_next = [false], rng_se
 func start_game():
 	if phase != "init":
 		printerr("GameRoot - Can't start game while phase is not init!")
+	elif input_allowed == false:
+		print("GameRoot - Can't start game while input is disallowed.")
 	else:
-		emit_signal("enter_phase_drop")
+		emit_signal("enter_phase_spawn", "start game")
 
 func load_objective(obj_data = [0]):
 	objective_box.parse_objective(obj_data)
@@ -512,7 +519,7 @@ func on_phase_drop():
 			if game_time > 0:
 				_on_all_clear()
 			if !deferred_game_clear:
-				emit_signal("enter_phase_spawn")
+				emit_signal("enter_phase_spawn", "drop phase ended")
 	else:
 		emit_signal("enter_phase_erase", block_count, color_count, enemy_damage_count, blob_sizes)
 		
@@ -629,7 +636,7 @@ func check_surround():
 			if objective_box.goal <= chain_count:
 				deferred_game_clear = true
 		chain_count = 0
-		emit_signal("enter_phase_spawn")
+		emit_signal("enter_phase_spawn", "surround phase ended")
 		return
 	else:
 		#print("GameRoot - There are blocks to erase, and the current chain count is %d." % chain_count)
@@ -682,7 +689,6 @@ func check_surround():
 			Vector2(pop_position[0] * piece_size, pop_position[1] * -piece_size) +
 			Vector2(64, -64)
 		)
-				
 
 func check_surround_one(value: int, row: int, column: int) -> Array:
 #	print("check_surround_one(", row,",", column,")")
@@ -822,24 +828,28 @@ func on_phase_erase():
 # TODO:
 # Makes the first Domino in the queue playable,
 # and generates the next Domino from the NEXT object.
-func on_phase_spawn():
+func on_phase_spawn(reason: String):
+	print("On Phase Spawn: " + reason)
 	if input_allowed:
-		printerr("GameRoot - Spawn phase initiated prematurely while user input is allowed!")
+		print("GameRoot - Spawn phase initiated prematurely while user input is allowed!")
+		yield(get_tree().create_timer(1/10.0), "timeout")
+		#emit_signal("enter_phase_spawn", reason)
 		return
-	phase = "spawn"
+	if phase == "spawn":
+		printerr("GameRoot - Already in spawn phase!")
+		return
 	if objective_box.objective_list[objective_box.objective_id] == "I18N_OBJECTIVE_HIGH_SCORE":
 		objective_box.progress(score, false)
 	if deferred_game_clear:
 		emit_signal("game_clear")
 		deferred_game_clear = false
-		# wait 5 seconds before returning to the previous menu
-		$GameClearedTimer.start()
 		return
 	if (
 		!last_placed_oob and # last placed at least partially in bounds
 		data[shown_height - 1][3] == 0 and # spawn block is free
 		dominoes_in_next.front().id_0 != 0 # next queue has a block
 	):
+		phase = "spawn"
 		moving_domino = dominoes_in_next.pop_front()
 		moving_domino.subgrid_speed = moving_domino_speed
 		var new_next = NEXT.get_next($Plate/Next)
@@ -892,7 +902,6 @@ func on_game_clear():
 	now_falling = 0
 	move_queue = []
 	set_paused(true)
-	
 
 func on_game_over():
 	Root.request_bgm("game_over")
@@ -910,6 +919,7 @@ func _process(delta):
 	
 	if input_allowed:
 		game_time += delta
+		aux_timer += delta
 		# Game time display, since we're tracking it anyway.
 		var minutes = game_time / 60
 		$Plate/Time.text = "%02d'%02d.%1d" % [minutes, int(game_time) % 60, int(game_time * 10) % 10]
@@ -1616,7 +1626,7 @@ func insert_row_below(new_data):
 		), Vector2(0
 			, (shown_height               ) * piece_size
 		)
-		, 0.5, Tween.TRANS_QUAD, Tween.EASE_OUT
+		, 1.0 - pow(0.5, rows_to_move), Tween.TRANS_QUAD, Tween.EASE_OUT
 	)
 	board.get_node("Tween").start()
 	# if the domino is there, recalculate its shadow
@@ -1626,7 +1636,8 @@ func insert_row_below(new_data):
 		update_shadow()
 
 func set_paused(pause: bool = true):
-	input_allowed = !pause
+	if phase != "init":
+		input_allowed = !pause
 	if is_instance_valid(moving_domino):
 		moving_domino.active = !pause
 		ShadowCenter.visible = !pause
@@ -1649,10 +1660,21 @@ func _on_pieces_moved_up():
 		node_ids.pop_back()
 		data.pop_back()
 	set_paused(false)
+	# let's see if we need to spawn
+	emit_signal("enter_phase_spawn", "Pieces finished moving up")
 
 func _on_GameClearedTimer_timeout():
 	Root.request_bgm_stop()
 	Root.back_scene()
+
+func check_highscore(world_id, level_id):
+	var highscore = 0
+	if Root.save_dict.has(world_id) and\
+	Root.save_dict[world_id].highscores.has(level_id):
+		highscore = Root.save_dict[world_id].highscores[level_id]
+	if highscore < score:
+		Root.save_dict[world_id].highscores[level_id] = score
+		show_highscore(highscore)
 
 func show_highscore(old_highscore):
 	var high_score_text = board.get_node("HighScoreText")

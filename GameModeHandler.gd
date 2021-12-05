@@ -124,10 +124,10 @@ func enter_phase_erase(_blocks_to_erase: int, _colors_to_erase: int, _enemies_to
 	phase = 2
 	GameRoot.call_deferred("on_phase_erase")
 
-func enter_phase_spawn():
+func enter_phase_spawn(reason: String):
 	print("GameObserver: About to enter spawn phase.")
 	phase = 3
-	GameRoot.call_deferred("on_phase_spawn")
+	GameRoot.call_deferred("on_phase_spawn", reason)
 
 func enter_phase_move():
 	print("GameObserver: About to enter move phase.")
@@ -142,7 +142,6 @@ func game_over():
 func game_clear():
 	print("GameObserver: Game cleared!")
 	phase = 6
-	GameRoot.call_deferred("on_game_clear")
 
 func pause_on():
 # warning-ignore:unsafe_method_access

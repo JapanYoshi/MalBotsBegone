@@ -11,12 +11,13 @@ func _ready():
 	init_game()
 
 func _process(delta):
-	if GameRoot.game_time >= how_often_to_spawn * (level):
+	if GameRoot.aux_timer >= how_often_to_spawn:
 		level += 1
+		GameRoot.aux_timer -= how_often_to_spawn
 		add_enemies()
 		GameRoot.set_difficulty(level / 4)
 		GameRoot.set_title(level)
-	board_timer.set_value(int(max(ceil(how_often_to_spawn * level - GameRoot.game_time), 0)), 2)
+	board_timer.set_value(int(max(ceil(how_often_to_spawn - GameRoot.aux_timer), 0)), 2)
 
 func init_game():
 	level = 1
@@ -27,13 +28,15 @@ func init_game():
 	Root.request_bgm("main")
 	GameRoot.set_title(level)
 	add_enemies()
-	.enter_phase_spawn()
+#	.enter_phase_spawn("Onslaught: Init game")
 
-func game_clear():
+func game_clear(world: String = "", level = ""):
 	# player cleared all enemies! give bonus
 	GameRoot.award_bonus(1000)
-	GameRoot.load_objective([0x01, 0, 0]) # Survive ALAP
-	.enter_phase_spawn()
+	# set the timer to spawn delay, so that
+	# we add enemies the next frame
+	GameRoot.aux_timer = how_often_to_spawn
+	#.enter_phase_spawn("Onslaught: Cleared objective")
 
 func add_enemies():
 	var row_count = min(3, 1 + floor(level * 0.05))
@@ -45,3 +48,7 @@ func add_enemies():
 	)
 	GameRoot.insert_row_below(battalion)
 	GameRoot.load_objective([0x7F, 0]) # Clear all enemies
+
+func game_over():
+	GameRoot.check_highscore("arcade", "onslaught")
+	.game_over()
