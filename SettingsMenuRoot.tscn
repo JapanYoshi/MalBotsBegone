@@ -880,7 +880,7 @@ focus_next = NodePath("../Button2")
 focus_previous = NodePath(".")
 theme = ExtResource( 30 )
 custom_colors/font_color = Color( 0.945098, 0.0705882, 0.0705882, 1 )
-text = "I18N_DELETE_SAVE_DATA"
+text = "I18N_DELETE_SAVE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
