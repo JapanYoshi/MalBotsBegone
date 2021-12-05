@@ -22,6 +22,7 @@ shadow_color = Color( 0, 0, 0, 0 )
 default_font = ExtResource( 2 )
 Button/colors/font_color = Color( 0, 0, 0, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0, 0.231373, 0.321569, 1 )
 Button/colors/font_color_hover = Color( 0, 0.231373, 0.321569, 1 )
 Button/colors/font_color_pressed = Color( 0, 0.231373, 0.321569, 1 )
 Button/constants/hseparation = 0
