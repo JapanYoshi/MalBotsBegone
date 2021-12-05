@@ -3,8 +3,9 @@
     "bgm_dictionary": {
         "splash": "splashscreen",
         "title": "titlescreen",
-        "arcade": "titlescreen",
-        "worldmap": "titlescreen",
+        "arcade": "arcade",
+        "worldmap": "ambience",
+        "settings": "ambience",
         "main": "main",
         "lesson": "tutorial",
         "boss": "marching",
@@ -52,6 +53,7 @@
         "tab": "tab",
         "off": "check-off",
         "on": "check-on",
+        "alarm": "alarm",
         "save": "save",
         "discard": "discard",
         
