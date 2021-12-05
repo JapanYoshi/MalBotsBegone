@@ -1,4 +1,5 @@
 extends Node2D
+const DEBUG = false
 
 # A GamePiece is a Piece that falls in the game board.
 # It is a Block, an Enemy, a Wall, or a Ball.
@@ -88,7 +89,7 @@ func _ready():
 
 # "sprite_name" stores name of sprite; "count" is 0 for non-Enemies, its HP for Enemies
 func set_piece(which_, sprite_name, count_, id_):
-#	print("GamePiece - set_piece(%d, %s, %d, %d)" % [which_, sprite_name, count_, id_])
+#	dp("GamePiece - set_piece(%d, %s, %d, %d)" % [which_, sprite_name, count_, id_])
 	which = which_
 	# load and init sprite
 	$Node/AnimatedSprite.frames = load(
@@ -117,7 +118,7 @@ func set_piece(which_, sprite_name, count_, id_):
 	count = count_
 	id = id_
 	init_particles()
-	#print("Piece loaded: ", which, ", ", sprite_name, " * ", count, " with mass ", mass)
+	#dp("Piece loaded: ", which, ", ", sprite_name, " * ", count, " with mass ", mass)
 
 func stop_falling():
 	falling = false
@@ -140,11 +141,11 @@ func _process(delta):
 			return
 		# then recursively check if the block below needs to be nudged away
 		while piece_checking:
-			#print("piece checking: ", piece_checking, "; piece to check: ", piece_to_check)
+			#dp("piece checking: ", piece_checking, "; piece to check: ", piece_to_check)
 			# check if the block below collides
 			if piece_to_check == null:
 				# no piece to check. end physics.
-				#print("No piece below")
+				#dp("No piece below")
 				return
 			elif piece_checking.position.y - piece_to_check.position.y > -piece_size:
 				piece_to_check.position.y = piece_checking.position.y + piece_size
@@ -154,7 +155,7 @@ func _process(delta):
 				piece_to_check = piece_checking.piece_below
 			else:
 				# no need to continue checking
-				#print("Piece below has enough distance")
+				#dp("Piece below has enough distance")
 				return
 	assert(affected_by_gravity and falling)
 	just_collided = false
@@ -215,15 +216,15 @@ func _process(delta):
 				var vf_1 = (2 * mass_b * velocity_b + (mass - mass_b) * velocity  ) / (mass_b + mass)
 				var v_1  = rebound   * vf_1 + (1 - rebound  ) * velocity
 				var v_2  = rebound_b * vf_2 + (1 - rebound_b) * velocity_b
-#				print("vf_1=", vf_1, ",vf_2=", vf_2, ",v_1=",  v_1, ",v_2=",  v_2)
+#				dp("vf_1=", vf_1, ",vf_2=", vf_2, ",v_1=",  v_1, ",v_2=",  v_2)
 				if piece_below.falling:
 					if collided_b:
-#						print("Piece below is sandwiched")
+#						dp("Piece below is sandwiched")
 						position.y = height_b - piece_size + min(0.0, v_1) * sub_delta - 1.0
 						velocity = velocity_b + rebound * vf_1
 						piece_below.velocity = (velocity_b + v_2) / 2.0
 					else:
-#						print("Piece below is mid-air")
+#						dp("Piece below is mid-air")
 						position.y = height_b - piece_size + v_1 * sub_delta
 						velocity = v_1
 						piece_below.velocity = v_2
@@ -237,7 +238,7 @@ func _process(delta):
 			position.y += velocity * sub_delta
 
 func drop(new_piece_below, new_final_y):
-	#print("Piece below is ", new_piece_below)
+	#dp("Piece below is ", new_piece_below)
 	piece_below = new_piece_below
 	if !falling:
 		game_root.now_falling += 1
@@ -324,13 +325,13 @@ func joy():
 func _on_IdleTimer_timeout():
 	if emoting:
 		emoting = false
-		print("GamePiece - Piece %d, which is a %d, stopped emoting." % [id, which])
+		dp("GamePiece - Piece %d, which is a %d, stopped emoting." % [id, which])
 		$Node/AnimatedSprite.stop()
 		$Node/AnimatedSprite.frame = 0
 		$IdleTimer.wait_time = game_root.decorative_rng.randf_range(10.0, 50.0)
 	else:
 		emoting = true
-		print("GamePiece - Piece %d, which is a %d, started emoting." % [id, which])
+		dp("GamePiece - Piece %d, which is a %d, started emoting." % [id, which])
 		$Node/AnimatedSprite.play("idle")
 		$IdleTimer.wait_time = 2.0
 	$IdleTimer.start()
@@ -339,3 +340,7 @@ func _on_IdleTimer_timeout():
 func _on_Tween_tween_completed(object, key):
 	if key == ":position":
 		pass#breakpoint
+
+func dp(content: String):
+	if DEBUG:
+		print(content)
