@@ -17,39 +17,39 @@ I18N_SCORE,SCORE,とくてん,PUNTAJE,,,POENTARO
 I18N_TIME,TIME,じかん,TIEMPO,,,TEMPO
 I18N_CHAIN_BEFORE,N/A,N/A,¡CASCADA DE,,,N/A
 I18N_CHAIN_AFTER,CASCADE!,連鎖!,!,,,-STRIO!
-I18N_CLEAR,STAGE CLEARED!,ステージ\nクリア！,¡NIVEL SUPERADO!,,,
-I18N_FAIL,GAME OVER,ゲーム\nオーバー,JUEGO TERMINADO,,PRZEGRANA,
+I18N_CLEAR,STAGE CLEARED!,ステージ\nクリア！,¡NIVEL SUPERADO!,,,FAZO TRAPASITA!
+I18N_FAIL,GAME OVER,ゲーム\nオーバー,JUEGO TERMINADO,,PRZEGRANA,LUDO FINITA
 I18N_ALLCLEAR,WIPEOUT!,全消し！,¡TABLERO VACÍO!,,,
-I18N_BONUS,BONUS!,ボーナス！,¡BONIFICACIÓN!,,,
-I18N_OBJECTIVE,Mission: “%s”,ミッション【%s】,Misión: «%s»,,,
-I18N_COLOR_0,gray,灰色の,grises,grey,,
-I18N_COLOR_1,red,赤い,rojos,,,
-I18N_COLOR_2,yellow,黄色い,amarillos,,,
-I18N_COLOR_3,green,緑色の,verdes,,,
-I18N_COLOR_4,blue,青い,azules,,,
-I18N_COLOR_5,purple,紫の,morados,,,
-I18N_COLOR_SEP,", ",と,", ",,,
-I18N_COLOR_SEP_TWO, and ,と, y ,,,
-I18N_COLOR_SEP_LAST,", and ",と,", y ",,,
+I18N_BONUS,BONUS!,ボーナス！,¡BONIFICACIÓN!,,,BONIFIKO!
+I18N_OBJECTIVE,Mission: “%s”,ミッション【%s】,Misión: «%s»,,,Misio: «%s»
+I18N_COLOR_0,gray,灰色の,grises,grey,,grizajn
+I18N_COLOR_1,red,赤い,rojos,,,ruĝajn
+I18N_COLOR_2,yellow,黄色い,amarillos,,,flavajn
+I18N_COLOR_3,green,緑色の,verdes,,,verdajn
+I18N_COLOR_4,blue,青い,azules,,,bluajn
+I18N_COLOR_5,purple,紫の,morados,,,violkolorajn
+I18N_COLOR_SEP,", ",と,", ",,,", "
+I18N_COLOR_SEP_TWO, and ,と, y ,,, kaj 
+I18N_COLOR_SEP_LAST,", and ",と,", y ",,,", kaj "
 I18N_TIME_FORMAT,"%02d'%02d""",%02d分%02d秒,,,,
-I18N_OBJECTIVE_ZEN,[b]Chill![/b],[b]無し！[/b],,,,
-I18N_OBJECTIVE_SURVIVE,[b]Survive![/b],[b]生き延びろ！[/b],[b]¡Sobrevive![/b],,,
-I18N_OBJECTIVE_SURVIVE_TIME,Survive for [b]{0}[/b]!,[b]{0}間[/b]生き延びろ！,¡Sobrevive por [b]{0}[/b]!,,,
-I18N_OBJECTIVE_ENEMY,Defeat [b]all MalBots[/b]!,[b]マルボッツを全滅[/b]させろ！,¡Derrota a [b]todos los MalBots[/b]!,,,
-I18N_OBJECTIVE_ENEMY_COUNT,Defeat [b]{0} MalBots[/b]!,[b]マルボッツを{0}体[/b]倒せ！,¡Derrota a [b]{0} MalBots[/b]!,,,
-I18N_OBJECTIVE_ENEMY_COLOR,Defeat [b]all {0} MalBots[/b]!,[b]{0}マルボッツを全滅[/b]させろ！,¡Derrota a [b]todos los MalBots {0}[/b]!,,,
-I18N_OBJECTIVE_ENEMY_COLOR_COUNT,Defeat [b]{0} {1} MalBots[/b]!,[b]{1}マルボッツを{0}体[/b]倒せ！,¡Derrota a [b]{0} MalBots {1}[/b]!,,,
-I18N_OBJECTIVE_BLOCK,Erase [b]all Blocks[/b]!,[b]ブロックを全部[/b]消せ！,¡Borra [b]todos los bloques[/b]!,,,
-I18N_OBJECTIVE_BLOCK_COUNT,Erase [b]{0} Blocks[/b]!,[b]ブロックを{0}個[/b]消せ！,¡Borra [b]{0} bloques[/b]!,,,
-I18N_OBJECTIVE_BLOCK_COLOR,Erase [b]all {0} Blocks[/b]!,[b]{0}ブロックを全部[/b]消せ！,¡Borra [b]todos los bloques {0}[/b]!,,,
-I18N_OBJECTIVE_BLOCK_COLOR_COUNT,Erase [b]{0} {1} Blocks[/b]!,[b]{1}ブロックを{0}個[/b]消せ！,¡Borra [b]{0} bloques {1}[/b]!,,,
-I18N_OBJECTIVE_CHAIN_COUNT,Cause a [b]{0}-Cascade[/b] or longer!,[b]{0}連鎖[/b]以上を起こせ！,,,,
-I18N_OBJECTIVE_CHAIN_EXACT,Cause [b]exactly a {0}-Cascade[/b]!,[b]ちょうど{0}連鎖[/b]を起こせ！,,,,
-I18N_OBJECTIVE_HIGH_SCORE,[b]Score[/b] {0} points or more!,{0}点以上[b]得点[/b]しろ！,¡Consigue [b]{0} puntos[/b] o más!,,,
-I18N_OBJECTIVE_COLORS,Erase {0} [b]colors[/b] of blocks at once!,{0}[b]色[/b]のブロックを同時に消せ！,¡Borra [b]{0} colores[/b] de bloques en un solo golpe!,Erase {0} [b]colours[/b] of blocks at once!,,
-I18N_OBJECTIVE_PLACEHOLDER_NUMBER,[VALUE],〈数〉,[VALOR],,,
-I18N_OBJECTIVE_PLACEHOLDER_COLOR,[COLOR(S)],〈色〉,[COLOR(ES)],[COLOUR(S)],,
-I18N_OBJECTIVE_PLACEHOLDER_TIME,[TIME],〈時間〉,[TIEMPO],,,
+I18N_OBJECTIVE_ZEN,[b]Chill![/b],[b]無し！[/b],,,,[b]Ripozu![/b]
+I18N_OBJECTIVE_SURVIVE,[b]Survive![/b],[b]生き延びろ！[/b],[b]¡Sobrevive![/b],,,[b]Transvivu![/b]
+I18N_OBJECTIVE_SURVIVE_TIME,Survive for [b]{0}[/b]!,[b]{0}間[/b]生き延びろ！,¡Sobrevive por [b]{0}[/b]!,,,Transvivu dum [b]{0}[/b]!
+I18N_OBJECTIVE_ENEMY,Defeat [b]all MalBots[/b]!,[b]マルボッツを全滅[/b]させろ！,¡Derrota a [b]todos los MalBots[/b]!,,,Venku [b]ĉiujn FiBotojn[/b]!
+I18N_OBJECTIVE_ENEMY_COUNT,Defeat [b]{0} MalBots[/b]!,[b]マルボッツを{0}体[/b]倒せ！,¡Derrota a [b]{0} MalBots[/b]!,,,Venku [b]{0} FiBotojn[/b]!
+I18N_OBJECTIVE_ENEMY_COLOR,Defeat [b]all {0} MalBots[/b]!,[b]{0}マルボッツを全滅[/b]させろ！,¡Derrota a [b]todos los MalBots {0}[/b]!,,,Venku [b]ĉiujn {0} FiBotojn[/b]!
+I18N_OBJECTIVE_ENEMY_COLOR_COUNT,Defeat [b]{0} {1} MalBots[/b]!,[b]{1}マルボッツを{0}体[/b]倒せ！,¡Derrota a [b]{0} MalBots {1}[/b]!,,,Venku [b]{0} {1} FiBotojn[/b]!
+I18N_OBJECTIVE_BLOCK,Erase [b]all Blocks[/b]!,[b]ブロックを全部[/b]消せ！,¡Borra [b]todos los bloques[/b]!,,,Forigu [b]ĉiujn Blokojn[/b]!
+I18N_OBJECTIVE_BLOCK_COUNT,Erase [b]{0} Blocks[/b]!,[b]ブロックを{0}個[/b]消せ！,¡Borra [b]{0} bloques[/b]!,,,Forigu [b]{0} Blokojn[/b]!
+I18N_OBJECTIVE_BLOCK_COLOR,Erase [b]all {0} Blocks[/b]!,[b]{0}ブロックを全部[/b]消せ！,¡Borra [b]todos los bloques {0}[/b]!,,,Forigu [b]ĉiujn {0} Blokojn[/b]!
+I18N_OBJECTIVE_BLOCK_COLOR_COUNT,Erase [b]{0} {1} Blocks[/b]!,[b]{1}ブロックを{0}個[/b]消せ！,¡Borra [b]{0} bloques {1}[/b]!,,,Forigu [b]{0} {1} Blokojn[/b]!
+I18N_OBJECTIVE_CHAIN_COUNT,Cause a [b]{0}-Cascade[/b] or longer!,[b]{0}連鎖[/b]以上を起こせ！,,,,Kaŭzu [b]{0}-Strion[/b] aŭ pli longan!
+I18N_OBJECTIVE_CHAIN_EXACT,Cause [b]exactly a {0}-Cascade[/b]!,[b]ちょうど{0}連鎖[/b]を起こせ！,,,,Kaŭzu [b]precize {0}-Strion[/b]!
+I18N_OBJECTIVE_HIGH_SCORE,[b]Score[/b] {0} points or more!,{0}点以上[b]得点[/b]しろ！,¡Consigue [b]{0} puntos[/b] o más!,,,[b]Atingu[/b] {0} poentojn aŭ pli!
+I18N_OBJECTIVE_COLORS,Erase {0} [b]colors[/b] of blocks at once!,{0}[b]色[/b]のブロックを同時に消せ！,¡Borra [b]{0} colores[/b] de bloques en un solo golpe!,Erase {0} [b]colours[/b] of blocks at once!,,Forigu Blokojn kun {0} [b]koloroj[/b] samtempe!
+I18N_OBJECTIVE_PLACEHOLDER_NUMBER,[VALUE],〈数〉,[VALOR],,,[VALORO]
+I18N_OBJECTIVE_PLACEHOLDER_COLOR,[COLOR(S)],〈色〉,[COLOR(ES)],[COLOUR(S)],,[KOLORO(J)]
+I18N_OBJECTIVE_PLACEHOLDER_TIME,[TIME],〈時間〉,[TIEMPO],,,[TEMPO]
 I18N_TUTORIAL_BASIC00,"You can move the domino left and right, and make it fall faster.",牌は左右に動かしたり、速く落としたりできます。,,,,
 I18N_TUTORIAL_BASIC01,Press the ← and → keys or buttons to move. Press the ↓ key or button to speed up the fall.,左右キー・ボタンで左右に動かせます。下キー・ボタンで速く落とせます。,,,,
 I18N_TUTORIAL_BASIC02,Drag left or right to move. Drag down and hold to speed up the fall.,画面を左右にスワイプして左右に移動できます。下にスワイプしたまま長押しして速く落とせます。,,,,
@@ -77,6 +77,7 @@ I18N_HINT,Hint,ヒント,Pista,,,Indiko
 I18N_HINT_CONFIRM,Do you want to spend a [b]Hint Coin[/b] for a hint?,[b]ヒントコイン[/b]を1枚使いますか？,¿Te gustaría gastar una [b]Moneda de Pistas[/b] por una pista?,,,Ĉu vi volas elspezi unu [b]Indikan Moneron[/b] per ricevi indikon?
 I18N_HINT_RUNOUT,You have no Hint Coins left!,ヒントコインがありません！,¡No te queda ni una Moneda de Pistas!,,,Vi ne havas eĉ unu Indikan Moneron!
 I18N_CREDITS,Credits,クレジット,Créditos,,,
+,hai!touch Studios,,,,,
 ,Lead programmer,主任プログラマー,Programador principal,,,
 ,Haruki “Haley” Wakamatsu,若松 春希,Haruki «Haley» Wakamatsu,,,
 ,Paying tribute to,これらの前駆作品に敬意を表します,Inspirado por,,,
@@ -86,24 +87,24 @@ I18N_CREDITS,Credits,クレジット,Créditos,,,
 ,“Ghost Puzzle” by Hernan Zhou,Hernan Zhou 作アプリ「Ghost Puzzle」,Ghost Puzzle por Hernan Zhou,,,
 ,Powered by Godot Engine,Godot Engine で駆動,Alimentado por Godot Engine,,,
 ,Libraries,,,,,
-,Godot Engine 3.2.3 is licensed under the MIT license.,,,Godot Engine 3.2.3 is licensed under the MIT licence.,,
-,QRCoder by Raffael Herrmann is licensed under the MIT license.,,,QRCoder by Raffael Herrmann is licensed under the MIT licence.,,
-,https://github.com/codebude/QRCoder,,,,,
+,Godot Engine 3.4 is licensed under the MIT license.,,,Godot Engine 3.4 is licensed under the MIT licence.,,
 ,,,,,,
 ,,,,,,
 ,,,,,,
 ,,,,,,
 ,,,,,,
-I18N_SETTINGS,Settings,設定,Ajustes,,,
-I18N_PAGE_A11Y,Accessibility,バリアフリー,Acesibilidad,,,
-I18N_FONT_SIZE,Font size,文字の大きさ,Tamaño de fuente,,,
+,,,,,,
+,,,,,,
+I18N_SETTINGS,Settings,設定,Ajustes,,,Agordoj
+I18N_PAGE_A11Y,Accessibility,バリアフリー,Acesibilidad,,,Alirebleco
+I18N_FONT_SIZE,Font size,文字の大きさ,Tamaño de fuente,,,Tipara grando
 I18N_FONT_SIZE_HELP,"If you find the pixelated font too small or hard to read, move this slider from the far left.",ドット文字が小さすぎたり読みにくかったりしたら、つまみを左端から動かしてください。,"Si la fuente pixelada es muy pequeña o ilegible, desliza este control desde el extremo izquierrdo.",,,
-I18N_DISABLE_PARTICLES,Disable particles,パーティクル効果を無くす,Desactivar partículas,,,
+I18N_DISABLE_PARTICLES,Disable particles,パーティクル効果を無くす,Desactivar partículas,,,Malŝalti partiklojn
 I18N_DISABLE_PARTICLES_HELP,"If the visual effect of the particles are glitchy or distracting, you can turn them off here.",パーティクル効果の見た目がバグってたり、気が散ったりしたら、ここでOFFにできます。,"Si los efectos visuales con partículas parecen incorrectos o te distraen, puede desactivarlos aquí.",,,
-I18N_SETUP,First-time setup,初期設定,,,,
-I18N_PAGE_MAIN,Main,全般,General,,,
-I18N_VOL_BGM,Music volume,音楽の音量,Volumen de música,,,
-I18N_VOL_SFX,Sound effect volume,効果音の音量,Volumen de efectos de sonido,,,
+I18N_SETUP,First-time setup,初期設定,,,,Unua-foja agordo
+I18N_PAGE_MAIN,Main,全般,General,,,Ĉefa
+I18N_VOL_BGM,Music volume,音楽の音量,Volumen de música,,,Muzika laŭteco
+I18N_VOL_SFX,Sound effect volume,効果音の音量,Volumen de efectos de sonido,,,Sonefika laŭteco
 I18N_LANGUAGE,Language,言語,Idioma,,,Lingvo
 I18N_PAGE_CTRL,Controls,操作,Controles,,,
 I18N_CTRL,Control scheme,操作方法,Esquema de control,,,
@@ -308,8 +309,10 @@ I18N_WORLD_3A,[world 3 subtitle],,,,,
 I18N_WORLD_4A,[world 4 subtitle],,,,,
 I18N_WORLD_5A,[world 5 subtitle],,,,,
 I18N_WORLD_TIER%d,Tier %d,第%d階層,,,,
-I18N_WORLD_BOSS,Boss Level,ワールドボス,,,,
+I18N_WORLD_BOSS,World Boss,ワールドボス,,,,
 I18N_WORLD_ADVANCE,Solve at least [b]3 levels[/b] to advance to the next tier!,[b]3問[/b]以上解いたら、次の階層へ進めます！,,,,
+I18N_TIER_LOCKED,This tier is still locked.,この階層はまだ解禁できていません。,,,,
+I18N_NEW_RECORD,[b]New record![/b],[b]新記録！[/b],,,,
 I18N_CHARA_000,Robotic voice,機械音声,,,,
 I18N_CHARA_001,???,???,,,,
 I18N_SETUP_000,New biosignature detected.\nInitializing first-time setup.,新規生体反応あり。\n初回セットアップ開始。,,,,
@@ -336,3 +339,6 @@ I18N_SETUP_020,You can also change these settings later using the Gear button in
 I18N_SETUP_021,I’ll see you again in Story Mode. Have fun!,じゃあまた、ストーリーモードでね。楽しんでね〰！,,,,
 I18N_SETUP_SKIP,Skip setup,初期設定を飛ばす,,,,
 I18N_SETUP_SKIP_HELP,Press Start button or End key,STARTボタンかEndキーを押す,,,,
+I18N_DELETE_SAVE_CONFIRM,Are you absolutely sure you want to delete all story mode progress and high scores?,,,,,
+I18N_DELETE_SAVE,Delete save data,,,,,
+I18N_DONT_DELETE,No wait go back,,,,,
