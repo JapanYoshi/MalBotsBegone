@@ -15,7 +15,7 @@ func _on_ButtonExit_pressed():
 
 func _on_OK_pressed():
 	var preloaded = Root.preloaded_scene
-	if !preloaded:
+	if !is_instance_valid(preloaded):
 		Root.preload_scene("GameModePetri")
 		preloaded = Root.preloaded_scene
 	Root.pass_between = {

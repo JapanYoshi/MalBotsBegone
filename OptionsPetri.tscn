@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://tiles/spinbox_theme.tres" type="Theme" id=1]
 [ext_resource path="res://tiles/Options_style.tres" type="Theme" id=2]
@@ -14,8 +14,10 @@
 [ext_resource path="res://buttons/exit_pressed.png" type="Texture" id=12]
 [ext_resource path="res://buttons/exit_normal.png" type="Texture" id=13]
 [ext_resource path="res://OptionsPetri.gd" type="Script" id=14]
+[ext_resource path="res://SwipeContainer.gd" type="Script" id=15]
 [ext_resource path="res://fonts/SWAP_12_Regular.tres" type="DynamicFont" id=16]
 [ext_resource path="res://tiles/textbox.stylebox" type="StyleBox" id=17]
+[ext_resource path="res://menuTheme.tres" type="Theme" id=18]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -77,8 +79,10 @@ margin_left = -160.0
 margin_top = -240.0
 margin_right = 160.0
 margin_bottom = 240.0
+theme = ExtResource( 18 )
 follow_focus = true
 scroll_horizontal_enabled = false
+script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -95,6 +99,7 @@ __meta__ = {
 [node name="A4" type="PanelContainer" parent="ScrollContainer/Opts"]
 margin_right = 296.0
 margin_bottom = 106.0
+mouse_filter = 1
 theme = ExtResource( 2 )
 
 [node name="B0" type="VBoxContainer" parent="ScrollContainer/Opts/A4"]
@@ -107,8 +112,8 @@ custom_constants/separation = 0
 [node name="Label" type="Label" parent="ScrollContainer/Opts/A4/B0"]
 margin_right = 244.0
 margin_bottom = 25.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_GAME_SPEED"
 autowrap = true
 
@@ -187,9 +192,9 @@ margin_bottom = 33.0
 rect_min_size = Vector2( 64, 0 )
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
-custom_styles/normal = ExtResource( 17 )
-custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 16 )
+custom_styles/normal = ExtResource( 17 )
 text = "Low"
 align = 2
 script = SubResource( 3 )
@@ -198,6 +203,7 @@ script = SubResource( 3 )
 margin_top = 106.0
 margin_right = 296.0
 margin_bottom = 212.0
+mouse_filter = 1
 theme = ExtResource( 2 )
 
 [node name="B0" type="VBoxContainer" parent="ScrollContainer/Opts/A0"]
@@ -210,8 +216,8 @@ custom_constants/separation = 0
 [node name="Label" type="Label" parent="ScrollContainer/Opts/A0/B0"]
 margin_right = 244.0
 margin_bottom = 25.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_COLOR_COUNT"
 autowrap = true
 
@@ -306,6 +312,7 @@ __meta__ = {
 margin_top = 212.0
 margin_right = 296.0
 margin_bottom = 318.0
+mouse_filter = 1
 theme = ExtResource( 2 )
 
 [node name="B0" type="VBoxContainer" parent="ScrollContainer/Opts/A1"]
@@ -318,8 +325,8 @@ custom_constants/separation = 0
 [node name="Label" type="Label" parent="ScrollContainer/Opts/A1/B0"]
 margin_right = 244.0
 margin_bottom = 25.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_ENEMY_HEIGHT"
 autowrap = true
 
@@ -414,6 +421,7 @@ __meta__ = {
 margin_top = 318.0
 margin_right = 296.0
 margin_bottom = 424.0
+mouse_filter = 1
 theme = ExtResource( 2 )
 
 [node name="B0" type="VBoxContainer" parent="ScrollContainer/Opts/A2"]
@@ -426,8 +434,8 @@ custom_constants/separation = 0
 [node name="Label" type="Label" parent="ScrollContainer/Opts/A2/B0"]
 margin_right = 244.0
 margin_bottom = 25.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_ENEMY_HP"
 autowrap = true
 
@@ -523,6 +531,7 @@ __meta__ = {
 margin_top = 424.0
 margin_right = 296.0
 margin_bottom = 530.0
+mouse_filter = 1
 theme = ExtResource( 2 )
 
 [node name="B0" type="VBoxContainer" parent="ScrollContainer/Opts/A3"]
@@ -535,8 +544,8 @@ custom_constants/separation = 0
 [node name="Label" type="Label" parent="ScrollContainer/Opts/A3/B0"]
 margin_right = 244.0
 margin_bottom = 25.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_COLOR_RATIO"
 autowrap = true
 
@@ -660,6 +669,7 @@ texture_focused = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="decrement_by" from="ScrollContainer/Opts/A4/B0/Box/Dec" to="ScrollContainer/Opts/A4/B0/Box/Val" method="_decrement"]
 [connection signal="increment_by" from="ScrollContainer/Opts/A4/B0/Box/Inc" to="ScrollContainer/Opts/A4/B0/Box/Val" method="_increment"]
 [connection signal="decrement_by" from="ScrollContainer/Opts/A0/B0/Box/Dec" to="ScrollContainer/Opts/A0/B0/Box/Val" method="_decrement"]
