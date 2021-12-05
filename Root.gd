@@ -323,7 +323,7 @@ func restart_scene():
 func preload_scene(name_: String):
 	if preloaded_scene_name == name_:
 		return
-	if preloaded_scene:
+	if is_instance_valid(preloaded_scene):
 		preloaded_scene.queue_free()
 	preloaded_scene_name = name_
 # warning-ignore:unsafe_method_access
