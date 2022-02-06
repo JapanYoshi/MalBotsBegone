@@ -98,8 +98,9 @@ func start_turn():
 	bubble.hide()
 	ok_elem.hide()
 	#.enter_phase_spawn()
+	GameRoot.on_phase_spawn("Tutorial text hidden")
 	turn += 1
-	GameRoot.emit_signal("enter_phase_spawn", "Puzzle: start turn")
+	return
 
 func _on_Hint_pressed():
 	Root.show_message("Hints are not implemented yet", 0)

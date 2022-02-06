@@ -43,6 +43,7 @@ margin_top = -32.0
 margin_right = 32.0
 grow_horizontal = 0
 grow_vertical = 0
+rect_pivot_offset = Vector2( 24, 24 )
 mouse_filter = 0
 custom_fonts/font = ExtResource( 3 )
 align = 2
@@ -70,5 +71,6 @@ one_shot = true
 
 [node name="IdleTimer" type="Timer" parent="."]
 one_shot = true
+
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="IdleTimer" to="." method="_on_IdleTimer_timeout"]

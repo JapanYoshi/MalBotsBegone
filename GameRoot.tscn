@@ -4,7 +4,7 @@
 [ext_resource path="res://sprites/Gen3/Field.png" type="Texture" id=2]
 [ext_resource path="res://fonts/gameplay_double.tres" type="DynamicFont" id=3]
 [ext_resource path="res://buttons/pause.png" type="Texture" id=4]
-[ext_resource path="res://fonts/ttf/UI12_400.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://fonts/SWAP_12_Regular.tres" type="DynamicFont" id=5]
 [ext_resource path="res://sprites/Gen3/NextMask.png" type="Texture" id=6]
 [ext_resource path="res://ObjectiveBox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://InputJoyKey.tscn" type="PackedScene" id=8]
@@ -41,13 +41,13 @@ __meta__ = {
 anchor_right = 0.0
 margin_left = 0.0
 margin_right = 360.0
-margin_bottom = 62.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 0, 30 )
 
 [node name="Plate" type="TextureRect" parent="."]
-margin_top = 66.0
+margin_top = 64.0
 margin_right = 360.0
-margin_bottom = 492.0
+margin_bottom = 490.0
 grow_horizontal = 2
 texture = ExtResource( 2 )
 __meta__ = {
@@ -95,13 +95,12 @@ __meta__ = {
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 204.0
-margin_bottom = 52.0
+margin_bottom = 12.0
 size_flags_vertical = 0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/bold_font = ExtResource( 12 )
-custom_fonts/normal_font = ExtResource( 13 )
-text = "HIGH SCORE!
-00000000 → 00000000"
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
 fit_content_height = true
 
 [node name="Next" type="Control" parent="Plate"]
@@ -268,7 +267,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/line_spacing = 0
 custom_constants/shadow_offset_y = 1
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 13 )
 text = "0123456789"
 align = 2
 autowrap = true
@@ -314,9 +313,9 @@ one_shot = true
 [node name="InputJoyKey" parent="." instance=ExtResource( 8 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 496.0
+margin_top = 494.0
 margin_right = 360.0
-margin_bottom = 496.0
+margin_bottom = 494.0
 
 [connection signal="tween_all_completed" from="Plate/Board/Tween" to="." method="_on_pieces_moved_up"]
 [connection signal="pressed" from="Plate/Pause" to="." method="_on_Pause_pressed"]

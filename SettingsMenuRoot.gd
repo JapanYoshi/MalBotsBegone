@@ -97,8 +97,13 @@ func _ready():
 			]
 		}
 	}
+	var current_locale = TranslationServer.get_locale()
 	for loc in Root.locales:
-		element_dict.main.language[1].add_item(Root.SYSCON.autonyms[loc])
+		TranslationServer.set_locale(loc)
+		element_dict.main.language[1].add_item(
+			TranslationServer.translate("I18N_LOCALE_NAME")
+		)
+	TranslationServer.set_locale(current_locale)
 	print("ready is finished.")
 	Root.request_bgm("settings")
 	load_all()

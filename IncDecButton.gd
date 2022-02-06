@@ -45,10 +45,10 @@ func _gui_input(event):
 
 func _process(delta):
 	if is_pressed:
-		press_duration += delta
-		if is_instance_valid(SwipeContainer) and SwipeContainer.swiping:
-			last_step_taken = 99999 # prevent button from firing when releasing
+		if is_instance_valid(SwipeContainer) and SwipeContainer.swipe_distance > 8:
+			# don't increment time while swiping
 			return
+		press_duration += delta
 		while press_duration > last_step_taken + delay[speed_level]:
 			#print("IncDecButton - Value change %5d" % step[speed_level])
 			emit_signal("decrement_by" if decrement else "increment_by", step[speed_level] * multiplier)

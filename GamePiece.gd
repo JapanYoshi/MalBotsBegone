@@ -261,31 +261,57 @@ func damage(strength: int = 1):
 	if count > strength:
 		# give damage
 		count -= strength
+		$Label.text = str(count)
 		if count == 1:
-			$Label.text = ""
+			$Tween.interpolate_property(
+				$Label, "modulate:a",
+				1, 0,
+				0.25, Tween.TRANS_LINEAR
+			)
 		else:
-			$Label.text = str(count)
-	else:
-		# HP ran out!
-		$Label.hide()
+			pass
 		$Tween.interpolate_property(
-			$Node/AnimatedSprite, "scale",
-			$Node/AnimatedSprite.scale, $Node/AnimatedSprite.scale * 1.25,
-			0.25, # duration
-			Tween.TRANS_CUBIC,
-			Tween.EASE_OUT
+			$Label, "rect_scale",
+			Vector2.ONE * 1.5, Vector2.ONE,
+			0.25, Tween.TRANS_QUAD, Tween.EASE_OUT
+		)
+		$Tween.interpolate_property(
+			$Label, "rect_rotation",
+			10, 0, 
+			0.25, Tween.TRANS_QUAD, Tween.EASE_OUT
 		)
 		$Tween.start()
-		# pop
-		count = -1
-		var anims = $Node/AnimatedSprite.frames.get_animation_names()
-		if "pop" in anims:
-			$Node/AnimatedSprite.animation = "pop"
-		elif "glow" in anims:
-			$Node/AnimatedSprite.animation = "glow"
-		else:
-			assert(true, "Wait, you don't have a pop or glow animation?")
-		game_root.find_node("PopTimer").connect("timeout", self, "_on_PopTimer_timeout")
+	else:
+		pop()
+
+func pop():
+	# HP ran out!
+	if count > 1:
+		$Label.set_text("0")
+		$Tween.interpolate_property(
+			$Label, "modulate:a",
+			1, 0,
+			0.25, Tween.TRANS_LINEAR
+		)
+	#$Label.hide()
+	$Tween.interpolate_property(
+		$Node/AnimatedSprite, "scale",
+		$Node/AnimatedSprite.scale, $Node/AnimatedSprite.scale * 1.25,
+		0.25, # duration
+		Tween.TRANS_CUBIC,
+		Tween.EASE_OUT
+	)
+	$Tween.start()
+	# pop
+	count = -1
+	var anims = $Node/AnimatedSprite.frames.get_animation_names()
+	if "pop" in anims:
+		$Node/AnimatedSprite.animation = "pop"
+	elif "glow" in anims:
+		$Node/AnimatedSprite.animation = "glow"
+	else:
+		assert(true, "Wait, you don't have a pop or glow animation?")
+	game_root.find_node("PopTimer").connect("timeout", self, "_on_PopTimer_timeout")
 
 func init_particles():
 	var particles = $Particles

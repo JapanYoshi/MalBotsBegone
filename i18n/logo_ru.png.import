@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/UI12_400.png-9f06b83b75c104ed03c457a439c57a76.stex"
+path="res://.import/logo_ru.png-93dc861963d2ac6326dfb0c5a63569f7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fonts/ttf/UI12_400.png"
-dest_files=[ "res://.import/UI12_400.png-9f06b83b75c104ed03c457a439c57a76.stex" ]
+source_file="res://i18n/logo_ru.png"
+dest_files=[ "res://.import/logo_ru.png-93dc861963d2ac6326dfb0c5a63569f7.stex" ]
 
 [params]
 

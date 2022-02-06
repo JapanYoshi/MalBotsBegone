@@ -9,6 +9,7 @@ extends ScrollContainer
 const is_swipe_container = true
 
 var swiping = false
+var swipe_distance: float = 0.0
 var swipe_start
 var swipe_mouse_start
 var swipe_mouse_times = []
@@ -16,9 +17,10 @@ var swipe_mouse_positions = []
 
 func _input(ev):
 	if ev is InputEventMouseButton:
-		print("swipe start/end: " + str(ev))
+#		print("swipe start/end: " + str(ev))
 		if ev.pressed:
 			swiping = true
+			print("Swipe start")
 			swipe_start = Vector2(get_h_scroll(), get_v_scroll())
 			swipe_mouse_start = ev.position
 			swipe_mouse_times = [OS.get_ticks_msec()]
@@ -45,9 +47,12 @@ func _input(ev):
 				tween.interpolate_callback(tween, flick_dur, 'queue_free')
 				tween.start()
 			swiping = false
+			swipe_distance = 0.0
+			print("Swipe end")
 	elif swiping and ev is InputEventMouseMotion:
-		print("swiping: " + str(ev))
+#		print("swiping: " + str(ev))
 		var delta = ev.position - swipe_mouse_start
+		swipe_distance = max(swipe_distance, abs(delta.y))
 		set_h_scroll(swipe_start.x - delta.x)
 		set_v_scroll(swipe_start.y - delta.y)
 		swipe_mouse_times.append(OS.get_ticks_msec())

@@ -223,9 +223,9 @@ custom_constants/separation = 8
 alignment = 2
 
 [node name="StoryButton" type="Button" parent="MainContainer/ButtonsContainer/ButtonsVBox"]
-margin_top = 192.0
+margin_top = 208.0
 margin_right = 360.0
-margin_bottom = 260.0
+margin_bottom = 272.0
 grow_horizontal = 2
 grow_vertical = 0
 rect_min_size = Vector2( 240, 64 )
@@ -237,9 +237,9 @@ shortcut_in_tooltip = false
 text = "I18N_STORY"
 
 [node name="ArcadeButton" type="Button" parent="MainContainer/ButtonsContainer/ButtonsVBox"]
-margin_top = 268.0
+margin_top = 280.0
 margin_right = 360.0
-margin_bottom = 336.0
+margin_bottom = 344.0
 grow_horizontal = 2
 grow_vertical = 0
 rect_min_size = Vector2( 240, 64 )
@@ -252,9 +252,9 @@ shortcut_in_tooltip = false
 text = "I18N_ARCADE"
 
 [node name="TuteButton" type="Button" parent="MainContainer/ButtonsContainer/ButtonsVBox"]
-margin_top = 344.0
+margin_top = 352.0
 margin_right = 360.0
-margin_bottom = 412.0
+margin_bottom = 416.0
 grow_horizontal = 2
 grow_vertical = 0
 rect_min_size = Vector2( 240, 64 )
@@ -267,7 +267,7 @@ shortcut_in_tooltip = false
 text = "I18N_TUTORIAL"
 
 [node name="EditorButton" type="Button" parent="MainContainer/ButtonsContainer/ButtonsVBox"]
-margin_top = 420.0
+margin_top = 424.0
 margin_right = 360.0
 margin_bottom = 488.0
 grow_horizontal = 2

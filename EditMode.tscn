@@ -231,6 +231,7 @@ __meta__ = {
 }
 
 [node name="EditShare" type="NinePatchRect" parent="EditResize"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 28 )
@@ -263,9 +264,9 @@ margin_right = 736.0
 margin_bottom = 261.0
 rect_min_size = Vector2( 640, 200 )
 rect_clip_content = true
-custom_fonts/font = ExtResource( 76 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 76 )
 text = "aouetenhurcsaic,r ahcr.,ucr., ahucr.a hrca,.h urc.a,h ucr.a,uh cra. hcurah ucr.,h ura.,hurc.a, ucra. uhra,. hurc.a, uhcra uhrca. hsu"
 autowrap = true
 clip_text = true
@@ -276,10 +277,10 @@ margin_top = 156.0
 margin_right = 1736.0
 margin_bottom = 308.0
 rect_min_size = Vector2( 576, 160 )
-custom_fonts/bold_font = ExtResource( 77 )
-custom_fonts/normal_font = ExtResource( 76 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_constants/line_separation = 0
+custom_fonts/bold_font = ExtResource( 77 )
+custom_fonts/normal_font = ExtResource( 76 )
 bbcode_enabled = true
 bbcode_text = "Lorem ipsum dolor sit amet [b]20[/b] consectetuer adipiscing elit!"
 text = "Lorem ipsum dolor sit amet 20 consectetuer adipiscing elit!"
@@ -292,9 +293,9 @@ margin_right = 1232.0
 margin_bottom = 333.0
 rect_min_size = Vector2( 460, 200 )
 rect_clip_content = true
-custom_fonts/font = ExtResource( 76 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 76 )
 text = "aoeui aoeu aoeu aoeu aoeu aoeu aoeu eoau aoeu eao"
 autowrap = true
 clip_text = true
@@ -306,9 +307,9 @@ margin_right = 1449.0
 margin_bottom = 430.0
 rect_min_size = Vector2( 320, 48 )
 rect_clip_content = true
-custom_fonts/font = ExtResource( 76 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 76 )
 text = "Infinite"
 autowrap = true
 clip_text = true
@@ -320,9 +321,9 @@ margin_right = 1449.0
 margin_bottom = 530.0
 rect_min_size = Vector2( 320, 48 )
 rect_clip_content = true
-custom_fonts/font = ExtResource( 76 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 76 )
 text = "20"
 autowrap = true
 clip_text = true
@@ -334,9 +335,9 @@ margin_right = 1449.0
 margin_bottom = 630.0
 rect_min_size = Vector2( 320, 48 )
 rect_clip_content = true
-custom_fonts/font = ExtResource( 76 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 76 )
 text = "20"
 autowrap = true
 clip_text = true
@@ -348,9 +349,9 @@ margin_right = 1449.0
 margin_bottom = 730.0
 rect_min_size = Vector2( 320, 48 )
 rect_clip_content = true
-custom_fonts/font = ExtResource( 76 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 76 )
 text = "No"
 autowrap = true
 clip_text = true
@@ -362,9 +363,9 @@ margin_right = 1855.0
 margin_bottom = 668.0
 rect_min_size = Vector2( 320, 48 )
 rect_clip_content = true
-custom_fonts/font = ExtResource( 76 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 76 )
 text = "2021-03-14"
 autowrap = true
 clip_text = true
@@ -389,7 +390,7 @@ scroll_horizontal_enabled = false
 
 [node name="A" type="VBoxContainer" parent="EditResize/EditShare/scrl"]
 margin_right = 320.0
-margin_bottom = 742.0
+margin_bottom = 684.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -403,23 +404,23 @@ size_flags_vertical = 3
 [node name="Setting_Bool" parent="EditResize/EditShare/scrl/A" instance=ExtResource( 80 )]
 margin_top = 40.0
 margin_right = 320.0
-margin_bottom = 103.0
+margin_bottom = 100.0
 option_name = "Use new level data format"
 option_help = "The new format includes the solution and RNG seed, but is a work in progress. It's best to use the old format for now."
 
 [node name="Label" type="Label" parent="EditResize/EditShare/scrl/A"]
-margin_top = 111.0
+margin_top = 108.0
 margin_right = 320.0
-margin_bottom = 136.0
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 132.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_SHARE_TEXT"
 autowrap = true
 
 [node name="LevelData" type="TextEdit" parent="EditResize/EditShare/scrl/A"]
-margin_top = 144.0
+margin_top = 140.0
 margin_right = 320.0
-margin_bottom = 272.0
+margin_bottom = 268.0
 rect_min_size = Vector2( 0, 128 )
 custom_styles/read_only = ExtResource( 73 )
 custom_styles/focus = ExtResource( 69 )
@@ -430,9 +431,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="EditResize/EditShare/scrl/A"]
-margin_top = 280.0
+margin_top = 276.0
 margin_right = 320.0
-margin_bottom = 352.0
+margin_bottom = 348.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -454,27 +455,27 @@ icon = ExtResource( 71 )
 flat = true
 
 [node name="HSeparator3" type="HSeparator" parent="EditResize/EditShare/scrl/A"]
-margin_top = 360.0
+margin_top = 356.0
 margin_right = 320.0
-margin_bottom = 368.0
+margin_bottom = 364.0
 custom_styles/separator = ExtResource( 57 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label2" type="Label" parent="EditResize/EditShare/scrl/A"]
-margin_top = 376.0
+margin_top = 372.0
 margin_right = 320.0
-margin_bottom = 401.0
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 396.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_SHARE_QR"
 autowrap = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="EditResize/EditShare/scrl/A"]
-margin_top = 409.0
+margin_top = 404.0
 margin_right = 320.0
-margin_bottom = 481.0
+margin_bottom = 476.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -496,17 +497,17 @@ icon = ExtResource( 71 )
 flat = true
 
 [node name="status" type="Label" parent="EditResize/EditShare/scrl/A"]
-margin_top = 489.0
+margin_top = 484.0
 margin_right = 320.0
-margin_bottom = 514.0
-custom_fonts/font = ExtResource( 22 )
+margin_bottom = 508.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 22 )
 autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="EditResize/EditShare/scrl/A"]
-margin_top = 522.0
+margin_top = 516.0
 margin_right = 320.0
-margin_bottom = 702.0
+margin_bottom = 696.0
 rect_min_size = Vector2( 320, 180 )
 texture = SubResource( 1 )
 expand = true
@@ -516,8 +517,8 @@ __meta__ = {
 }
 
 [node name="Spacer2" type="Control" parent="EditResize/EditShare/scrl/A"]
-margin_top = 710.0
-margin_bottom = 742.0
+margin_top = 704.0
+margin_bottom = 736.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 0
 size_flags_vertical = 3
@@ -613,7 +614,7 @@ scroll_horizontal_enabled = false
 
 [node name="A" type="VBoxContainer" parent="EditResize/EditObjective/S"]
 margin_right = 308.0
-margin_bottom = 1084.0
+margin_bottom = 1048.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -627,18 +628,18 @@ size_flags_vertical = 3
 [node name="Label5" type="Label" parent="EditResize/EditObjective/S/A"]
 margin_top = 72.0
 margin_right = 308.0
-margin_bottom = 97.0
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 96.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_LEVEL"
 autowrap = true
 
 [node name="LevelHelp" type="Label" parent="EditResize/EditObjective/S/A"]
-margin_top = 105.0
+margin_top = 104.0
 margin_right = 308.0
-margin_bottom = 127.0
-custom_fonts/font = ExtResource( 58 )
+margin_bottom = 124.0
 custom_colors/font_color = Color( 0, 0, 0, 0.752941 )
+custom_fonts/font = ExtResource( 58 )
 text = "I18N_EDIT_LEVEL_HELP"
 autowrap = true
 __meta__ = {
@@ -646,9 +647,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="EditResize/EditObjective/S/A"]
-margin_top = 135.0
+margin_top = 132.0
 margin_right = 308.0
-margin_bottom = 168.0
+margin_bottom = 164.0
 
 [node name="Decrement4" type="Button" parent="EditResize/EditObjective/S/A/HBoxContainer"]
 margin_right = 24.0
@@ -713,7 +714,7 @@ __meta__ = {
 [node name="Level" type="SpinBox" parent="EditResize/EditObjective/S/A/HBoxContainer"]
 margin_left = 64.0
 margin_right = 128.0
-margin_bottom = 33.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 64, 0 )
 size_flags_vertical = 0
 theme = ExtResource( 45 )
@@ -726,37 +727,37 @@ __meta__ = {
 
 [node name="Label2" type="Label" parent="EditResize/EditObjective/S/A/HBoxContainer"]
 margin_left = 136.0
-margin_top = 5.0
+margin_top = 6.0
 margin_right = 166.0
-margin_bottom = 27.0
-custom_fonts/font = ExtResource( 58 )
+margin_bottom = 26.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 58 )
 text = "/20"
 
 [node name="HSeparator3" type="HSeparator" parent="EditResize/EditObjective/S/A"]
-margin_top = 176.0
+margin_top = 172.0
 margin_right = 308.0
-margin_bottom = 184.0
+margin_bottom = 180.0
 custom_styles/separator = ExtResource( 57 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label7" type="Label" parent="EditResize/EditObjective/S/A"]
-margin_top = 192.0
+margin_top = 188.0
 margin_right = 308.0
-margin_bottom = 217.0
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 212.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_DIFFICULTY"
 autowrap = true
 
 [node name="LevelHelp2" type="Label" parent="EditResize/EditObjective/S/A"]
-margin_top = 225.0
+margin_top = 220.0
 margin_right = 308.0
-margin_bottom = 247.0
-custom_fonts/font = ExtResource( 58 )
+margin_bottom = 240.0
 custom_colors/font_color = Color( 0, 0, 0, 0.752941 )
+custom_fonts/font = ExtResource( 58 )
 text = "I18N_EDIT_DIFFICULTY_HELP"
 autowrap = true
 __meta__ = {
@@ -764,9 +765,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="EditResize/EditObjective/S/A"]
-margin_top = 255.0
+margin_top = 248.0
 margin_right = 308.0
-margin_bottom = 288.0
+margin_bottom = 280.0
 
 [node name="Decrement4" type="Button" parent="EditResize/EditObjective/S/A/HBoxContainer2"]
 margin_right = 24.0
@@ -831,7 +832,7 @@ __meta__ = {
 [node name="Difficulty" type="SpinBox" parent="EditResize/EditObjective/S/A/HBoxContainer2"]
 margin_left = 64.0
 margin_right = 128.0
-margin_bottom = 33.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 64, 0 )
 size_flags_vertical = 0
 theme = ExtResource( 45 )
@@ -844,37 +845,37 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="EditResize/EditObjective/S/A/HBoxContainer2"]
 margin_left = 136.0
-margin_top = 5.0
+margin_top = 6.0
 margin_right = 156.0
-margin_bottom = 27.0
-custom_fonts/font = ExtResource( 58 )
+margin_bottom = 26.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 58 )
 text = "/5"
 
 [node name="HSeparator" type="HSeparator" parent="EditResize/EditObjective/S/A"]
-margin_top = 296.0
+margin_top = 288.0
 margin_right = 308.0
-margin_bottom = 304.0
+margin_bottom = 296.0
 custom_styles/separator = ExtResource( 57 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label8" type="Label" parent="EditResize/EditObjective/S/A"]
-margin_top = 312.0
+margin_top = 304.0
 margin_right = 308.0
-margin_bottom = 337.0
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 328.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_SEED"
 autowrap = true
 
 [node name="LevelHelp3" type="Label" parent="EditResize/EditObjective/S/A"]
-margin_top = 345.0
+margin_top = 336.0
 margin_right = 308.0
-margin_bottom = 367.0
-custom_fonts/font = ExtResource( 58 )
+margin_bottom = 356.0
 custom_colors/font_color = Color( 0, 0, 0, 0.752941 )
+custom_fonts/font = ExtResource( 58 )
 text = "I18N_EDIT_SEED_HELP"
 autowrap = true
 __meta__ = {
@@ -882,9 +883,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="EditResize/EditObjective/S/A"]
-margin_top = 375.0
+margin_top = 364.0
 margin_right = 308.0
-margin_bottom = 408.0
+margin_bottom = 396.0
 
 [node name="Random" type="Button" parent="EditResize/EditObjective/S/A/HBoxContainer3"]
 margin_right = 24.0
@@ -979,7 +980,7 @@ __meta__ = {
 [node name="Seed" type="SpinBox" parent="EditResize/EditObjective/S/A/HBoxContainer3"]
 margin_left = 96.0
 margin_right = 240.0
-margin_bottom = 33.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 144, 0 )
 size_flags_vertical = 0
 theme = ExtResource( 45 )
@@ -992,27 +993,27 @@ __meta__ = {
 }
 
 [node name="HSeparator5" type="HSeparator" parent="EditResize/EditObjective/S/A"]
-margin_top = 416.0
+margin_top = 404.0
 margin_right = 308.0
-margin_bottom = 424.0
+margin_bottom = 412.0
 custom_styles/separator = ExtResource( 57 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="EditResize/EditObjective/S/A"]
-margin_top = 432.0
+margin_top = 420.0
 margin_right = 308.0
-margin_bottom = 488.0
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 474.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_OBJECTIVE_TYPE"
 autowrap = true
 
 [node name="Objective" type="OptionButton" parent="EditResize/EditObjective/S/A"]
-margin_top = 496.0
+margin_top = 482.0
 margin_right = 308.0
-margin_bottom = 529.0
+margin_bottom = 514.0
 theme = ExtResource( 36 )
 clip_text = true
 __meta__ = {
@@ -1020,18 +1021,18 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="EditResize/EditObjective/S/A"]
-margin_top = 537.0
+margin_top = 522.0
 margin_right = 308.0
-margin_bottom = 593.0
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 576.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_OBJECTIVE_PARAM"
 autowrap = true
 
 [node name="TabContainer" type="TabContainer" parent="EditResize/EditObjective/S/A"]
-margin_top = 601.0
+margin_top = 584.0
 margin_right = 308.0
-margin_bottom = 706.0
+margin_bottom = 688.0
 custom_styles/panel = SubResource( 4 )
 tabs_visible = false
 use_hidden_tabs_for_min_size = true
@@ -1044,8 +1045,8 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 64, 32 )
-custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 0, 0, 0, 0.501961 )
+custom_fonts/font = ExtResource( 22 )
 text = "I18N_EDIT_NO_OPTIONS"
 align = 1
 valign = 1
@@ -1062,8 +1063,8 @@ margin_right = 320.0
 margin_bottom = 13.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
-custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 22 )
 text = " I18N_TIME_FORMAT"
 
 [node name="H" type="HBoxContainer" parent="EditResize/EditObjective/S/A/TabContainer/Time"]
@@ -1693,29 +1694,29 @@ suffix = "pt"
 script = ExtResource( 64 )
 
 [node name="HSeparator2" type="HSeparator" parent="EditResize/EditObjective/S/A"]
-margin_top = 714.0
+margin_top = 696.0
 margin_right = 308.0
-margin_bottom = 722.0
+margin_bottom = 704.0
 custom_styles/separator = ExtResource( 57 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label3" type="Label" parent="EditResize/EditObjective/S/A"]
-margin_top = 730.0
+margin_top = 712.0
 margin_right = 308.0
-margin_bottom = 755.0
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 736.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_TITLE"
 autowrap = true
 
 [node name="Label4" type="Label" parent="EditResize/EditObjective/S/A"]
-margin_top = 763.0
+margin_top = 744.0
 margin_right = 308.0
-margin_bottom = 785.0
-custom_fonts/font = ExtResource( 58 )
+margin_bottom = 764.0
 custom_colors/font_color = Color( 0, 0, 0, 0.752941 )
+custom_fonts/font = ExtResource( 58 )
 text = "I18N_EDIT_TITLE_HELP"
 autowrap = true
 __meta__ = {
@@ -1723,14 +1724,14 @@ __meta__ = {
 }
 
 [node name="TitleBox" type="HBoxContainer" parent="EditResize/EditObjective/S/A"]
-margin_top = 793.0
+margin_top = 772.0
 margin_right = 308.0
-margin_bottom = 826.0
+margin_bottom = 804.0
 custom_constants/separation = 0
 
 [node name="Title" type="LineEdit" parent="EditResize/EditObjective/S/A/TitleBox"]
 margin_right = 260.0
-margin_bottom = 33.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 24, 24 )
 size_flags_horizontal = 3
 theme = ExtResource( 45 )
@@ -1740,34 +1741,34 @@ caret_blink = true
 margin_left = 260.0
 margin_top = 4.0
 margin_right = 308.0
-margin_bottom = 29.0
+margin_bottom = 28.0
 grow_horizontal = 0
 rect_min_size = Vector2( 32, 16 )
 size_flags_horizontal = 0
-custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 22 )
 text = "0/64"
 align = 2
 valign = 1
 
 [node name="Label6" type="Label" parent="EditResize/EditObjective/S/A"]
-margin_top = 834.0
+margin_top = 812.0
 margin_right = 308.0
-margin_bottom = 859.0
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 836.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_AUTHOR"
 autowrap = true
 
 [node name="AuthorBox" type="HBoxContainer" parent="EditResize/EditObjective/S/A"]
-margin_top = 867.0
+margin_top = 844.0
 margin_right = 308.0
-margin_bottom = 900.0
+margin_bottom = 876.0
 custom_constants/separation = 0
 
 [node name="Author" type="LineEdit" parent="EditResize/EditObjective/S/A/AuthorBox"]
 margin_right = 260.0
-margin_bottom = 33.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 24, 24 )
 size_flags_horizontal = 3
 theme = ExtResource( 45 )
@@ -1777,28 +1778,28 @@ caret_blink = true
 margin_left = 260.0
 margin_top = 4.0
 margin_right = 308.0
-margin_bottom = 29.0
+margin_bottom = 28.0
 grow_horizontal = 0
 rect_min_size = Vector2( 32, 16 )
 size_flags_horizontal = 0
-custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 22 )
 text = "0/64"
 align = 2
 valign = 1
 
 [node name="HSeparator4" type="HSeparator" parent="EditResize/EditObjective/S/A"]
-margin_top = 908.0
+margin_top = 884.0
 margin_right = 308.0
-margin_bottom = 916.0
+margin_bottom = 892.0
 custom_styles/separator = ExtResource( 57 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Spacer2" type="Control" parent="EditResize/EditObjective/S/A"]
-margin_top = 924.0
-margin_bottom = 1084.0
+margin_top = 900.0
+margin_bottom = 1060.0
 rect_min_size = Vector2( 0, 160 )
 focus_mode = 2
 size_flags_horizontal = 0
@@ -1848,8 +1849,8 @@ __meta__ = {
 [node name="Label2" type="Label" parent="EditResize/EditNext/A"]
 margin_right = 321.0
 margin_bottom = 25.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_END_QUEUE"
 
 [node name="H" type="VBoxContainer" parent="EditResize/EditNext/A"]
@@ -1864,8 +1865,8 @@ margin_top = 4.0
 margin_bottom = 29.0
 rect_min_size = Vector2( 128, 0 )
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 22 )
 autowrap = true
 
 [node name="OptionButton" type="OptionButton" parent="EditResize/EditNext/A/H"]
@@ -2215,16 +2216,16 @@ sprite_name = "Block5"
 margin_top = 159.0
 margin_right = 321.0
 margin_bottom = 184.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.858824, 0.482353, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 autowrap = true
 
 [node name="Label" type="Label" parent="EditResize/EditNext/A"]
 margin_top = 192.0
 margin_right = 321.0
 margin_bottom = 217.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_NEXT_QUEUE"
 
 [node name="Dominoes" type="ScrollContainer" parent="EditResize/EditNext/A"]
@@ -2272,8 +2273,8 @@ __meta__ = {
 [node name="Label" type="Label" parent="EditResize/EditNext/WindowDialog/VBoxContainer/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Editing domino at index %d"
 align = 1
 valign = 1
@@ -2295,8 +2296,8 @@ margin_bottom = 57.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 size_flags_stretch_ratio = 4.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Colors"
 autowrap = true
 __meta__ = {
@@ -2363,8 +2364,8 @@ margin_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 size_flags_stretch_ratio = 4.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Swap"
 valign = 2
 autowrap = true
@@ -2379,8 +2380,8 @@ margin_bottom = 307.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 size_flags_stretch_ratio = 4.0
-custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 22 )
 text = "(This will discard your changes!)"
 valign = 2
 autowrap = true
@@ -2461,8 +2462,8 @@ margin_bottom = 382.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 size_flags_stretch_ratio = 4.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Save or discard"
 valign = 2
 autowrap = true
@@ -2937,20 +2938,20 @@ __meta__ = {
 [node name="Label" type="RichTextLabel" parent="EditResize/EditPlayfield/Panel/Tabs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/bold_font = ExtResource( 3 )
-custom_fonts/normal_font = ExtResource( 22 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_constants/line_separation = 2
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 22 )
 bbcode_enabled = true
 
 [node name="Label2" type="RichTextLabel" parent="EditResize/EditPlayfield/Panel/Tabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/bold_font = ExtResource( 3 )
-custom_fonts/normal_font = ExtResource( 22 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_constants/line_separation = 2
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 22 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2960,10 +2961,10 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/bold_font = ExtResource( 3 )
-custom_fonts/normal_font = ExtResource( 22 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_constants/line_separation = 2
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 22 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2989,7 +2990,6 @@ __meta__ = {
 }
 
 [node name="EditMain" type="Control" parent="EditResize"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 360, 480 )
@@ -3054,8 +3054,9 @@ __meta__ = {
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_OBJECTIVE"
 align = 1
 valign = 1
@@ -3086,6 +3087,7 @@ custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_PLAYFIELD"
 align = 1
 valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -3133,16 +3135,16 @@ __meta__ = {
 
 [node name="ButtonTest" type="Button" parent="EditResize/EditMain/VBoxContainer"]
 margin_right = 302.0
-margin_bottom = 57.0
+margin_bottom = 56.0
 focus_neighbour_top = NodePath("../../ButtonPlayfield")
 focus_neighbour_bottom = NodePath("../ButtonShare")
 size_flags_horizontal = 3
 size_flags_vertical = 7
+custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 13 )
 custom_styles/pressed = ExtResource( 14 )
 custom_styles/focus = ExtResource( 13 )
 custom_styles/normal = ExtResource( 8 )
-custom_fonts/font = ExtResource( 3 )
 align = 0
 __meta__ = {
 "_edit_group_": true,
@@ -3163,9 +3165,9 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="EditResize/EditMain/VBoxContainer/ButtonTest/HBoxContainer"]
-margin_top = 9.0
+margin_top = 8.0
 margin_right = 32.0
-margin_bottom = 41.0
+margin_bottom = 40.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
 texture = ExtResource( 7 )
@@ -3174,11 +3176,11 @@ stretch_mode = 3
 [node name="TextEdit" type="Label" parent="EditResize/EditMain/VBoxContainer/ButtonTest/HBoxContainer"]
 margin_left = 34.0
 margin_right = 278.0
-margin_bottom = 50.0
+margin_bottom = 48.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_PLAYTEST"
 valign = 1
 autowrap = true
@@ -3187,19 +3189,19 @@ __meta__ = {
 }
 
 [node name="ButtonShare" type="Button" parent="EditResize/EditMain/VBoxContainer"]
-margin_top = 57.0
+margin_top = 56.0
 margin_right = 302.0
-margin_bottom = 114.0
+margin_bottom = 112.0
 focus_neighbour_left = NodePath("../../ButtonPlayfield")
 focus_neighbour_top = NodePath("../ButtonTest")
 focus_neighbour_bottom = NodePath("../ButtonRestart")
 size_flags_horizontal = 3
 size_flags_vertical = 7
+custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 13 )
 custom_styles/pressed = ExtResource( 14 )
 custom_styles/focus = ExtResource( 13 )
 custom_styles/normal = ExtResource( 8 )
-custom_fonts/font = ExtResource( 3 )
 align = 0
 __meta__ = {
 "_edit_group_": true,
@@ -3230,12 +3232,12 @@ texture = ExtResource( 6 )
 [node name="TextEdit" type="Label" parent="EditResize/EditMain/VBoxContainer/ButtonShare/HBoxContainer"]
 margin_left = 34.0
 margin_right = 278.0
-margin_bottom = 45.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_SHARE"
 valign = 1
 autowrap = true
@@ -3244,18 +3246,18 @@ __meta__ = {
 }
 
 [node name="ButtonRestart" type="Button" parent="EditResize/EditMain/VBoxContainer"]
-margin_top = 114.0
+margin_top = 112.0
 margin_right = 302.0
-margin_bottom = 171.0
+margin_bottom = 168.0
 focus_neighbour_left = NodePath("../../ButtonPlayfield")
 focus_neighbour_top = NodePath("../ButtonShare")
 size_flags_horizontal = 3
 size_flags_vertical = 7
+custom_fonts/font = ExtResource( 3 )
 custom_styles/hover = ExtResource( 13 )
 custom_styles/pressed = ExtResource( 14 )
 custom_styles/focus = ExtResource( 13 )
 custom_styles/normal = ExtResource( 8 )
-custom_fonts/font = ExtResource( 3 )
 align = 0
 __meta__ = {
 "_edit_group_": true,
@@ -3288,12 +3290,12 @@ texture = ExtResource( 5 )
 [node name="TextEdit" type="Label" parent="EditResize/EditMain/VBoxContainer/ButtonRestart/HBoxContainer"]
 margin_left = 34.0
 margin_right = 278.0
-margin_bottom = 45.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 3 )
 text = "I18N_EDIT_RESET"
 valign = 1
 autowrap = true
@@ -3315,6 +3317,7 @@ texture_focused = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="setting_bool_changed" from="EditResize/EditShare/scrl/A/Setting_Bool" to="EditResize/EditShare" method="_on_mode_changed"]
 [connection signal="pressed" from="EditResize/EditShare/scrl/A/HBoxContainer/Load" to="EditResize/EditShare" method="_on_Load_pressed"]
@@ -3334,8 +3337,8 @@ __meta__ = {
 [connection signal="decrement_by" from="EditResize/EditObjective/S/A/HBoxContainer3/Decrement4" to="EditResize/EditObjective/S/A/HBoxContainer3/Seed" method="_decrement"]
 [connection signal="increment_by" from="EditResize/EditObjective/S/A/HBoxContainer3/Increment4" to="EditResize/EditObjective/S/A/HBoxContainer3/Seed" method="_increment"]
 [connection signal="value_changed" from="EditResize/EditObjective/S/A/HBoxContainer3/Seed" to="EditResize/EditObjective" method="_on_seed_changed"]
-[connection signal="item_selected" from="EditResize/EditObjective/S/A/Objective" to="EditResize/EditObjective/S/A/TabContainer" method="_on_Objective_item_selected"]
 [connection signal="item_selected" from="EditResize/EditObjective/S/A/Objective" to="EditResize/EditObjective" method="_on_Objective_item_selected"]
+[connection signal="item_selected" from="EditResize/EditObjective/S/A/Objective" to="EditResize/EditObjective/S/A/TabContainer" method="_on_Objective_item_selected"]
 [connection signal="decrement_by" from="EditResize/EditObjective/S/A/TabContainer/Time/H/Decrement2" to="EditResize/EditObjective/S/A/TabContainer/Time/H/Minutes" method="_decrement"]
 [connection signal="increment_by" from="EditResize/EditObjective/S/A/TabContainer/Time/H/Increment2" to="EditResize/EditObjective/S/A/TabContainer/Time/H/Minutes" method="_increment"]
 [connection signal="value_changed" from="EditResize/EditObjective/S/A/TabContainer/Time/H/Minutes" to="EditResize/EditObjective" method="_on_time_changed"]

@@ -194,10 +194,10 @@ pointing/ios/touch_delay=0.05
 
 test="ja"
 fallback="en_US"
-translations=PoolStringArray( "res://i18n/i18n.en_GB.translation", "res://i18n/i18n.en_US.translation", "res://i18n/i18n.eo.translation", "res://i18n/i18n.es.translation", "res://i18n/i18n.ja.translation", "res://i18n/i18n.pl.translation" )
-locale_filter=[ 1, [ "en", "en_GB", "en_US", "eo", "es", "es_ES", "ja", "ja_JP" ] ]
+translations=PoolStringArray( "res://i18n/i18n.en_GB.translation", "res://i18n/i18n.en_US.translation", "res://i18n/i18n.eo.translation", "res://i18n/i18n.es.translation", "res://i18n/i18n.ja.translation", "res://i18n/i18n.pl.translation", "res://i18n/i18n.ru.translation", "res://i18n/i18n.lv.translation" )
+locale_filter=[ 0, [ "en", "en_GB", "en_US", "eo", "es", "es_ES", "ja", "ja_JP", "lv", "lv_LV", "pl", "pl_PL", "ru", "ru_RU" ] ]
 translation_remaps={
-"res://i18n/logo_en.png": PoolStringArray( "res://i18n/logo_ja.png:ja", "res://i18n/logo_ja.png:ja_JP", "res://i18n/logo_es.png:es", "res://i18n/logo_es.png:es_ES", "res://i18n/logo_pl.png:pl", "res://i18n/logo_pl.png:pl_PL" )
+"res://i18n/logo_en.png": PoolStringArray( "res://i18n/logo_ja.png:ja", "res://i18n/logo_ja.png:ja_JP", "res://i18n/logo_es.png:es", "res://i18n/logo_es.png:es_ES", "res://i18n/logo_pl.png:pl", "res://i18n/logo_pl.png:pl_PL", "res://i18n/logo_ru.png:ru", "res://i18n/logo_ru.png:ru_RU", "res://i18n/logo_lv.png:lv", "res://i18n/logo_lv.png:lv_LV" )
 }
 
 [logging]

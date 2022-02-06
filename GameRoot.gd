@@ -731,7 +731,8 @@ func prepare_erase(blocks_to_erase):
 			block_count_color += (objective_box.colormask >> data[coord.y][coord.x]) & 1
 		else:
 			block_count_color += 1
-		node_dict[node_ids[coord.y][coord.x]].damage()
+		#node_dict[node_ids[coord.y][coord.x]].damage() # don't damage blocks
+		node_dict[node_ids[coord.y][coord.x]].pop()
 		# remove the node from the data;
 		# it will ask to be unloaded later
 		data[coord.y][coord.x] = 0

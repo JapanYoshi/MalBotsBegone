@@ -65,15 +65,6 @@
 
         "dialog": "dialog"
     },
-    "autonyms": {
-        "en": "English",
-        "en_GB": "English (United Kingdom)",
-        "en_US": "English (United States)",
-        "eo": "Esperanto [neplena]",
-        "es": "español latino",
-        "ja": "日本語",
-        "pl": "Polska [niepełny]"
-    },
     "config_defaults": {
         "main": {
             "vol_bgm": 16,

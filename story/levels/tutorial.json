@@ -180,12 +180,12 @@
         "turn": 0
       },
       {
-        "condition": "(Root.get_config(\"ctrl\", \"type\") == 0)",
+        "condition": "(Root.get_config(\"ctrl\", \"type\", 0) == 0)",
         "text": "I18N_TUTORIAL_BASIC01",
         "turn": 0
       },
       {
-        "condition": "(Root.get_config(\"ctrl\", \"type\") == 1)",
+        "condition": "(Root.get_config(\"ctrl\", \"type\", 0) == 1)",
         "text": "I18N_TUTORIAL_BASIC02",
         "turn": 0
       },

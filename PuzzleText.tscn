@@ -1,9 +1,29 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/SWAP_12_Regular.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/SWAP_12_Bold.tres" type="DynamicFont" id=2]
 [ext_resource path="res://tiles/puzzle_hint.stylebox" type="StyleBox" id=3]
 [ext_resource path="res://PuzzleText.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=2]
+draw_center = false
+border_width_right = 4
+border_color = Color( 0.776471, 1, 0.439216, 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.52549, 0.713726, 0.243137, 1 )
+border_width_left = 1
+border_width_top = 1
+border_color = Color( 0.423529, 0.611765, 0.137255, 1 )
+
+[sub_resource type="Theme" id=3]
+PanelContainer/styles/panel = ExtResource( 3 )
+VScrollBar/styles/grabber = SubResource( 2 )
+VScrollBar/styles/scroll = SubResource( 1 )
 
 [node name="PuzzleText" type="Node2D"]
 script = ExtResource( 4 )
@@ -12,26 +32,30 @@ script = ExtResource( 4 )
 margin_left = -12.0
 margin_top = -12.0
 margin_right = 244.0
-margin_bottom = 195.0
+margin_bottom = 148.0
 rect_min_size = Vector2( 256, 0 )
-custom_styles/panel = ExtResource( 3 )
+theme = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer"]
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 240.0
-margin_bottom = 191.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 224, 0 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/ScrollContainer"]
+margin_right = 224.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 224, 0 )
+size_flags_horizontal = 0
 size_flags_vertical = 0
+custom_constants/line_separation = 0
 custom_fonts/bold_font = ExtResource( 2 )
 custom_fonts/normal_font = ExtResource( 1 )
-custom_constants/line_separation = 0
 bbcode_enabled = true
-bbcode_text = "Move and rotate the [b]Dominos[/b] that fall from the top of the playfield.
-Connect 4 [b]blocks[/b] of the same color to clear them."
-text = "Move and rotate the Dominos that fall from the top of the playfield.
-Connect 4 blocks of the same color to clear them."
+bbcode_text = ". . . . . . . . . . . . . . . . . . ."
+text = ". . . . . . . . . . . . . . . . . . ."
 fit_content_height = true
-scroll_active = false

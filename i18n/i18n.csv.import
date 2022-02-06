@@ -5,10 +5,10 @@ type="Translation"
 
 [deps]
 
-files=[ "res://i18n/i18n.en_US.translation", "res://i18n/i18n.ja.translation", "res://i18n/i18n.es.translation", "res://i18n/i18n.en_GB.translation", "res://i18n/i18n.pl.translation", "res://i18n/i18n.eo.translation" ]
+files=[ "res://i18n/i18n.en_US.translation", "res://i18n/i18n.ja.translation", "res://i18n/i18n.es.translation", "res://i18n/i18n.en_GB.translation", "res://i18n/i18n.pl.translation", "res://i18n/i18n.ru.translation", "res://i18n/i18n.lv.translation", "res://i18n/i18n.eo.translation" ]
 
 source_file="res://i18n/i18n.csv"
-dest_files=[ "res://i18n/i18n.en_US.translation", "res://i18n/i18n.ja.translation", "res://i18n/i18n.es.translation", "res://i18n/i18n.en_GB.translation", "res://i18n/i18n.pl.translation", "res://i18n/i18n.eo.translation" ]
+dest_files=[ "res://i18n/i18n.en_US.translation", "res://i18n/i18n.ja.translation", "res://i18n/i18n.es.translation", "res://i18n/i18n.en_GB.translation", "res://i18n/i18n.pl.translation", "res://i18n/i18n.ru.translation", "res://i18n/i18n.lv.translation", "res://i18n/i18n.eo.translation" ]
 
 [params]
 

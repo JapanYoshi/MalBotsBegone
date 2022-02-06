@@ -3,4 +3,4 @@
 [resource]
 antialiased = false
 hinting = 1
-font_path = "res://fonts/ttf/Orbitron-Regular.ttf"
+font_path = "res://fonts/ttf/nasalization-rg.ttf"
