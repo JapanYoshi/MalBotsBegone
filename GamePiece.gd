@@ -111,8 +111,9 @@ func set_piece(which_, sprite_name, count_, id_):
 	else:
 		mass = 1.0
 		squishy = true
-		emoting = true
-		_on_IdleTimer_timeout()
+		emoting = false
+		$IdleTimer.wait_time = game_root.decorative_rng.randf_range(0.0, 30.0)
+		$IdleTimer.start()
 		if count_ > 1:
 			$Label.text = str(count_)
 	count = count_
@@ -123,6 +124,7 @@ func set_piece(which_, sprite_name, count_, id_):
 func stop_falling():
 	falling = false
 	position.y = final_y
+	velocity = 0
 	game_root.decrement_dropping()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -244,7 +246,6 @@ func drop(new_piece_below, new_final_y):
 		game_root.now_falling += 1
 		falling = true
 	final_y = new_final_y
-	velocity = 0
 
 func squish():
 	$Tween.stop($Node, "scale")
@@ -359,7 +360,7 @@ func _on_IdleTimer_timeout():
 		emoting = true
 		dp("GamePiece - Piece %d, which is a %d, started emoting." % [id, which])
 		$Node/AnimatedSprite.play("idle")
-		$IdleTimer.wait_time = 2.0
+		$IdleTimer.wait_time = game_root.decorative_rng.randf_range(2.0, 4.0)
 	$IdleTimer.start()
 
 
