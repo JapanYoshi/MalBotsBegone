@@ -192,7 +192,7 @@ func _ready():
 	px_piece = load(SYSCON.font_root + "piece_number.tres")
 	fb_regular = load(SYSCON.font_root + "fallback_400.tres")
 	fb_bold = load(SYSCON.font_root + "fallback_700.tres")
-	fb_small = load(SYSCON.font_root + "fallback_400.tres")
+	fb_small = load(SYSCON.font_root + "fallback_400_small.tres")
 	fb_piece = load(SYSCON.font_root + "fallback_piece.tres")
 	if config.has_section("a11y") and config.has_section_key("a11y", "font_size"):
 		if typeof(config.get_value("a11y", "font_size")) == TYPE_STRING:
@@ -421,7 +421,7 @@ func apply_font(size: int):
 	var font_piece:DynamicFont = load(SYSCON.font_root + "SWAP_Piece.tres")
 	if size:
 		# accessible font
-		var multiplier = pow(2, (size - 1) * 0.05)
+		var multiplier = 1.0 + (size - 1.0) / 16.0
 		dp("font multiplier is " + str(multiplier))
 		font_regular = fb_regular
 		font_bold    = fb_bold
@@ -442,6 +442,13 @@ func apply_font(size: int):
 	font_bold.update_changes()
 	font_small.update_changes()
 	font_piece.update_changes()
+	var results = [
+	ResourceSaver.save(SYSCON.font_root + "SWAP_12_Regular.tres", font_regular)
+,	ResourceSaver.save(SYSCON.font_root + "SWAP_12_Bold.tres", font_bold)
+,	ResourceSaver.save(SYSCON.font_root + "SWAP_10_Regular.tres", font_small)
+,	ResourceSaver.save(SYSCON.font_root + "SWAP_Piece.tres", font_piece)
+	]
+	dp(str(results))
 	
 	var menu_theme = load("res://menuTheme.tres")
 	menu_theme.set_default_font(font_regular)

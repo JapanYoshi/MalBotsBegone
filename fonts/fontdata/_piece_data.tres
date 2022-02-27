@@ -3,4 +3,4 @@
 [resource]
 antialiased = false
 hinting = 0
-font_path = "res://fonts/ttf/FamiSquareBold.ttf"
+font_path = "res://fonts/ttf/fami-cyber.ttf"
