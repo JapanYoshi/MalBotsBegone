@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://bg/bg006p.png" type="Texture" id=1]
 [ext_resource path="res://bg/006.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://fonts/SWAP_10_Regular.tres" type="DynamicFont" id=7]
 [ext_resource path="res://tiles/boxHighlight2x.stylebox" type="StyleBox" id=8]
 [ext_resource path="res://tiles/boxWhite2x.stylebox" type="StyleBox" id=9]
+[ext_resource path="res://ResizeButton.gd" type="Script" id=10]
 [ext_resource path="res://story/effects/portal.png" type="Texture" id=11]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -211,16 +212,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -84.0
-margin_top = -312.0
-margin_right = 172.0
-margin_bottom = -216.0
+margin_left = -76.0
+margin_top = -320.0
+margin_right = 180.0
+margin_bottom = -224.0
 grow_horizontal = 0
-rect_min_size = Vector2( 160, 48 )
+rect_min_size = Vector2( 256, 96 )
 custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 8 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/normal = ExtResource( 9 )
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -238,7 +240,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Button/VBoxContainer"]
 margin_right = 220.0
-margin_bottom = 25.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 6 )
@@ -251,9 +253,9 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="Button/VBoxContainer"]
-margin_top = 33.0
+margin_top = 32.0
 margin_right = 220.0
-margin_bottom = 55.0
+margin_bottom = 52.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
