@@ -18,18 +18,18 @@ func _ready():
 	GameRoot.init_dominoes_in_next([
 		0x02, 0b00001111
 	])
-	GameRoot.on_phase_spawn()
+	GameRoot.on_phase_spawn("")
 	Root.request_bgm("main")
 	current_bg = bgs[0].instance()
 	add_child_below_node(BGBox, current_bg)
 	GameRoot.load_objective([0])
 	pass # Replace with function body.
 
-func enter_phase_spawn():
+func enter_phase_spawn(_unused: String):
 	if GameRoot.score > (level + 1) * 1000:
 		level = GameRoot.score / 1000
 		var new_bg = bgs[level % len(bgs)].instance()
 		add_child_below_node(BGBox, new_bg)
 		current_bg.queue_free()
 		current_bg = new_bg
-	.enter_phase_spawn()
+	.enter_phase_spawn(_unused)

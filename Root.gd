@@ -559,7 +559,7 @@ func save_inputs():
 				item["axis_dir"] = 1 if bind.axis_value > 0 else -1
 		data[action] = item
 		config.set_value("config", action, item)
-	dp(data)
+	dp(JSON.print(data))
 
 	var file := File.new()
 	if file.open("user://keyconfig.json", File.WRITE) != OK:

@@ -283,8 +283,10 @@ func on_slider_change(value, range_min, range_max, name = ""):
 				if !(child_node is VBoxContainer or child_node is PanelContainer):
 					continue
 				for grandchild_node in child_node.get_children():
-					if child_node is Label or child_node is Button:
-						child_node.set("custom_fonts/font", fonts[1])
+					if grandchild_node is Label:
+						grandchild_node.set("custom_fonts/font", fonts[1])
+					elif grandchild_node is Button:
+						grandchild_node.get_child(0).get_child(0).set("custom_fonts/font", fonts[1])
 	request_slider_sfx((value - range_min) / (range_max - range_min))
 
 func _on_TabContainer_tab_changed(tab):

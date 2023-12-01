@@ -19,7 +19,7 @@ var this_pos: Vector2
 var last_press: float = -9000;
 # Ignore rotation inputs if another rotation input was
 # registered this many seconds ago or sooner.
-const press_debounce: float = 4.0 / 60.0;
+const press_debounce: float = 7.0 / 60.0;
 # Currently clicked/touched.
 var pressed: bool = false
 ### Movement distance ###
@@ -171,7 +171,7 @@ func anim_click(right: bool = false): # `xor` has the same truth table as `!=`
 	var click = $GesturePad/RightClick if right != invert else $GesturePad/LeftClick
 	click.show()
 	$Timer.wait_time = 2 / 60.0
-	$Timer.connect("timeout", click, "hide")
+	$Timer.connect("timeout", click, "hide", [], CONNECT_ONESHOT)
 	$Timer.start()
 
 func pause():

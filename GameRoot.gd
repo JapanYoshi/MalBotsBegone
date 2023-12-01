@@ -833,8 +833,8 @@ func on_phase_spawn(reason: String):
 	print("On Phase Spawn: " + reason)
 	if input_allowed:
 		print("GameRoot - Spawn phase initiated prematurely while user input is allowed!")
-		yield(get_tree().create_timer(1/10.0), "timeout")
-		#emit_signal("enter_phase_spawn", reason)
+		yield(get_tree(), "idle_frame")
+		self.call_deferred("on_phase_spawn", reason)
 		return
 	if phase == "spawn":
 		printerr("GameRoot - Already in spawn phase!")
@@ -1637,7 +1637,7 @@ func insert_row_below(new_data):
 		update_shadow()
 
 func set_paused(pause: bool = true):
-	if phase != "init":
+	if phase in ["move"]:
 		input_allowed = !pause
 	if is_instance_valid(moving_domino):
 		moving_domino.active = !pause

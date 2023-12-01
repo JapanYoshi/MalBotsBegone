@@ -106,7 +106,7 @@ func _on_GamepadButton_pressed():
 	Root.request_sfx("tab")
 
 func _on_SaveButton_pressed():
-	var toggle = $VBoxContainer/TabContainer/I18N_GAMEPAD/v/I18N_AB_INV/HBoxContainer/CheckButton.is_pressed()
+	var toggle = $VBoxContainer/TabContainer/I18N_GAMEPAD/v/I18N_AB_INV/HBoxContainer/Remap.is_pressed()
 	var a = InputEventJoypadButton.new()
 	a.set_button_index(JOY_DS_A if toggle else JOY_XBOX_A)
 	var b = InputEventJoypadButton.new()

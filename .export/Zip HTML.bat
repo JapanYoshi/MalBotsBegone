@@ -1,0 +1,3 @@
+rem Compress the HTML file into a .zip file that Itch can accept.
+"C:\Program Files\7-Zip\7z" a -tzip .\index.zip D:\GitHub\haitouch\me\malbots\index.apple-touch-icon.png D:\GitHub\haitouch\me\malbots\index.audio.worklet.js D:\GitHub\haitouch\me\malbots\index.html D:\GitHub\haitouch\me\malbots\index.icon.png D:\GitHub\haitouch\me\malbots\index.js D:\GitHub\haitouch\me\malbots\index.pck D:\GitHub\haitouch\me\malbots\index.png D:\GitHub\haitouch\me\malbots\index.wasm
+pause
