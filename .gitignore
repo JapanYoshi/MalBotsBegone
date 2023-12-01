@@ -2,3 +2,5 @@
 .mono/*
 .tmp
 _builds/*
+.export/*
+android/*
